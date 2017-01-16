@@ -15,17 +15,218 @@
                 <h1><a href="https://bassdeveloper.github.io/">Bassdeveloper's Blog </a></h1>
                 <nav><ul>
                     <li><a href="https://bassdeveloper.github.io/category/data-science.html">Data-Science</a></li>
-                    <li><a href="https://bassdeveloper.github.io/category/javafx-jfx-sanskritjyotsna-sanskrit.html">JavaFX, JFX, SanskritJyotsna, Sanskrit</a></li>
-                    <li><a href="https://bassdeveloper.github.io/category/misc.html">misc</a></li>
-                    <li><a href="https://bassdeveloper.github.io/category/rd-research-nanotech.html">R&D, Research, Nanotech</a></li>
-                    <li><a href="https://bassdeveloper.github.io/category/review.html">Review</a></li>
-                    <li><a href="https://bassdeveloper.github.io/category/web-development.html">Web-Development</a></li>
+                    <li><a href="https://bassdeveloper.github.io/category/learning.html">Learning</a></li>
+                    <li><a href="https://bassdeveloper.github.io/category/rd.html">R&D</a></li>
+                    <li><a href="https://bassdeveloper.github.io/category/web-dev.html">Web-Dev</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://bassdeveloper.github.io/hands-on-r.html">Hands on R</a></h1>
+                    <h1 class="entry-title"><a href="https://bassdeveloper.github.io/dm-nd-pa.html">Data Mining and Predictive Analytics</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-01-11T23:28:00+01:00">
+                Published: Wed 11 January 2017
+        </abbr>
+		<br />
+        <abbr class="modified" title="2017-01-16T13:40:00+01:00">
+                Updated: Mon 16 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="https://bassdeveloper.github.io/category/data-science.html">Data-Science</a>.</p>
+<p>tags: <a href="https://bassdeveloper.github.io/tag/data-mining.html">Data-Mining</a> <a href="https://bassdeveloper.github.io/tag/machine-learning.html">Machine Learning</a> <a href="https://bassdeveloper.github.io/tag/predictive-analytics.html">Predictive Analytics</a> </p>
+</footer><!-- /.post-info --><h1>Data Mining and Predictive Analytics</h1>
+<ul>
+<li>
+<p><em>Data Mining</em> : The process of <strong>discovering useful patterns and trends</strong> in large data-sets.</p>
+</li>
+<li>
+<p><em>Predictive Analytics</em> : The process of <strong>extracting information</strong> from large data-sets in order to make predictions and estimates about future outcomes.</p>
+</li>
+</ul>
+<h2>What is Data Mining?</h2>
+<p>Example :</p>
+<p><strong>Problem</strong> : Dell was interested in improving the productivity of its sales workforce.</p>
+<blockquote>
+<p>Analyze database of potential customers in order to identify most likely respondents</p>
+</blockquote>
+<h2>Machine Learning :</h2>
+<p><em>Statistical learning</em> refers to a vast set of tools for <em>understanding data</em>.</p>
+<p>These tools can be classified as</p>
+<ul>
+<li><em>Supervised</em> : Supervised statistical learning involves building a statistical model for predicting, or estimating, an output based on one or more inputs.</li>
+<li><em>Unsupervised</em> : There are inputs but no supervising output; nevertheless, we can learn relationships and structure from such data.</li>
+</ul>
+<h3>Supervised Learning :</h3>
+<p>When computers are applied to solve a practical problem it is usually the case that the <strong>method of deriving the required output from a set of inputs can be described explicitly</strong>.</p>
+<p>The task of the system designer and eventually the programmer implementing the specifications will be to translate that method into a sequence of instructions which the computer will follow to achieve the desired effect.</p>
+<p>Thus, when there is no set method (or no known method) for computing the desired output from a set of inputs, or where that computation may be very expensive.</p>
+<p>Example :
+* Modelling a complex chemical reaction, where the precise interactions of the different reactants are not known, or</p>
+<ul>
+<li>
+<p>Classification of protein types based on the DNA sequence from which they are generated, or</p>
+</li>
+<li>
+<p>Classification of credit applications into those who will default and those who will repay.</p>
+</li>
+</ul>
+<p>These tasks cannot be solved by a traditional programming approach since the system designer cannot precisely specify the method by which the correct output can be computed from the input data.</p>
+<p><strong>An Alternate Strategy :</strong></p>
+<p>The computer can attempt to learn the input/output functionality from examples, in the same way that children learn which are sports cars simply by being told which of a large number of cars are sporty rather than by being given a precise specification of sportiness.</p>
+<p><strong>The approach of using examples to synthesize programs is known as the learning methodology, and in the particular case, when the examples are input/output pairs, it is called supervised learning. The examples of input/output functionality are referred to as the training data.</strong></p>
+<p>The input/output pairings typically reflect a functional relationship mapping inputs to outputs, though this is not always the case.</p>
+<ul>
+<li>
+<p>When the outputs are corrupted by noise.</p>
+</li>
+<li>
+<p>When an underlying function from input to output exists, it is referred to as the <em>target function</em>.</p>
+</li>
+<li>
+<p>The estimate of the target function which is learnt or output by the learning algorithm is known as the <em>solution</em> of the learning problem.</p>
+</li>
+<li>
+<p>In the case of classification, this function is sometimes referred to as the <em>decision function</em>.</p>
+</li>
+<li>
+<p>The solution is chosen from a set of candidate functions which map from the input space to the output domain.</p>
+</li>
+<li>
+<p>Usually, we will choose a particular set or class of candidate functions known as <em>hypotheses</em> before we begin trying to learn the correct function.</p>
+</li>
+<li>
+<p>For example, so-called <em>decision trees</em> are hypotheses created by constructing a binary tree with simple decision functions at the internal nodes and output values at the leaves.</p>
+</li>
+<li>Hence, we can view the choice of set hypotheses (or hypotheses space) as one of the key ingredients of the learning strategy. The algorithm which takes the training data as input and selects a hypothesis from the hypothesis space is the second important ingredient. It is referred to as <em>learning algorithm</em>.</li>
+</ul>
+<h5>Classification:</h5>
+<p><strong>Types of Classification</strong> :
+1. <em>Binary classification problem</em> : Example : In the case of learning to distinguish sports cars the output is a simple Yes/No tag which we can think of as a binary output value.
+2. <em>Multi-Class Classification</em> : Example :
+<em> For the problem of recognising protein types, the output value will be one of a finite number of categories,
+</em> While, the output values when modelling a chemical reaction might be the concentrations of the reactants given as real values.</p>
+<h3>Unsupervised Learning :</h3>
+<p>A case where there are no output values and the learning task is to gain some understanding of the process that generated the data.
+<em> This type of learning includes <strong>density estimation, learning the support of a distribution, clustering</strong> and so on.There are even more complex models.
+</em> The simplest case is when the learner is allowed to query the environment about the output associated with a particular input. The study of how this affects the learner's ability to learn different tasks is known as <em>query learning</em>.
+<em> A more complex model of interaction is considered in </em>reinforcement learning<em>, where the learner has a range of actions at their disposal which they can take to attempt to move towards states, where they can expect high rewards.
+</em> The learning methodology can play a part in reinforcement learning, if we treat the optimal action as the output of a function of the current state of the learner. There are, however, significant complications since the quality of the output can only be assessed indirectly as the consequences of an action become clear.</p>
+<h4>Basic Difference b/w Supervised and Unsupervised :</h4>
+<h5>Example 1 : Face recognition</h5>
+<ul>
+<li><strong>Supervised learning</strong> : Learn by examples as to what a face is in terms of structure, color, etc so that after several iterations, it learns to define a face</li>
+<li><strong>Unsupervised learning</strong> : Since there is no desired output in this case that is provided therefore categorization is done so that the algorithm differentiates correctly between the face of a horse, cat or human (clustering of data)</li>
+</ul>
+<p>Thus, In supervised learning, the output datasets are provided which are used to train the machine and get the desired outputs whereas in unsupervised learning no datasets are provided, instead the given data is clustered into different classes.</p>
+<p><img alt="Supervised_v/s_Unsupervised" src="assets/2017-01-11-DMnPA-9696e.png"></p>
+<h4>Example 2 :</h4>
+<ul>
+<li>
+<p>Scenario 1: You are a kid, you see different types of animals, your father tells you that this particular animal is a dog...after him giving you tips few times, you see a new type of dog that you never saw before - you identify it as a dog and not as a cat or a monkey or a potato.</p>
+</li>
+<li>
+<p>Scenario 2 : You go bag-packing to a new country, you did not know much about it - their food, culture, language etc. However from day 1, you start making sense there, learning to eat new cuisines, including what not to eat, find a way to that beach etc.</p>
+</li>
+</ul>
+<h4>Example 3 :</h4>
+<h5>Supervised Learning:</h5>
+<ul>
+<li>
+<p><strong>Problem</strong> : Given a basket of fruits, arrange same types of fruits in one place.</p>
+</li>
+<li>
+<p><strong>Previous Work</strong> : The shape of each and every fruit is known, so it is easy to arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>Suppose fruits are : <strong>apple,banana,cherry,grape.</strong></p>
+</li>
+<li>
+<p>With the previous work, the shape of each and every fruit so, it is easy to arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>Here, the previous work is called as <strong>train data</strong> in data mining.</p>
+</li>
+<li>
+<p>There's a <strong>response variable</strong> which tells where the fruit needs to be placed, based on the features of the fruit.</p>
+</li>
+<li>
+<p>This type of data is called the <strong>train data</strong>.</p>
+</li>
+<li>
+<p>This type of learning is called <strong>supervised learning</strong>.</p>
+</li>
+</ul>
+<h5>Unsupervised Learning:</h5>
+<ul>
+<li>
+<p><strong>Problem</strong> : Given a fruit basket. Arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>But, this time, nothing is given (i.e. no previous work). What will be the category of classification?</p>
+</li>
+<li>
+<p>The category would be the physical character of the particular fruit.</p>
+</li>
+<li>
+<p>For example : "Fruit Color"</p>
+</li>
+<li>
+<p>Thus, no training data and no response variable.</p>
+</li>
+<li>
+<p>i.e. Unsupervised Learning.</p>
+</li>
+</ul>
+<h5>Applications :</h5>
+<p>The availability of reliable learning systems is of strategic importance, as there are many tasks that cannot be solved by classical programming techniques, since no mathematical model of the problem is available.</p>
+<p>So for example it is not known how to write a computer program to <strong>perform hand-written character recognition</strong>, though there are plenty of examples available.</p>
+<p>It is therefore natural to ask if a computer could be trained to recognize the letter ?A' from examples - after all this is the way humans learn to read. We will refer to this approach to problem solving as the learning methodology The same reasoning applies to the problem of finding genes in a DNA sequence, filtering email, detecting or recognizing objects in machine vision, and so on.</p>
+<h5>Dataset Examples :</h5>
+<h6>Wage dataset</h6>
+<ul>
+<li>In this application, we examine a number of factors that relate to wages for a group of males from the Atlantic region of the United States. In particular, we wish to understand the association between an <strong>employee's age</strong> and <strong>education</strong>, as well as the <strong>calendar year</strong> on his <strong>wage</strong>.</li>
+</ul>
+<p><strong>Analysis</strong> :</p>
+<ul>
+<li>Wage increases with age.</li>
+<li>Wage decreases after 60.</li>
+<li>There is a slow but steady increase of approximately $\$10,000$ in the average wage between 2003 to 2009.</li>
+<li>Higher the education, better the wage.</li>
+</ul>
+<p>Thus, given an employee's age, we can use this curve to <em>predict</em> his wage. However, it is also clear, that there is a significant amount of variability associated with this average value. Thus, age alone is unlikely to provide an accurate prediction of a particular man's age.</p>
+<p>We also have information regarding each employee's education level and the year in which the wage was earned.</p>
+<h2>Wages increase by approximately $10,000$, in a roughly linear (or straight-line) fashion, between 2003 - 09. Though this rise is very slightly relative to the variability in the data. Wages are also typically greater for individuals with higher education levels.</h2>
+<h3>SVM :</h3>
+<h5>Support Vector Classification :</h5>
+<p>The aim of Support Vector classification is to devise a computationally efficient way of learning ?good? separating hyperplanes in a high dimensional feature space. Here, :
+<em> By 'good' hyperplanes we consider the ones optimising the generalisation bounds, and
+</em> By 'computationally efficient' we mean algorithms able to deal with sample sizes of the order of 100 000 instances.</p>
+<p><strong>Pre-requisites</strong> :
+* The generalisation theory gives clear guidance about how to control capacity and hence prevent overfitting by controlling the hyperplane margin measures, while</p>
+<ul>
+<li>Optimisation theory provides the mathematical techniques necessary to find hyperplanes optimising these measures.</li>
+</ul>
+<p>Different generalisation bounds exist, motivating different algorithms: one can for example optimise the maximal margin, the margin distribution, the number of support vectors, etc.</p>
+<p><strong>Focus</strong> :
+* Reduce the problem to minimising the norm of the weight vector.</p>
+<h4>SVMs</h4>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bassdeveloper.github.io/hands-on-r.html" rel="bookmark"
+                           title="Permalink to Hands on R">Hands on R</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-01-11T23:28:00+01:00">
                 Published: Wed 11 January 2017
@@ -40,200 +241,8 @@
         </address>
 <p>In <a href="https://bassdeveloper.github.io/category/data-science.html">Data-Science</a>.</p>
 <p>tags: <a href="https://bassdeveloper.github.io/tag/r.html">R</a> <a href="https://bassdeveloper.github.io/tag/programming.html">programming</a> </p>
-</footer><!-- /.post-info --><h3>Basic Points</h3>
-<ul>
-<li>Vector recycling !</li>
-<li>Function  returns the last line</li>
-<li>Atomic vector is a simple vector of data.</li>
-<li>Each atomic vector stores its values as a one-dimensional vector, and each atomic vector
-can only store one type of data. You can save different types of data in R by using different
-types of atomic vectors. Altogether, R recognizes six basic types of atomic vectors:
-doubles, integers, characters, logicals, complex, and raw.</li>
-<li>floating-point errors?</li>
-<li>Raw vectors store raw bytes of data. Making raw vectors gets complicated, but you can
-make an empty raw vector of length n with raw(n). See the help page of raw for more
-options when working with this type of data:</li>
-<li>Attributes: An attribute is a piece of information that you can attach to an atomic vector (or any R
-object). The attribute won’t affect any of the values in the object, and it will not appear
-when you display your object. You can think of an attribute as “metadata”; it is just a
-convenient place to put information associated with an object. R will normally ignore
-this metadata, but some R functions will check for specific attributes. These functions
-may use the attributes to do special things with the data.</li>
-<li>NULL :NULL
-R uses NULL to represent the null set, an empty object. NULL is often
-returned by functions whose values are undefined. You can create a
-NULL object by typing NULL in capital letters.</li>
-<li>Names
-The most common attributes to give an atomic vector are names, dimensions (dim),
-and classes. Each of these attributes has its own helper function that you can use to give
-attributes to an object. You can also use the helper functions to look up the value of
-these attributes for objects that already have them. For example, you can look up the
-value of the names attribute of die with names:</li>
-<li>Dimensions</li>
-</ul>
-<div class="highlight"><pre><span></span>x <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span>
-<span class="kp">dim</span><span class="p">(</span>x<span class="p">)</span> <span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
-roll<span class="o">&lt;-</span><span class="kr">function</span><span class="p">(){</span>
-    x<span class="o">&lt;-</span><span class="m">1</span><span class="o">:</span><span class="m">6</span>
-    <span class="kp">sum</span><span class="p">(</span>x<span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<ul>
-<li>Matrix</li>
-</ul>
-<div class="highlight"><pre><span></span>die <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span>
-m <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>die<span class="p">,</span> nrow <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
-m
-</pre></div>
-
-
-<ul>
-<li>Arrays</li>
-<li>
-<p>Class
-A class is a special case of an atomic vector. For example, the die matrix is a special case
-of a double vector. Every element in the matrix is still a double, but the elements have
-been arranged into a new structure. R added a class attribute to die when you changed
-its dimensions. This class describes die’s new format. Many R functions will specifically
-look for an object’s class attribute, and then handle the object in a predetermined way
-based on the attribute.</p>
-</li>
-<li>
-<p>Factors are R's way of storing categorical information.</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> gender<span class="o">&lt;-</span><span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span><span class="s">&quot;female&quot;</span><span class="p">,</span><span class="s">&quot;trans&quot;</span><span class="p">))</span>
-<span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gen
-gender            generic.skeleton  
-<span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gender<span class="p">)</span>
-<span class="o">$</span><span class="kp">levels</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;female&quot;</span> <span class="s">&quot;male&quot;</span>   <span class="s">&quot;trans&quot;</span>
-
-<span class="o">$</span><span class="kp">class</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;factor&quot;</span>
-</pre></div>
-
-
-<ul>
-<li>R coercion?
-You may have guessed that this exercise would not go well. Each atomic vector can only
-store one type of data. As a result, R coerces all of your values to character strings:</li>
-</ul>
-<div class="highlight"><pre><span></span>card <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">,</span> <span class="s">&quot;hearts&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
-card
-<span class="c1">## &quot;ace&quot; &quot;hearts&quot; &quot;1&quot;</span>
-</pre></div>
-
-
-<p>This will cause trouble if you want to do math with that point value, for example, to see</p>
-<ul>
-<li>In some cases, using only a single type of data is a huge advantage. Vectors, matrices,
-and arrays make it very easy to do math on large sets of numbers because R knows that
-it can manipulate each value the same way. Operations with vectors, matrices, and arrays
-also tend to be fast because the objects are so simple to store in memory.
-In other cases, allowing only a single type of data is not a disadvantage. Vectors are the
-most common data structure in R because they store variables very well. Each value in
-a variable measures the same property, so there’s no need to use different types of data.</li>
-<li>Data frame is a special type of list.</li>
-</ul>
-<p>Data frames are the two-dimensional version of a list. They are far and away the most
-useful storage structure for data analysis, and they provide an ideal way to store an entire
-deck of cards. You can think of a data frame as R’s equivalent to the Excel spreadsheet
-because it stores data in a similar format.
-Data frames group vectors together into a two-dimensional table. Each vector becomes
-a column in the table. As a result, each column of a data frame can contain a different
-type of data; but within a column, every cell must be the same type of data, as in
-Figure 3-2.
-<em> str() function.
-</em> head() v/s tail()
-* Saving Data</p>
-<div class="highlight"><pre><span></span>write.csv<span class="p">(</span>deck<span class="p">,</span> file <span class="o">=</span> <span class="s">&quot;cards.csv&quot;</span><span class="p">,</span> row.names <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
-</pre></div>
-
-
-<h6>To sum it up</h6>
-<p><img alt="HandsonR_visualization" src="https://bassdeveloper.github.io/images/handsonR-cac51.png"></p>
-<ul>
-<li>
-<p>R Notation</p>
-</li>
-<li>
-<p>Value selection in R. dataframe[i,j]. Negative values means exclusion. Blank space means all dimensions. Indexing with 0 returns an empty object.</p>
-</li>
-<li>$ and [[]] do the same thing.</li>
-</ul>
-<p>Difference :
-<img alt="Train_visualization" src="https://bassdeveloper.github.io/images/handsonR-fbb01.png"></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://bassdeveloper.github.io/data-mining-and-predictive-analytics.html" rel="bookmark"
-                           title="Permalink to Data Mining and Predictive Analytics">Data Mining and Predictive Analytics</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-01-11T23:28:04+05:30">
-                Published: Wed 11 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
-        </address>
-<p>In <a href="https://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <ul>
-<li>data-mining</li>
-<li>predictive analytics</li>
-</ul>
-<hr>
-<h1>Data Mining and Predictive Analytics</h1>
-<ul>
-<li>
-<p><em>Data Mining</em> : The process of <strong>discovering useful patterns and trends</strong> in large data-sets.</p>
-</li>
-<li>
-<p><em>Predictive Analytics</em> : The process of <strong>extracting information</strong> from large data-sets in order to make predictions and estimates about future outcomes.</p>
-</li>
-</ul>
-<h2>What is Data Mining?</h2>
-<p>Example :</p>
-<p><strong>Problem</strong> : Dell was interested …</p>
-                <a class="readmore" href="https://bassdeveloper.github.io/data-mining-and-predictive-analytics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://bassdeveloper.github.io/someone-react.html" rel="bookmark"
-                           title="Permalink to "Someone React!"">"Someone React!"</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-05-29T18:08:43+05:30">
-                Published: Sun 29 May 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
-        </address>
-<p>In <a href="https://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <ul>
-<li>Web</li>
-<li>react</li>
-</ul>
-<hr>
-<h1>Atleast... someone react!</h1>
-                <a class="readmore" href="https://bassdeveloper.github.io/someone-react.html">read more</a>
+</footer><!-- /.post-info -->                <p>Summary and points about Hand on R book by R-Garrett-Grolemund.</p>
+                <a class="readmore" href="https://bassdeveloper.github.io/hands-on-r.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
@@ -256,41 +265,10 @@ Figure 3-2.
         <address class="vcard author">
                 By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
         </address>
-<p>In <a href="https://bassdeveloper.github.io/category/rd-research-nanotech.html">R&D, Research, Nanotech</a>.</p>
-<p>tags: <a href="https://bassdeveloper.github.io/tag/bio-sensors.html">Bio-sensors</a> <a href="https://bassdeveloper.github.io/tag/nanotech.html">Nanotech</a> </p>
-</footer><!-- /.post-info -->                <p>About my College Research and Development Project on the following topic : "Fabrication of a Screen-printed Electrochemical Biosensor". This project was guided by Dr. Deepshikha Rathore.</p>
+<p>In <a href="https://bassdeveloper.github.io/category/learning.html">Learning</a>.</p>
+<p>tags: <a href="https://bassdeveloper.github.io/tag/c.html">C</a> <a href="https://bassdeveloper.github.io/tag/programming.html">programming</a> </p>
+</footer><!-- /.post-info -->                <p>My summary about the book 'ANSI C'.</p>
                 <a class="readmore" href="https://bassdeveloper.github.io/let-us-c.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://bassdeveloper.github.io/let-there-be-node.html" rel="bookmark"
-                           title="Permalink to "Let there be NODE!"">"Let there be NODE!"</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-05-28T16:54:04+02:00">
-                Published: Sat 28 May 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
-        </address>
-<p>In <a href="https://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <ul>
-<li>learning</li>
-</ul>
-<hr>
-<h1>Let there be node</h1>
-<p>Blocking v/s Non-blocking code. </p>
-<blockquote>
-<p>A blocking code would basically not let the program's execution proceed before the job is done. i.e. the program statements will execute procedurally. 
-Whereas, a non-blocking code which characterized by a callback function within the main </p>
-</blockquote>
-                <a class="readmore" href="https://bassdeveloper.github.io/let-there-be-node.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
@@ -313,7 +291,7 @@ Whereas, a non-blocking code which characterized by a callback function within t
         <address class="vcard author">
                 By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
         </address>
-<p>In <a href="https://bassdeveloper.github.io/category/javafx-jfx-sanskritjyotsna-sanskrit.html">JavaFX, JFX, SanskritJyotsna, Sanskrit</a>.</p>
+<p>In <a href="https://bassdeveloper.github.io/category/learning.html">Learning</a>.</p>
 <p>tags: <a href="https://bassdeveloper.github.io/tag/java.html">Java</a> <a href="https://bassdeveloper.github.io/tag/jfx.html">JFX</a> <a href="https://bassdeveloper.github.io/tag/sanskritjyotna.html">SanskritJyotna</a> <a href="https://bassdeveloper.github.io/tag/nu-rap.html">NU-RAP</a> </p>
 </footer><!-- /.post-info -->                <p>Points of Learning for JavaFX, which I used as my GUI framework for the following project - Sanskrit Jyotsna. This was for my Summer Internship as a Research Assistant for my University, i.e. NU-RAP (NIIT University Research Assistanceship Programme). The project was under the guidance of Dr. Sudhir Kaikar.</p>
                 <a class="readmore" href="https://bassdeveloper.github.io/NU-RAP.html">read more</a>
@@ -339,8 +317,8 @@ Whereas, a non-blocking code which characterized by a callback function within t
         <address class="vcard author">
                 By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
         </address>
-<p>In <a href="https://bassdeveloper.github.io/category/rd-research-nanotech.html">R&D, Research, Nanotech</a>.</p>
-<p>tags: <a href="https://bassdeveloper.github.io/tag/bio-sensors.html">Bio-sensors</a> <a href="https://bassdeveloper.github.io/tag/nanotech.html">Nanotech</a> </p>
+<p>In <a href="https://bassdeveloper.github.io/category/rd.html">R&D</a>.</p>
+<p>tags: <a href="https://bassdeveloper.github.io/tag/bio-sensors.html">Bio-sensors</a> <a href="https://bassdeveloper.github.io/tag/nanotech.html">Nanotech</a> <a href="https://bassdeveloper.github.io/tag/research.html">Research</a> </p>
 </footer><!-- /.post-info -->                <p>About my College Research and Development Project on the following topic : "Fabrication of a Screen-printed Electrochemical Biosensor". This project was guided by Dr. Deepshikha Rathore.</p>
                 <a class="readmore" href="https://bassdeveloper.github.io/r-n-d.html">read more</a>
                 </div><!-- /.entry-content -->
@@ -365,8 +343,8 @@ Whereas, a non-blocking code which characterized by a callback function within t
         <address class="vcard author">
                 By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
         </address>
-<p>In <a href="https://bassdeveloper.github.io/category/web-development.html">Web-Development</a>.</p>
-<p>tags: <a href="https://bassdeveloper.github.io/tag/dom.html">DOM</a> <a href="https://bassdeveloper.github.io/tag/web.html">Web</a> <a href="https://bassdeveloper.github.io/tag/browsers.html">browsers</a> <a href="https://bassdeveloper.github.io/tag/webcomponents.html">WebComponents</a> </p>
+<p>In <a href="https://bassdeveloper.github.io/category/web-dev.html">Web-Dev</a>.</p>
+<p>tags: <a href="https://bassdeveloper.github.io/tag/dom.html">DOM</a> <a href="https://bassdeveloper.github.io/tag/web-dev.html">Web-Dev</a> <a href="https://bassdeveloper.github.io/tag/browsers.html">browsers</a> <a href="https://bassdeveloper.github.io/tag/webcomponents.html">WebComponents</a> </p>
 </footer><!-- /.post-info -->                <p>Basic Web Knowledge and points about DOM, Web Components, Shadow DOM etc.</p>
                 <a class="readmore" href="https://bassdeveloper.github.io/basic-web-know.html">read more</a>
                 </div><!-- /.entry-content -->
@@ -391,44 +369,13 @@ Whereas, a non-blocking code which characterized by a callback function within t
         <address class="vcard author">
                 By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
         </address>
-<p>In <a href="https://bassdeveloper.github.io/category/web-development.html">Web-Development</a>.</p>
+<p>In <a href="https://bassdeveloper.github.io/category/web-dev.html">Web-Dev</a>.</p>
 <p>tags: <a href="https://bassdeveloper.github.io/tag/html5.html">HTML5</a> <a href="https://bassdeveloper.github.io/tag/markdown.html">Markdown</a> <a href="https://bassdeveloper.github.io/tag/css3.html">CSS3</a> </p>
 </footer><!-- /.post-info -->                <p>My points about HTML5 from W3</p>
                 <a class="readmore" href="https://bassdeveloper.github.io/learning-html5.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://bassdeveloper.github.io/changed-the-layout.html" rel="bookmark"
-                           title="Permalink to "Changed the layout"">"Changed the layout"</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-29T17:11:43+05:30">
-                Published: Tue 29 March 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
-        </address>
-<p>In <a href="https://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <ul>
-<li>theme</li>
-<li>hello</li>
-</ul>
-<hr>
-<p>Changed the goddamn theme!</p>
-                <a class="readmore" href="https://bassdeveloper.github.io/changed-the-layout.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 2
-        <a href="https://bassdeveloper.github.io/index2.html">&raquo;</a>
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
