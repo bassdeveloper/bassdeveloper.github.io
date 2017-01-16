@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>Bassdeveloper's Blog</title>
+        <link rel="stylesheet" href="http://bassdeveloper.github.io/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://bassdeveloper.github.io/">Bassdeveloper's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="http://bassdeveloper.github.io/category/misc.html">misc</a></li>
+                    <li><a href="http://bassdeveloper.github.io/category/review.html">Review</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://bassdeveloper.github.io/data-mining-and-predictive-analytics.html">Data Mining and Predictive Analytics</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-01-11T23:28:04+05:30">
+                Published: Wed 11 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info --><ul>
+<li>data-mining</li>
+<li>predictive analytics</li>
+</ul>
+<hr>
+<h1>Data Mining and Predictive Analytics</h1>
+<ul>
+<li>
+<p><em>Data Mining</em> : The process of <strong>discovering useful patterns and trends</strong> in large data-sets.</p>
+</li>
+<li>
+<p><em>Predictive Analytics</em> : The process of <strong>extracting information</strong> from large data-sets in order to make predictions and estimates about future outcomes.</p>
+</li>
+</ul>
+<h2>What is Data Mining?</h2>
+<p>Example :</p>
+<p><strong>Problem</strong> : Dell was interested in improving the productivity of its sales workforce.</p>
+<blockquote>
+<p>Analyze database of potential customers in order to identify most likely respondents</p>
+</blockquote>
+<h2>Machine Learning :</h2>
+<p><em>Statistical learning</em> refers to a vast set of tools for <em>understanding data</em>.</p>
+<p>These tools can be classified as</p>
+<ul>
+<li><em>Supervised</em> : Supervised statistical learning involves building a statistical model for predicting, or estimating, an output based on one or more inputs.</li>
+<li><em>Unsupervised</em> : There are inputs but no supervising output; nevertheless, we can learn relationships and structure from such data.</li>
+</ul>
+<h3>Supervised Learning :</h3>
+<p>When computers are applied to solve a practical problem it is usually the case that the <strong>method of deriving the required output from a set of inputs can be described explicitly</strong>.</p>
+<p>The task of the system designer and eventually the programmer implementing the specifications will be to translate that method into a sequence of instructions which the computer will follow to achieve the desired effect.</p>
+<p>Thus, when there is no set method (or no known method) for computing the desired output from a set of inputs, or where that computation may be very expensive.</p>
+<p>Example :
+* Modelling a complex chemical reaction, where the precise interactions of the different reactants are not known, or</p>
+<ul>
+<li>
+<p>Classification of protein types based on the DNA sequence from which they are generated, or</p>
+</li>
+<li>
+<p>Classification of credit applications into those who will default and those who will repay.</p>
+</li>
+</ul>
+<p>These tasks cannot be solved by a traditional programming approach since the system designer cannot precisely specify the method by which the correct output can be computed from the input data.</p>
+<p><strong>An Alternate Strategy :</strong></p>
+<p>The computer can attempt to learn the input/output functionality from examples, in the same way that children learn which are sports cars simply by being told which of a large number of cars are sporty rather than by being given a precise specification of sportiness.</p>
+<p><strong>The approach of using examples to synthesize programs is known as the learning methodology, and in the particular case, when the examples are input/output pairs, it is called supervised learning. The examples of input/output functionality are referred to as the training data.</strong></p>
+<p>The input/output pairings typically reflect a functional relationship mapping inputs to outputs, though this is not always the case.</p>
+<ul>
+<li>
+<p>When the outputs are corrupted by noise.</p>
+</li>
+<li>
+<p>When an underlying function from input to output exists, it is referred to as the <em>target function</em>.</p>
+</li>
+<li>
+<p>The estimate of the target function which is learnt or output by the learning algorithm is known as the <em>solution</em> of the learning problem.</p>
+</li>
+<li>
+<p>In the case of classification, this function is sometimes referred to as the <em>decision function</em>.</p>
+</li>
+<li>
+<p>The solution is chosen from a set of candidate functions which map from the input space to the output domain.</p>
+</li>
+<li>
+<p>Usually, we will choose a particular set or class of candidate functions known as <em>hypotheses</em> before we begin trying to learn the correct function.</p>
+</li>
+<li>
+<p>For example, so-called <em>decision trees</em> are hypotheses created by constructing a binary tree with simple decision functions at the internal nodes and output values at the leaves.</p>
+</li>
+<li>Hence, we can view the choice of set hypotheses (or hypotheses space) as one of the key ingredients of the learning strategy. The algorithm which takes the training data as input and selects a hypothesis from the hypothesis space is the second important ingredient. It is referred to as <em>learning algorithm</em>.</li>
+</ul>
+<h5>Classification:</h5>
+<p><strong>Types of Classification</strong> :
+1. <em>Binary classification problem</em> : Example : In the case of learning to distinguish sports cars the output is a simple Yes/No tag which we can think of as a binary output value.
+2. <em>Multi-Class Classification</em> : Example :
+<em> For the problem of recognising protein types, the output value will be one of a finite number of categories,
+</em> While, the output values when modelling a chemical reaction might be the concentrations of the reactants given as real values.</p>
+<h3>Unsupervised Learning :</h3>
+<p>A case where there are no output values and the learning task is to gain some understanding of the process that generated the data.
+<em> This type of learning includes <strong>density estimation, learning the support of a distribution, clustering</strong> and so on.There are even more complex models.
+</em> The simplest case is when the learner is allowed to query the environment about the output associated with a particular input. The study of how this affects the learner's ability to learn different tasks is known as <em>query learning</em>.
+<em> A more complex model of interaction is considered in </em>reinforcement learning<em>, where the learner has a range of actions at their disposal which they can take to attempt to move towards states, where they can expect high rewards.
+</em> The learning methodology can play a part in reinforcement learning, if we treat the optimal action as the output of a function of the current state of the learner. There are, however, significant complications since the quality of the output can only be assessed indirectly as the consequences of an action become clear. </p>
+<h4>Basic Difference b/w Supervised and Unsupervised :</h4>
+<h5>Example 1 : Face recognition</h5>
+<ul>
+<li><strong>Supervised learning</strong> : Learn by examples as to what a face is in terms of structure, color, etc so that after several iterations, it learns to define a face</li>
+<li><strong>Unsupervised learning</strong> : Since there is no desired output in this case that is provided therefore categorization is done so that the algorithm differentiates correctly between the face of a horse, cat or human (clustering of data)</li>
+</ul>
+<p>Thus, In supervised learning, the output datasets are provided which are used to train the machine and get the desired outputs whereas in unsupervised learning no datasets are provided, instead the given data is clustered into different classes.</p>
+<p><img alt="Supervised_v/s_Unsupervised" src="assets/2017-01-11-DMnPA-9696e.png"></p>
+<h4>Example 2 :</h4>
+<ul>
+<li>
+<p>Scenario 1: You are a kid, you see different types of animals, your father tells you that this particular animal is a dog...after him giving you tips few times, you see a new type of dog that you never saw before - you identify it as a dog and not as a cat or a monkey or a potato.</p>
+</li>
+<li>
+<p>Scenario 2 : You go bag-packing to a new country, you did not know much about it - their food, culture, language etc. However from day 1, you start making sense there, learning to eat new cuisines, including what not to eat, find a way to that beach etc.</p>
+</li>
+</ul>
+<h4>Example 3 :</h4>
+<h5>Supervised Learning:</h5>
+<ul>
+<li>
+<p><strong>Problem</strong> : Given a basket of fruits, arrange same types of fruits in one place.</p>
+</li>
+<li>
+<p><strong>Previous Work</strong> : The shape of each and every fruit is known, so it is easy to arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>Suppose fruits are : <strong>apple,banana,cherry,grape.</strong></p>
+</li>
+<li>
+<p>With the previous work, the shape of each and every fruit so, it is easy to arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>Here, the previous work is called as <strong>train data</strong> in data mining.</p>
+</li>
+<li>
+<p>There's a <strong>response variable</strong> which tells where the fruit needs to be placed, based on the features of the fruit.</p>
+</li>
+<li>
+<p>This type of data is called the <strong>train data</strong>.</p>
+</li>
+<li>
+<p>This type of learning is called <strong>supervised learning</strong>.</p>
+</li>
+</ul>
+<h5>Unsupervised Learning:</h5>
+<ul>
+<li>
+<p><strong>Problem</strong> : Given a fruit basket. Arrange the same type of fruits at one place.</p>
+</li>
+<li>
+<p>But, this time, nothing is given (i.e. no previous work). What will be the category of classification?</p>
+</li>
+<li>
+<p>The category would be the physical character of the particular fruit.</p>
+</li>
+<li>
+<p>For example : "Fruit Color"</p>
+</li>
+<li>
+<p>Thus, no training data and no response variable.</p>
+</li>
+<li>
+<p>i.e. Unsupervised Learning.</p>
+</li>
+</ul>
+<h5>Applications :</h5>
+<p>The availability of reliable learning systems is of strategic importance, as there are many tasks that cannot be solved by classical programming techniques, since no mathematical model of the problem is available.</p>
+<p>So for example it is not known how to write a computer program to <strong>perform hand-written character recognition</strong>, though there are plenty of examples available.</p>
+<p>It is therefore natural to ask if a computer could be trained to recognize the letter ?A' from examples - after all this is the way humans learn to read. We will refer to this approach to problem solving as the learning methodology The same reasoning applies to the problem of finding genes in a DNA sequence, filtering email, detecting or recognizing objects in machine vision, and so on.</p>
+<h5>Dataset Examples :</h5>
+<h6>Wage dataset</h6>
+<ul>
+<li>In this application, we examine a number of factors that relate to wages for a group of males from the Atlantic region of the United States. In particular, we wish to understand the association between an <strong>employee's age</strong> and <strong>education</strong>, as well as the <strong>calendar year</strong> on his <strong>wage</strong>.</li>
+</ul>
+<p><strong>Analysis</strong> :</p>
+<ul>
+<li>Wage increases with age.</li>
+<li>Wage decreases after 60.</li>
+<li>There is a slow but steady increase of approximately $\$10,000$ in the average wage between 2003 to 2009.</li>
+<li>Higher the education, better the wage.</li>
+</ul>
+<p>Thus, given an employee's age, we can use this curve to <em>predict</em> his wage. However, it is also clear, that there is a significant amount of variability associated with this average value. Thus, age alone is unlikely to provide an accurate prediction of a particular man's age.</p>
+<p>We also have information regarding each employee's education level and the year in which the wage was earned.</p>
+<h2>Wages increase by approximately $10,000$, in a roughly linear (or straight-line) fashion, between 2003 - 09. Though this rise is very slightly relative to the variability in the data. Wages are also typically greater for individuals with higher education levels.</h2>
+<h3>SVM :</h3>
+<h5>Support Vector Classification :</h5>
+<p>The aim of Support Vector classification is to devise a computationally efficient way of learning ?good? separating hyperplanes in a high dimensional feature space. Here, :
+<em> By 'good' hyperplanes we consider the ones optimising the generalisation bounds, and
+</em> By 'computationally efficient' we mean algorithms able to deal with sample sizes of the order of 100 000 instances.</p>
+<p><strong>Pre-requisites</strong> :
+* The generalisation theory gives clear guidance about how to control capacity and hence prevent overfitting by controlling the hyperplane margin measures, while</p>
+<ul>
+<li>Optimisation theory provides the mathematical techniques necessary to find hyperplanes optimising these measures.</li>
+</ul>
+<p>Different generalisation bounds exist, motivating different algorithms: one can for example optimise the maximal margin, the margin distribution, the number of support vectors, etc.</p>
+<p><strong>Focus</strong> :
+* Reduce the problem to minimising the norm of the weight vector.</p>
+<h4>SVMs</h4>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/hands-on-r.html" rel="bookmark"
+                           title="Permalink to "Hands on R"">"Hands on R"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-11T23:28:04+05:30">
+                Published: Wed 11 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>R</li>
+</ul>
+<hr>
+<h1>Predictive Modelling</h1>
+<ul>
+<li>Vector recycling !</li>
+<li>Function  returns last line</li>
+<li>Atomic vector is a simple vector of data.</li>
+<li>Each atomic vector stores its values as a one-dimensional vector, and each atomic vector
+can only store one type of data. You can save different types of data in R by using different …</li></ul>
+                <a class="readmore" href="http://bassdeveloper.github.io/hands-on-r.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/someone-react.html" rel="bookmark"
+                           title="Permalink to "Someone React!"">"Someone React!"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-29T18:08:43+05:30">
+                Published: Sun 29 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>Web</li>
+<li>react</li>
+</ul>
+<hr>
+<h1>Atleast... someone react!</h1>
+                <a class="readmore" href="http://bassdeveloper.github.io/someone-react.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/let-us-c.html" rel="bookmark"
+                           title="Permalink to "Let us C :/"">"Let us C :/"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-28T20:22:04+02:00">
+                Published: Sat 28 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>learning</li>
+</ul>
+<hr>
+<h1>LET US C</h1>
+<p>The latest C is C11. </p>
+<blockquote>
+<p>Function called at startup is main(). Can be defined by either no parameters or the following parameters
+int main(int argc, char *argv[])
+Return type for main should be int. 
+argc cannot be negative.</p>
+</blockquote>
+<h1>Terms</h1>
+<ol>
+<li>
+<p>access
+〈execution-time action〉 to read or …</p></li></ol>
+                <a class="readmore" href="http://bassdeveloper.github.io/let-us-c.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/let-there-be-node.html" rel="bookmark"
+                           title="Permalink to "Let there be NODE!"">"Let there be NODE!"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-28T16:54:04+02:00">
+                Published: Sat 28 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>learning</li>
+</ul>
+<hr>
+<h1>Let there be node</h1>
+<p>Blocking v/s Non-blocking code. </p>
+<blockquote>
+<p>A blocking code would basically not let the program's execution proceed before the job is done. i.e. the program statements will execute procedurally. 
+Whereas, a non-blocking code which characterized by a callback function within the main </p>
+</blockquote>
+                <a class="readmore" href="http://bassdeveloper.github.io/let-there-be-node.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/javafx-and-sanskrit-lpdt-rd.html" rel="bookmark"
+                           title="Permalink to "JAVAFX and Sanskrit LPDT R&D"">"JAVAFX and Sanskrit LPDT R&D"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-26T14:46:43+05:30">
+                Published: Thu 26 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>JAVAFX</li>
+<li>RESEARCH</li>
+</ul>
+<hr>
+<h1>JAVAFX</h1>
+<blockquote>
+<p>The platform is made from the JAVA API. JavaFX applications can use Java API libraries to access native system capabilities and connect to server-based middleware applications.</p>
+<p>The look and feel of JavaFX applications can be customized using CSS. FXML helps in this. <br>
+UI can be built without …</p></blockquote>
+                <a class="readmore" href="http://bassdeveloper.github.io/javafx-and-sanskrit-lpdt-rd.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/basic-web-knowledge.html" rel="bookmark"
+                           title="Permalink to "Basic web knowledge"">"Basic web knowledge"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-04T21:22:43+05:30">
+                Published: Mon 04 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>learning</li>
+<li>webcomponents</li>
+</ul>
+<hr>
+<h2>Basic Web Knowledge</h2>
+<h1>What is the Document Object Model?</h1>
+<p>The Document Object Model is a platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content, 
+structure and style of documents. The document can be further processed and the results of that …</p>
+                <a class="readmore" href="http://bassdeveloper.github.io/basic-web-knowledge.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/fabrication-of-an-electro-chemical-biosensor-using-screen-printing-technique.html" rel="bookmark"
+                           title="Permalink to "Fabrication of an Electro-chemical Biosensor using Screen Printing Technique"">"Fabrication of an Electro-chemical Biosensor using Screen Printing Technique"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-04T21:22:43+05:30">
+                Published: Mon 04 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>research</li>
+<li>chemistry</li>
+<li>biology</li>
+</ul>
+<hr>
+<h2>Research and Development</h2>
+<h1>Objective - Fabrication of an electrochemical bio-sensor using screen-printing technique.</h1>
+<iframe src="https://docs.google.com/presentation/d/1Z_erNO3TCpC9kJ9EmaIJs6_OyWsKrVGOxaMas7Nalao/embed?start=true&loop=true&delayms=3000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                <a class="readmore" href="http://bassdeveloper.github.io/fabrication-of-an-electro-chemical-biosensor-using-screen-printing-technique.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/changed-the-layout.html" rel="bookmark"
+                           title="Permalink to "Changed the layout"">"Changed the layout"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-29T17:11:43+05:30">
+                Published: Tue 29 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>theme</li>
+<li>hello</li>
+</ul>
+<hr>
+<p>Changed the goddamn theme!</p>
+                <a class="readmore" href="http://bassdeveloper.github.io/changed-the-layout.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://bassdeveloper.github.io/learning-html5.html" rel="bookmark"
+                           title="Permalink to "Learning HTML5"">"Learning HTML5"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-29T17:11:43+05:30">
+                Published: Tue 29 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <ul>
+<li>learning</li>
+</ul>
+<hr>
+<h2>HTML5 it is...</h2>
+<p>This blog contains the notes and results of my experiments with HTML5. Through this blog, I also plan to learn <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a> so it's a multi-purpose blog. <br>
+I am basically experimenting with Polymer and I demand to swim through code and simply dive-in <strong>i.e. learn as …</strong></p>
+                <a class="readmore" href="http://bassdeveloper.github.io/learning-html5.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a href="http://bassdeveloper.github.io/index2.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

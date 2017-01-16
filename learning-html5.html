@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>"Learning HTML5"</title>
+        <link rel="stylesheet" href="http://bassdeveloper.github.io/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://bassdeveloper.github.io/">Bassdeveloper's Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="http://bassdeveloper.github.io/category/misc.html">misc</a></li>
+                    <li><a href="http://bassdeveloper.github.io/category/review.html">Review</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://bassdeveloper.github.io/learning-html5.html" rel="bookmark"
+           title="Permalink to "Learning HTML5"">"Learning HTML5"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-29T17:11:43+05:30">
+                Published: Tue 29 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <ul>
+<li>learning</li>
+</ul>
+<hr>
+<h2>HTML5 it is...</h2>
+<p>This blog contains the notes and results of my experiments with HTML5. Through this blog, I also plan to learn <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a> so it's a multi-purpose blog. <br>
+I am basically experimenting with Polymer and I demand to swim through code and simply dive-in <strong>i.e. learn as I code.</strong></p>
+<h1><a href="https://en.wikipedia.org/wiki/Polyglot_markup">Polyglot Markup</a></h1>
+<p>A Polyglot is basically someone who can speak several languages. <br>
+But in HTML5, Polyglot means something else... It's basically a document or script written in a valid form of multiple markup languages, which performs the same output independent of the markup's parser, layout engine or interpreter.<br>
+Polyglot HTML is HTML that has been written to conform to both HTML and XHTML specifications.
+Therefore, a polyglot document can be parsed as either HTML or XML, and will produce the same <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> structure either way.</p>
+<p>For an HTML5 document to meet these criteria, the 2 requirements are that:  </p>
+<ul>
+<li>It must have an HTML5 doctype,</li>
+<li>Be written in well-formed XHTML.</li>
+</ul>
+<h1>What is XHTML?</h1>
+<p>XHTML is a variant of HTML that uses the syntax of XML, the Extensible Markup Language. XHTML has all the same elements (for paragraphs, etc.) as the HTML variant, but the syntax is slightly different. Because XHTML is an XML application, you can use other XML tools with it (such as XSLT, a language for transforming XML content).</p>
+<h1>DOCTYPE</h1>
+<p>A DOCTYPE or Document Type Declaration originates from HTML's SGML lineage. It's use is for legacy purpose only.<br>
+It was originally used to refer to a Document Type Definition (DTD) — a formal declaration of the elements, attributes and syntactic features that could be used within the document.<br>
+In HTML5, there are three modes :</p>
+<ul>
+<li>Quirks mode,</li>
+<li>Limited quirks mode</li>
+<li>No quirks mode</li>
+</ul>
+<p>Only <strong>No quirks mode</strong> is conforming to use. In each of these three modes, there are some differences in the way the documents are visually rendered.<br>
+To ensure the most standards compliant rendering, it is important to ensure the <strong>No quirks mode</strong> is used.<br>
+Thus, the DOCTYPE in the new definition, defines the no-quirks mode in browsers. </p>
+<h1>Elements</h1>
+<p>There are 5 different types of elements:</p>
+<ol>
+<li>Normal - <code>&lt;Start tag&gt; Content &lt;End tag&gt;</code> </li>
+<li>Void - Empty elements, i.e. forbidden from containing any content at all. The self-closing tag syntax is used. </li>
+<li>E.g. <code>&lt;hr/&gt;</code></li>
+<li>Raw text - <code>&lt;Start tag&gt; Content &lt;End tag&gt;</code></li>
+<li>Here, the content is treated as raw text instead of markup. E.g. <code>&lt;script&gt;</code>.<br>
+  In the script tags, escape sequences are needed too if there's a clash. </li>
+<li>RCDATA - The term RCDATA elements refers to elements within which character references are supported, but all other content is treated as raw text instead of markup.  </li>
+<li><code>&lt;Start tag&gt; Content &lt;End Tag&gt;</code>.E.g. <code>&lt;textarea&gt;</code> Character references like <code>&amp;amp;</code> are valid. </li>
+<li>Foreign Elements - Elements in SVG and MathML namespaces.</li>
+</ol>
+<h3>Empty Attribute syntax</h3>
+<p>An empty attribute is one where the value has been omitted. This is syntactic shorthand for specifying the attribute with an empty value, and is <em>commonly used for boolean attributes</em>.
+E.g. <code>&lt;input disabled&gt;</code> . Here, <code>disabled</code> is a boolean attribute.</p>
+<h3>Unquoted Attribute Syntax</h3>
+<p>Attribute where the value is supplied but is not surrounded by quotation marks.<br>
+E.g. <code>&lt;img src = image.png&gt;</code></p>
+<h2>HTML Vocabulary and APIs</h2>
+<ol>
+<li>Metadata content
+  Metadata content includes elements for marking up document metadata;
+  marking up or linking to resources that describe the behaviour or presentation of the document; or indicate relationships with other documents. </li>
+</ol>
+<p>'<head>, <title>, <meta>, <link>, <script>, <style>`</p>
+<ul>
+<li>
+<p>Flow content</p>
+</li>
+<li>
+<p>Sectioning root</p>
+</li>
+<li>Sectioning content</li>
+<li>Heading content</li>
+<li>Phrasing content</li>
+<li>Embedded content</li>
+<li>Interactive content</li>
+<li>Transparent</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

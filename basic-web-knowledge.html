@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>"Basic web knowledge"</title>
+        <link rel="stylesheet" href="http://bassdeveloper.github.io/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://bassdeveloper.github.io/">Bassdeveloper's Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="http://bassdeveloper.github.io/category/misc.html">misc</a></li>
+                    <li><a href="http://bassdeveloper.github.io/category/review.html">Review</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://bassdeveloper.github.io/basic-web-knowledge.html" rel="bookmark"
+           title="Permalink to "Basic web knowledge"">"Basic web knowledge"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-04T21:22:43+05:30">
+                Published: Mon 04 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://bassdeveloper.github.io/author/rishabh-chakrabarti.html">Rishabh Chakrabarti</a>
+        </address>
+<p>In <a href="http://bassdeveloper.github.io/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <ul>
+<li>learning</li>
+<li>webcomponents</li>
+</ul>
+<hr>
+<h2>Basic Web Knowledge</h2>
+<h1>What is the Document Object Model?</h1>
+<p>The Document Object Model is a platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content, 
+structure and style of documents. The document can be further processed and the results of that processing can be incorporated back into the presented page. </p>
+<p>It provides a structured representation of the <a href="https://www.w3.org/TR/DOM-Level-1/introduction.html">document as a tree</a>. 
+The DOM defines methods that allow access to the tree, so that they can change the document structure, style and content. The DOM provides a representation of the document as a structured group of nodes and objects, possessing various properties and methods. 
+Nodes can also have event handlers attached to them, and once an event is triggered, the event handlers get executed. Essentially, it connects web pages to scripts or programming languages.</p>
+<h1>Why the Document Object Model?</h1>
+<p>"Dynamic HTML" is a term used by some vendors to describe the combination of HTML, style sheets and scripts that allows documents to be animated. 
+The W3C has received several submissions from members companies on the way in which the object model of HTML documents should be exposed to scripts. 
+These submissions do not propose any new HTML tags or style sheet technology</p>
+<h1>$hadow DOM 101</h1>
+<p>When making widgets out of HTML5 and Javascript, the DOM tree inside a widget isn't encapsulated.<br>
+The lack of encapsulation means your document stylesheet might accidentally apply to parts inside the widget.<br>
+<em> Your JS might accidentally modify parts inside the widget. 
+</em> IDs may overlap with IDs inside the widget. 
+* Upgrading might break the widget's internal details</p>
+<h1>WebComponents</h1>
+<ol>
+<li>Templates</li>
+<li>Shadow DOM</li>
+<li>Custom Elements</li>
+<li>Packaging</li>
+</ol>
+<p>Shadow DOM addresses the DOM encapsulation problem.  </p>
+<h1>Shadow World</h1>
+<p>With Shadow DOM, elements can get a new kind of node associated with them.<br>
+This new kind of node is called <strong>shadow root</strong>. The element that has a shadow root associated with it is called a <strong>shadow host</strong>.  </p>
+<p>We need to create a Shadow Root for the element -&gt; #nameTag.</p>
+<p _="%" endhighlight>{% highlight javascript%}
+<script>
+var shadow = document.querySelector('#nameTag').createShadowRoot();
+var template = document.querySelector('#nameTagTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+</script></p>
+<p>Using the Shadow DOM, we have hidden the presentation details from the</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
