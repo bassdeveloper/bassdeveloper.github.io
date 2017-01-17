@@ -84,7 +84,7 @@
 
 
   <div>
-    <h1>SVM</h1>
+    <h1 id="svm">SVM</h1>
 <blockquote>
 <p>The main goal in SVM is to design a hyperplane that classifies all training vectors in 2 classes.</p>
 </blockquote>
@@ -92,8 +92,8 @@
 <li><strong>SVM needs training data thus comes under supervised learning</strong>.</li>
 <li><strong>SVM is a classification algorithm</strong></li>
 </ul>
-<h3>Example :</h3>
-<p><img alt="SVM_Training" src="./assets/2017-01-17-SVM-e7301.png"></p>
+<h3 id="example">Example :</h3>
+<p><img alt="SVM_Training" src="./assets/2017-01-17-SVM-e7301.png"/></p>
 <ul>
 <li>We have plotted the size and weight of several people, and there is also a way to distinguish between men and women.</li>
 </ul>
@@ -104,7 +104,7 @@
 <ul>
 <li>For instance:  if someone measures 175 cm and weights 80 kg, is it a man of a woman?</li>
 </ul>
-<h2>Hyperplane</h2>
+<h2 id="hyperplane_1">Hyperplane</h2>
 <p>In geometry, a hyperplane is a <strong>subspace of one dimension less than its ambient space</strong>.</p>
 <p>Example :</p>
 <ul>
@@ -116,26 +116,26 @@
 </li>
 </ul>
 <p>This notion can be used in any general space in which the concept of the dimension of a subspace is defined.</p>
-<h2>Maximum margin?</h2>
+<h2 id="maximum-margin">Maximum margin?</h2>
 <p>Now the following problem exists :</p>
 <blockquote>
 <p>There can be 'n' number of hyperplanes that can be drawn that separate both our classes.</p>
 </blockquote>
 <p><strong>But SVM's goal is to get the hyperplane that leaves the maximum margin from both classes ( i.e. the best choice )</strong></p>
 <p>Thus, we arrive at the term : <code>Maximum Margin Hyperplane</code>.</p>
-<p><img alt="MarginA" src="./assets/2017-01-17-SVM-c2025.png"></p>
+<p><img alt="MarginA" src="./assets/2017-01-17-SVM-c2025.png"/></p>
 <p><strong>The Optimal HyperPlane is a no man's land.</strong></p>
 <ul>
 <li><strong>This means that the optimal hyperplane will be the one with the biggest margin.</strong></li>
 </ul>
 <p><em>That is why the objective of the SVM is to find  the optimal separating hyperplane which maximizes the margin of the training data.</em></p>
-<h2>How to Calculate this margin?</h2>
+<h2 id="how-to-calculate-this-margin">How to Calculate this margin?</h2>
 <blockquote>
 <p>SVM = Support VECTOR Machine</p>
 </blockquote>
-<h3>What is a vector ?</h3>
+<h3 id="what-is-a-vector">What is a vector ?</h3>
 <p>If we define a point <span class="math">\(A(3,4)\)</span> in <span class="math">\(\Re^2\)</span>, we can plot it like this :</p>
-<p><img alt="2D_point" src="./assets/2017-01-17-SVM-6c98b.png"></p>
+<p><img alt="2D_point" src="./assets/2017-01-17-SVM-6c98b.png"/></p>
 <blockquote>
 <p>Definition: Any point <span class="math">\(x=(x1,x2),x\ne0\)</span>, in <span class="math">\(\Re^2\)</span>,<span class="math">\(\Re^2\)</span> specifies a vector in the plane, namely the vector starting at the origin and ending at <span class="math">\(x\)</span>.</p>
 </blockquote>
