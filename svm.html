@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Support Vector Machines learnt from the SVM Tutorial, by Alexandre KOWALCZYK." />
+<meta name="keywords" content="SVM, Linear-Kernels">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Support Vector Machines"/>
+<meta property="og:description" content="Support Vector Machines learnt from the SVM Tutorial, by Alexandre KOWALCZYK."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./svm.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-17 11:28:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-17 12:15:00+01:00"/>
+<meta property="article:author" content="./author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="SVM"/>
+<meta property="article:tag" content="Linear-Kernels"/>
+<meta property="og:image" content="/images/RC_IBM_SA.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Support Vector Machines</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/images/RC_IBM_SA.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href=".">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-Pelican" href="https://getpelican.com/" target="_blank"><i class="fa fa-Pelican"></i></a></li>
+        <li><a class="sc-Python.org" href="https://python.org/" target="_blank"><i class="fa fa-Python.org"></i></a></li>
+        <li><a class="sc-Jinja2" href="https://jinja.pocoo.org/" target="_blank"><i class="fa fa-Jinja2"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="svm">Support Vector Machines</h1>
+    <p>
+          Posted on Tue 17 January 2017 in <a href="./category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>SVM</h1>
+<blockquote>
+<p>The main goal in SVM is to design a hyperplane that classifies all training vectors in 2 classes.</p>
+</blockquote>
+<ul>
+<li><strong>SVM needs training data thus comes under supervised learning</strong>.</li>
+<li><strong>SVM is a classification algorithm</strong></li>
+</ul>
+<h3>Example :</h3>
+<p><img alt="SVM_Training" src="./assets/2017-01-17-SVM-e7301.png"></p>
+<ul>
+<li>We have plotted the size and weight of several people, and there is also a way to distinguish between men and women.</li>
+</ul>
+<p>With such data, using a SVM will allow us to answer the following question:</p>
+<blockquote>
+<p>Given a particular data point (weight and size), is the person a man or a woman ?</p>
+</blockquote>
+<ul>
+<li>For instance:  if someone measures 175 cm and weights 80 kg, is it a man of a woman?</li>
+</ul>
+<h2>Hyperplane</h2>
+<p>In geometry, a hyperplane is a <strong>subspace of one dimension less than its ambient space</strong>.</p>
+<p>Example :</p>
+<ul>
+<li>
+<p>If a space is 3-dimensional then its hyperplanes are the 2-dimensional planes, while</p>
+</li>
+<li>
+<p>If the space is 2-dimensional, its hyperplanes are the 1-dimensional lines.</p>
+</li>
+</ul>
+<p>This notion can be used in any general space in which the concept of the dimension of a subspace is defined.</p>
+<h2>Maximum margin?</h2>
+<p>Now the following problem exists :</p>
+<blockquote>
+<p>There can be 'n' number of hyperplanes that can be drawn that separate both our classes.</p>
+</blockquote>
+<p><strong>But SVM's goal is to get the hyperplane that leaves the maximum margin from both classes ( i.e. the best choice )</strong></p>
+<p>Thus, we arrive at the term : <code>Maximum Margin Hyperplane</code>.</p>
+<p><img alt="MarginA" src="./assets/2017-01-17-SVM-c2025.png"></p>
+<p><strong>The Optimal HyperPlane is a no man's land.</strong></p>
+<ul>
+<li><strong>This means that the optimal hyperplane will be the one with the biggest margin.</strong></li>
+</ul>
+<p><em>That is why the objective of the SVM is to find  the optimal separating hyperplane which maximizes the margin of the training data.</em></p>
+<h2>How to Calculate this margin?</h2>
+<blockquote>
+<p>SVM = Support VECTOR Machine</p>
+</blockquote>
+<h3>What is a vector ?</h3>
+<p>If we define a point <span class="math">\(A(3,4)\)</span> in <span class="math">\(\Re^2\)</span>, we can plot it like this :</p>
+<p><img alt="2D_point" src="./assets/2017-01-17-SVM-6c98b.png"></p>
+<blockquote>
+<p>Definition: Any point <span class="math">\(x=(x1,x2),x\ne0\)</span>, in <span class="math">\(\Re^2\)</span>,<span class="math">\(\Re^2\)</span> specifies a vector in the plane, namely the vector starting at the origin and ending at <span class="math">\(x\)</span>.</p>
+</blockquote>
+<p>Equations for the hyperplane :
+</p>
+<div class="math">$$g(\vec{x}) = w^T\vec{x}+w_0$$</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/svm.html">SVM</a>
+      <a href="./tag/linear-kernels.html">Linear-Kernels</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : ".",
+  "image": "/images/RC_IBM_SA.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>
