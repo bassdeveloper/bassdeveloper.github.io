@@ -32,7 +32,7 @@
 <meta property="og:url" content="./svm.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-01-17 11:28:00+01:00"/>
-<meta property="article:modified_time" content="2017-01-17 12:15:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-20 13:15:00+01:00"/>
 <meta property="article:author" content="./author/rishabh-chakrabarti.html">
 <meta property="article:section" content="Learning"/>
 <meta property="article:tag" content="SVM"/>
@@ -86,6 +86,7 @@
   <div>
     <h1 id="svm">SVM</h1>
 <blockquote>
+<p>Do visit <a href="http://www.svm-tutorial.com/">SVM Tutorial website</a>.</p>
 <p>The main goal in SVM is to design a hyperplane that classifies all training vectors in 2 classes.</p>
 </blockquote>
 <ul>
@@ -129,7 +130,11 @@
 <li><strong>This means that the optimal hyperplane will be the one with the biggest margin.</strong></li>
 </ul>
 <p><em>That is why the objective of the SVM is to find  the optimal separating hyperplane which maximizes the margin of the training data.</em></p>
+<p>Equation for the hyperplane :
+</p>
+<div class="math">$$g(\vec{x}) = w^T\vec{x}+w_0$$</div>
 <h2 id="how-to-calculate-this-margin">How to Calculate this margin?</h2>
+<p>To do so, we need certain pre-requisites:</p>
 <blockquote>
 <p>SVM = Support VECTOR Machine</p>
 </blockquote>
@@ -139,9 +144,145 @@
 <blockquote>
 <p>Definition: Any point <span class="math">\(x=(x1,x2),x\ne0\)</span>, in <span class="math">\(\Re^2\)</span>,<span class="math">\(\Re^2\)</span> specifies a vector in the plane, namely the vector starting at the origin and ending at <span class="math">\(x\)</span>.</p>
 </blockquote>
-<p>Equations for the hyperplane :
+<p>i.e. there is a vector between origin and A.</p>
+<p>If we say that the point at the origin is the point <span class="math">\(O(0,0)O(0,0)\)</span> then the vector above is the vector <span class="math">\(\vec{OA}\)</span>. We could also give it an arbitrary name such as <strong><span class="math">\(u\)</span></strong>.</p>
+<blockquote>
+<p>Definition: A vector is an object that has both a magnitude and a direction.</p>
+</blockquote>
+<h3 id="svm-hyperplane">SVM HyperPlane :</h3>
+<h4 id="understanding-the-equation-of-the-hyperplane">Understanding the equation of the hyperplane :</h4>
+<ul>
+<li>Equation of a line is <span class="math">\( y= mx +c\)</span></li>
+<li>For Hyperplane, it is defined as :</li>
+</ul>
+<p><strong><div class="math">$$ w^Tx=0$$</div></strong></p>
+<p><strong>How do the 2 forms relate?</strong>
+In hyperplane equation, we can see that the name of the variables are in bold which means that they are vectors.</p>
+<p>Morover, <span class="math">\(w^Tx\)</span> is how we compute the inner product of the 2 vectors a.k.a <strong>dot product</strong>.</p>
+<p>Note :
 </p>
-<div class="math">$$g(\vec{x}) = w^T\vec{x}+w_0$$</div>
+<div class="math">$$y= mx +c$$</div>
+<p>
+is the same thing as
+</p>
+<div class="math">$$y-mx-c=0$$</div>
+<p>Given 2 vectors,
+</p>
+<div class="math">$$w=\begin{pmatrix} -c \\ -m \\ 1 \\ \end{pmatrix}$$</div>
+<p> and </p>
+<div class="math">$$ x= \begin{pmatrix} 1 \\ x \\ y \\ \end{pmatrix}$$</div>
+<p>Thus, the dot product will be
+</p>
+<div class="math">$$w^Tx=-c\times(1)+ (-m)\times x+1\times y$$</div>
+<div class="math">$$w^Tx=y-mx-c$$</div>
+<p>The 2 equations are just different ways of expressing the same thing.</p>
+<p>Note : <span class="math">\(w_0\)</span> is <span class="math">\(-c\)</span>, which means that this value determines the intersection of the line with the vertical axis.</p>
+<blockquote>
+<p>We use the hyperplane equation because it is then easy to work in more than 2 dimensions</p>
+<p>The vector <strong><span class="math">\(w\)</span></strong> will always be normal to the hyperplane.</p>
+</blockquote>
+<p>This property will come in handy to compute the distance from a point to the hyperplane.</p>
+<h3 id="computing-the-distance_1">Computing the distance :</h3>
+<p><img alt="Distance_g1" src="./assets/2017-01-17-SVM-3f1de.png"/></p>
+<p>To simplify this example, we have set <span class="math">\(w_0=0\)</span>.</p>
+<p>In the above figure, the equation of the hyperplane is :
+</p>
+<div class="math">$$x_2=-2x_1$$</div>
+<p>Which is equivalent to</p>
+<div class="math">$$w^Tx=0$$</div>
+<p>with </p>
+<div class="math">$$w \begin{pmatrix}2 \\ 1 \\ \end{pmatrix}$$</div>
+<p>
+and </p>
+<div class="math">$$x\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}$$</div>
+<p><strong><span class="math">\(w\)</span> is a vector</strong>.</p>
+<h4 id="aim-to-calculate-the-distance-between-a34-and-its-projection-onto-the-hyperplane">AIM : To calculate the distance between <span class="math">\(A(3,4)\)</span> and its projection onto the hyperplane.</h4>
+<p><img alt="Distance_g2" src="./assets/2017-01-17-SVM-1ef46.png"/></p>
+<p>We can view the point <span class="math">\(A\)</span> as a vector from the origin to <span class="math">\(A\)</span>.
+If we project it onto the normal vector <span class="math">\(w\)</span>.
+<img alt="Distance_g3" src="./assets/2017-01-17-SVM-8168b.png"/></p>
+<p>We get the vector <span class="math">\(p\)</span> after projection.
+<img alt="Distance_g3" src="./assets/2017-01-17-SVM-00f62.png"/></p>
+<p>Our goal is to find the distance between the point <span class="math">\(A(3,4)\)</span> and the hyperplane.</p>
+<p>We can see in the figure that this distance is the same thing as <span class="math">\(|p|\)</span>
+Let's compute this value.</p>
+<p>To compute, we need the pre-requisite of Vector Projections :</p>
+<h3 id="vector-projections_1">Vector Projections</h3>
+<p>The <strong>vector projection</strong> of a vector <span class="math">\(\vec{a}\)</span> on (or onto) a non-zero vector <span class="math">\(
+\vec{b}\)</span> (a.k.a. the <strong>vector component</strong> or <strong>vector resolution</strong> of <span class="math">\(\vec{a}\)</span> in the direction of <span class="math">\(\vec{b}\)</span>) is the <em>orthogonal projection</em> (shadow) of <span class="math">\(\vec{a}\)</span> onto a straight line parallel to <span class="math">\(\vec{b}\)</span>. It is a vector parallel to <span class="math">\(\vec{b}\)</span>, defined as :</p>
+<div class="math">$$\vec{a_1} = a_1\hat{b}$$</div>
+<p>where <span class="math">\(a_1\)</span> is a scalar, called the <strong>scalar projection of a onto b</strong>, and <span class="math">\(\hat{b}\)</span> is the unit vector in the direction of b.</p>
+<ul>
+<li>In turn, the scalar projection is defined as</li>
+</ul>
+<div class="math">$$a_1 = |a|cos\theta =\vec{a}.\hat{b}=a.\frac{b}{|b|}$$</div>
+<p>
+where the operator <span class="math">\(��\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
+<p>The scalar projection is equal to the length of the vector projection, with a minus sign if the direction of the projection is opposite to the direction of b.</p>
+<h2 id="math-for-orthogonal-projection_1">Math for Orthogonal Projection</h2>
+<p>We start with two vectors, <span class="math">\(\vec{w}=(2,1)\)</span> which is normal to the hyperplane, and <span class="math">\(\vec{a}=(3,4)\)</span> which is the vector between the origin and <span class="math">\(A\)</span>.</p>
+<p>By Pythagoras theorem, the magnitude of <span class="math">\(w\)</span> is :
+</p>
+<div class="math">$$|\vec{w}|=\sqrt{2^2+1^2}$$</div>
+<p>Now we take a unit vector <span class="math">\(\vec{u}\)</span> in the direction of <span class="math">\(\vec{w}\)</span>.</p>
+<p>Thus <span class="math">\(\vec{u}\)</span> becomes :
+</p>
+<div class="math">$$ \vec{u}=(\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})$$</div>
+<p>Given <span class="math">\(\vec{p}\)</span> is the orthogonal projection of <span class="math">\(\vec{a}\)</span> onto <span class="math">\(\vec{w}\)</span> so :</p>
+<p><span class="math">\(\vec{p}=(\vec{u}.\vec{a})\vec{u}\)</span></p>
+<div class="math">$$\vec{p}=(3\times\frac{2}{\sqrt{5}}+4\times \frac{1}{\sqrt{5}})u$$</div>
+<p>
+ Here, we have calculated the <em>scalar projection</em> and now need to multiply it with the unit vector in direction of <span class="math">\(\vec{w}\)</span> i.e. :
+ </p>
+<div class="math">$$ p=(\frac{6}{\sqrt{5}}+\frac{4}{\sqrt{5}})u$$</div>
+<div class="math">$$p=\frac{10}{\sqrt{5}}u$$</div>
+<div class="math">$$p=(\frac{10}{\sqrt{5}}\times\frac{2}{\sqrt{5}},\frac{10}{\sqrt{5}}\times\frac{1}{\sqrt{5}})$$</div>
+<div class="math">$$p=(4,2)$$</div>
+<p>Now, we need the value/magnitude of this projection :</p>
+<div class="math">$$|p|=\sqrt{4^2+2^2}=2\sqrt{5}$$</div>
+<h5 id="compute-the-margin-of-the-hyperplane">Compute the margin of the hyperplane:</h5>
+<p>Now that we have the distance <span class="math">\(|p|\)</span>  between <span class="math">\(A\)</span> and the hyperplane, the margin is defined by:</p>
+<div class="math">$$ margin = 2|p|=4\sqrt{5}$$</div>
+<h2 id="optimal-margin-hyperplane_1">Optimal Margin Hyperplane :</h2>
+<p><img alt="OMH_1" src="./assets/2017-01-17-SVM-e3d86.png"/></p>
+<p>The above margin is not the biggest/optimal margin. What we need is the optimal margin.</p>
+<p><img alt="OMH_2" src="./assets/2017-01-17-SVM-28cd5.png">.</img></p>
+<p>From the above figure, it's evident that the biggest margin is <span class="math">\(M_2\)</span> and not <span class="math">\(M_1\)</span>.
+Thus, the optimal hyperplane is slightly left from our initial hyperplane:</p>
+<h2 id="how-to-find-the-biggest-margin">How to find the biggest margin ?</h2>
+<p><strong>Method</strong>:</p>
+<ol>
+<li>Take a dataset</li>
+<li>Select 2 hyperplanes which separate the data with no points between them.</li>
+<li>Maximize their distance (the margin).</li>
+</ol>
+<blockquote>
+<p>The region bounded by the 2 hyperplanes will be the biggest possible margin.</p>
+</blockquote>
+<h3 id="step-by-step-breakdown">Step by Step breakdown :</h3>
+<h4 id="step-1-you-have-a-dataset-d-and-you-want-to-classify-it">Step 1 : You have a dataset <span class="math">\(D\)</span> and you want to classify it :</h4>
+<p>Most of the time, the data will be composed of <span class="math">\(n\)</span> vectors <span class="math">\(\vec{x_i}\)</span>.</p>
+<p>Each <span class="math">\(\vec{x_i}\)</span> will also be associated with a value <span class="math">\(y_i\)</span> indicating if the element belongs to the class (+1) or not (i.e. -1).</p>
+<ul>
+<li><span class="math">\(y_i\)</span> can only have 2 possible values -1 or +1.</li>
+</ul>
+<p>Moreover, most of the time,your vector <span class="math">\(\vec{x_i}\)</span> ends up having a lot of dimensions. We can say that <span class="math">\(\vec{x_i}\)</span> is a <span class="math">\(p\)</span>-dimensional vector if it has <span class="math">\(p\)</span> dimensions.</p>
+<ul>
+<li>Thus, the dataset <span class="math">\(D\)</span> is the set of <span class="math">\(n\)</span> couples of element <span class="math">\((\vec{x_i},y_i)\)</span>.</li>
+</ul>
+<p>The more formal definition of an initial dataset in set theory is:
+</p>
+<div class="math">$$D=\{(\vec{x_i},y_i)\space | \space \vec{x_i} \space \epsilon \space  R^p, \space y_i \space \epsilon \space  \{-1,1\}\}_{i=1}^n$$</div>
+<h4 id="step-2-select-2-hyperplanes-separating-the-data-with-no-points-between-them">Step 2  : Select 2 hyperplanes separating the data with no points between them.</h4>
+<p>Finding 2 hyperplanes separating some data is easy  when you have a pencil and a paper. But with some <span class="math">\(p\)</span>-dimensional data it becomes more difficult because you can't draw it.</p>
+<p>Moreover, even if your data is only 2-dimensional it might not be possible to find a separating hyperplane!</p>
+<blockquote>
+<p>The classification is only possible when the data is linearly separable.</p>
+</blockquote>
+<p><img alt="OHP_3" src="./assets/2017-01-17-SVM-17f74.png"/></p>
+<p><em>Assuming that our dataset <span class="math">\(D\)</span> is linearly separable. We now want to find two hyperplanes with no points between them, but we don't have a way to visualize them</em>.</p>
+<p><strong>Take another look at the hyperplane equation.</strong></p>
+<div class="math">$$w^Tx=0$$</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
