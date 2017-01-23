@@ -111,18 +111,19 @@ The lack of encapsulation means your document stylesheet might accidentally appl
 <li>Packaging</li>
 </ol>
 <p>Shadow DOM addresses the DOM encapsulation problem.  </p>
-<h1 id="shadow-world">Shadow World</h1>
+<h2 id="shadow-world">Shadow World</h2>
 <p>With Shadow DOM, elements can get a new kind of node associated with them.<br>
 This new kind of node is called <strong>shadow root</strong>. The element that has a shadow root associated with it is called a <strong>shadow host</strong>.  </br></p>
 <p>We need to create a Shadow Root for the element -&gt; #nameTag.</p>
-<p _="%" endhighlight="">{% highlight javascript%}
-<script>
-var shadow = document.querySelector('#nameTag').createShadowRoot();
-var template = document.querySelector('#nameTagTemplate');
-var clone = document.importNode(template.content, true);
-shadow.appendChild(clone);
-</script></p>
-<p>Using the Shadow DOM, we have hidden the presentation details from the</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kd">var</span> <span class="nx">shadow</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#nameTag'</span><span class="p">).</span><span class="nx">createShadowRoot</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#nameTagTemplate'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">importNode</span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">clone</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+<p>Using the Shadow DOM, we have hidden the presentation details from the actual DOM.</p>
+<h2 id="rest">REST :</h2>
   </div>
   <div class="tag-cloud">
     <p>

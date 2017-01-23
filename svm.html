@@ -217,7 +217,7 @@ Let's compute this value.</p>
 </ul>
 <div class="math">$$a_1 = |a|cos\theta =\vec{a}.\hat{b}=a.\frac{b}{|b|}$$</div>
 <p>
-where the operator <span class="math">\(��\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
+where the operator <span class="math">\(\dot\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
 <p>The scalar projection is equal to the length of the vector projection, with a minus sign if the direction of the projection is opposite to the direction of b.</p>
 <h2 id="math-for-orthogonal-projection_1">Math for Orthogonal Projection</h2>
 <p>We start with two vectors, <span class="math">\(\vec{w}=(2,1)\)</span> which is normal to the hyperplane, and <span class="math">\(\vec{a}=(3,4)\)</span> which is the vector between the origin and <span class="math">\(A\)</span>.</p>
@@ -283,6 +283,64 @@ Thus, the optimal hyperplane is slightly left from our initial hyperplane:</p>
 <p><em>Assuming that our dataset <span class="math">\(D\)</span> is linearly separable. We now want to find two hyperplanes with no points between them, but we don't have a way to visualize them</em>.</p>
 <p><strong>Take another look at the hyperplane equation.</strong></p>
 <div class="math">$$w^Tx=0$$</div>
+<blockquote>
+<p>Another way in which the above equation can be written as is this:</p>
+</blockquote>
+<div class="math">$$w.x + b = 0 $$</div>
+<p>First, we recognize another notation for the dot product, the article uses <span class="math">\(w.x\)</span> instead of <span class="math">\(w^Tx\)</span>.</p>
+<p>Now wait a minute... Where does the <span class="math">\(+b\)</span> come from?</p>
+<p>It's a notation policy. Our notation incoporates 3D vectors. Whereas other books have a 2D notation:</p>
+<p>Given 2 3-D vectors <span class="math">\(w'(b,-a,1)\)</span> and <span class="math">\(x'(1,x,y)\)</span></p>
+<div class="math">$$w.x=b \times (1) + (-a) \times x + 1 \times y$$</div>
+<div class="math">$$ w.x=y-ax+b \qquad \qquad (1)$$</div>
+<p>Given 2 2-dimensional vectors <span class="math">\(w'(-a,1)\)</span> and <span class="math">\(x'(x,y)\)</span></p>
+<div class="math">$$ w'.x'=(-a) \times x + 1 \times y $$</div>
+<div class="math">$$w'.x'=y-ax \qquad \qquad (2)$$</div>
+<p>Now, if we add <span class="math">\(b\)</span> on both sides of the equation <span class="math">\((2)\)</span> we get:</p>
+<div class="math">$$w'.x' + b = y - ax + b$$</div>
+<div class="math">$$w'.x' + b=w.x$$</div>
+<p><strong> For the rest of this article, we will use 2-dimensional vectors</strong> ( as in equation(2))</p>
+<p>Given a hyperplane <span class="math">\(H_0\)</span> separating the dataset satisfying :</p>
+<div class="math">$$w.x+b=0$$</div>
+<p>We can select 2 other hyperplanes <span class="math">\(H_1\)</span> and <span class="math">\(H_2\)</span> which also separate the data and have the following equations :</p>
+<div class="math">$$w.x + b = \delta$$</div>
+<p>and</p>
+<div class="math">$$w.x + b = -\delta$$</div>
+<p>
+so that <span class="math">\(H_0\)</span> is equidistant from <span class="math">\(H_1\)</span> and <span class="math">\(H_2\)</span>.</p>
+<p>However, here the variable <span class="math">\(\delta\)</span> is not necessary. So we can set <span class="math">\(\delta= 1\)</span> to simplify the problem.</p>
+<div class="math">$$ H_1 \rightarrow w.x + b = 1$$</div>
+<p>and</p>
+<div class="math">$$ H_2 \rightarrow x + b = -1$$</div>
+<blockquote>
+<p>Now, we want to be sure that they have no points between.</p>
+</blockquote>
+<p>We won't select <em>any</em> hyperplane, we will only select the those who meet the 2 following <strong>constraints</strong>:</p>
+<p>For each vector <span class="math">\(x_i\)</span> either :</p>
+<div class="math">$$w.x_i + b \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (4)$$</div>
+<div class="math">$$w.x_i + b \le -1 \space \text{ for } \space x_i \space \text{ having the class -1} \space \qquad \qquad (5)$$</div>
+<h3 id="understanding-the-constraints_1">Understanding the constraints:</h3>
+<p>On the following figures, all redpoints have the class <span class="math">\(1\)</span> and all blue points have the class <span class="math">\(-1\)</span>.</p>
+<p>Let's consider point <span class="math">\(A\)</span>. It is red so it has the class <span class="math">\(1\)</span> and we need to verify it does <span class="math">\(w \dot x_i + b \ge 1\)</span></p>
+<p>When <span class="math">\(x_i = A\)</span> we see that the point is on the hyperplane so <span class="math">\(w \dot x_i + b = 1\)</span> and the constraint is respected. The same applies for <span class="math">\(B\)</span>.</p>
+<p>When <span class="math">\(x_i=C\)</span>, we see that the point is above the hyperplane so <span class="math">\(w.x_i +b \gt 1\)</span> and the constraint is respected. The same applies for <span class="math">\(D,E,F\)</span> and <span class="math">\(G\)</span>.</p>
+<p>With an analogous reasoning, you should find that the second constraint is respected for the class <span class="math">\(-1\)</span>.</p>
+<p><img alt="OMH_4" src="./assets/2017-01-17-SVM-5ce2d.png"/></p>
+<p>The following hyperplane also satisfies the constraints :</p>
+<p><img alt="OMH_5" src="./assets/2017-01-17-SVM-d024f.png"/></p>
+<h5 id="what-does-it-mean-when-a-constraint-is-not-respected">What does it mean when a constraint is not respected?</h5>
+<p>It means that we cannot select these two hyperplanes. You can see that every time the constraints are not satisfied, there are points between 2 hyperplanes.</p>
+<blockquote>
+<p>By defining the constraints, we found a way to reach our initial goal of selecting two hyperplanes <strong>without points between them</strong>. And it works not only in our examples but also in <span class="math">\(p\)</span>-dimensions.</p>
+</blockquote>
+<h5 id="combining-both-constraints">Combining both constraints:</h5>
+<p>In mathematics, people like things to be expressed concisely.</p>
+<p>Equations <strong>(4)</strong> and <strong>(5)</strong> can be combined into a single constraint:</p>
+<p>We start with equation <strong>(5)</strong>:</p>
+<p>For <span class="math">\(x_i\)</span> having the class : <span class="math">\(-1\)</span> :</p>
+<div class="math">$$w \dot x_i + b \le -1$$</div>
+<p>And multiply both sides by <span class="math">\(y_i\)</span>(which is always <span class="math">\(-1\)</span> in this equation).</p>
+<div class="math">$$y_i$$</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
