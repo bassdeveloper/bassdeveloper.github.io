@@ -99,7 +99,7 @@ This file is used to run the whole application. It hosts a server and listens to
 <span class="p">})</span>
 </pre></div>
 <ul>
-<li><strong>Request Object</strong> : The request object represents HTTP request and has properties for the request query string, parameters, body, HTTP headers and so on..</li>
+<li><strong>Request Object</strong> : The request object represents HTTP request and has properties for the <em>request query string, parameters, body, HTTP headers</em> and so on..</li>
 <li><strong>Response Object</strong> : The response object represents the HTTP response that an Express app sends when it gets an HTTP request.</li>
 </ul>
 <p>You can print <strong>req</strong> and <strong>res</strong> objects which provide a lot of information related to HTTP request and response including cookies, sessions, URl, etc.</p>
@@ -146,6 +146,17 @@ This file is used to run the whole application. It hosts a server and listens to
    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Example app listening at http://%s:%s"</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
 <span class="p">})</span>
 </pre></div>
+<h2 id="body-parser">Body Parser</h2>
+<p>Before we understand what the Body Parser does, we need to understand what is middleware:</p>
+<h3 id="middleware">Middleware:</h3>
+<ul>
+<li>
+<p><strong>Any software that provides services to software applications beyond those available from the operating system</strong>.</p>
+</li>
+<li>
+<p>It can be described as <em>"software glue"</em></p>
+</li>
+</ul>
   </div>
   <div class="tag-cloud">
     <p>

@@ -322,7 +322,7 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <p>For each vector <span class="math">\(x_i\)</span> either :</p>
 <div class="math">$$w.x_i + b \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (4)$$</div>
 <div class="math">$$w.x_i + b \le -1 \space \text{ for } \space x_i \space \text{ having the class -1} \space \qquad \qquad (5)$$</div>
-<h3 id="understanding-the-constraints_1">Understanding the constraints:</h3>
+<h5 id="understanding-the-constraints">Understanding the constraints:</h5>
 <p>On the following figures, all redpoints have the class <span class="math">\(1\)</span> and all blue points have the class <span class="math">\(-1\)</span>.</p>
 <p>Let's consider point <span class="math">\(A\)</span>. It is red so it has the class <span class="math">\(1\)</span> and we need to verify it does <span class="math">\(w \dot x_i + b \ge 1\)</span></p>
 <p>When <span class="math">\(x_i = A\)</span> we see that the point is on the hyperplane so <span class="math">\(w \dot x_i + b = 1\)</span> and the constraint is respected. The same applies for <span class="math">\(B\)</span>.</p>
@@ -346,7 +346,104 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <div class="math">$$y_i(w.x_i+b) \ge y_i(-1)$$</div>
 <p>Which means equation(5) can also be written as :</p>
 <div class="math">$$y_i(w.x_i + b) \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (6)$$</div>
-<div class="math">$$y_i(w.x_i + b) \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (6)$$</div>
+<p>In equation (4), as <span class="math">\(y_i=1\)</span> it doesn't change the sign of the inequation.</p>
+<div class="math">$$y_i(w.x_i + b) \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (7)$$</div>
+<p>We combine equations <span class="math">\((6)\)</span> and <span class="math">\((7)\)</span>:</p>
+<div class="math">$$y_i(w.x_i + b) \ge 1 \space \text{ for all } 1 \le i \le n$$</div>
+<p>We now have a unique constraint ( equation 8) instead of two (equations 4 and 5), but they are mathematically equivalent. So their effect is the same (there will be no points between the 2 hyperplanes).</p>
+<h4 id="step-3-maximize-the-distance-betweeen-the-2-hyperplanes_1">Step 3  : Maximize the distance betweeen the 2 hyperplanes.</h4>
+<p><strong>The hardest part!</strong></p>
+<p>a) What is the distance between our two hyperplanes ?</p>
+<p>Before trying maximize the distance between the two hyperplane, we will first ask ourselves: <em>How do we compute it?</em></p>
+<p>Let:</p>
+<ul>
+<li><span class="math">\(H_0\)</span> be the hyperplane having the equation <span class="math">\(w.x + b = -1\)</span></li>
+<li><span class="math">\(H_1\)</span> be the hyperplane having the equation <span class="math">\(w.x + b = 1\)</span></li>
+<li><span class="math">\(x_0\)</span> be a point in the hyperplane <span class="math">\(H_0\)</span>.</li>
+</ul>
+<p>We will call <span class="math">\(m\)</span> the perpendicular distance from <span class="math">\(x_0\)</span> to the hyperplane <span class="math">\(H_1\)</span>. By definition, <span class="math">\(m\)</span> is what was defined as <em>margin</em>.</p>
+<p>As <span class="math">\(x_0\)</span> is in <span class="math">\(H_0\)</span>, <span class="math">\(m\)</span> is the distance betweeen hyperplanes <span class="math">\(H_0\)</span> and <span class="math">\(H_1\)</span>.</p>
+<p><strong>We will now try to find the value of <span class="math">\(m\)</span></strong></p>
+<p><img alt="OMH_6" src="assets/2017-01-17-SVM-aba3c.png"/></p>
+<p>You might be tempted to think that if we add <span class="math">\(m\)</span> to <span class="math">\(\vec{x_0}\)</span></p>
+<p>We will get another point, and this point will be on the other hyperplane !</p>
+<p>But it does not work, because <span class="math">\(m\)</span> is a <em>scalar</em>, and <span class="math">\(\vec{x_0}\)</span> is a <em>vector</em> and adding a scalar with a vector is not possible.</p>
+<p>However, we know that adding two vectors is possible, so if we transform <span class="math">\(m\)</span> into a vector we will be able to do an addition.</p>
+<p><img alt="OMH_7" src="assets/2017-01-17-SVM-4821d.png"/></p>
+<p>Looking at the pitcure, the necessity of a vector becomes clear. With just the length <span class="math">\(m\)</span>, we don't have one crucial information: <strong>the direction</strong>.</p>
+<p>We can't add a scalar to a vector, but we know if we multiply a scalar with a vector, we will get another vector.</p>
+<p>From our initial statement, we want this vector:</p>
+<ol>
+<li>To have a magnitude <span class="math">\(m\)</span>.</li>
+<li>To be perpendicular to the hyperplane <span class="math">\(H_1\)</span>.</li>
+</ol>
+<p>Fortunately, we already know a vector perpendicular to <span class="math">\(H_1\)</span>, that is <span class="math">\(\vec{w}\)</span> (because <span class="math">\(H_1=w.x+b = 1\)</span>)</p>
+<p><img alt="OMH_8" src="assets/2017-01-17-SVM-32d1e.png"/></p>
+<p>Let's define <span class="math">\(\hat{u}=\frac{w}{|w|}\)</span> the unit vector of <span class="math">\(\vec{w}\)</span>. As it is a unit vector <span class="math">\(|\hat{u}|=1\)</span> and it has the same direction as <span class="math">\(\vec{w}\)</span> so it is also perpendicular to the hyperplane.</p>
+<p><img alt="OMH_9" src="assets/2017-01-17-SVM-94192.png"/></p>
+<p>If we multiply <span class="math">\(\hat{u}\)</span> by <span class="math">\(m\)</span>, we get the vector <span class="math">\(\vec{k}=m\hat{u}\)</span> and :</p>
+<ol>
+<li><span class="math">\(|\vec{k}| = m\)</span></li>
+<li><span class="math">\(\vec{k}\)</span> is perpendicular to <span class="math">\(H_1\)</span> (because it has the same direction as <span class="math">\(u\)</span>).</li>
+</ol>
+<p>From these properties, we can see that <span class="math">\(k\)</span> is the vector we were looking for:</p>
+<p><img alt="OMH_10" src="assets/2017-01-17-SVM-6cca1.png"/></p>
+<div class="math">$$\vec{k}=m\hat{u}=m\frac{w}{|w|}$$</div>
+<p><strong>Thus, we have successfully transformed our scalar <span class="math">\(m\)</span> into a vector <span class="math">\(\vec{k}\)</span> which we can use to perform an addition with the vector <span class="math">\(\vec{x_0}\)</span>.</strong></p>
+<p>If we start from the point <span class="math">\(x_0\)</span> and add <span class="math">\(k\)</span>, we find that the point <span class="math">\(z_0=x_0 + k\)</span> is in the hyperplane <span class="math">\(H_1\)</span> as shown in the following figure:</p>
+<p><img alt="OMH_11" src="assets/2017-01-17-SVM-018d0.png"/></p>
+<p>The fact that <span class="math">\(z_0\)</span> is in <span class="math">\(H_1\)</span> means that</p>
+<div class="math">$$ w.z_0 + b = 1 \qquad \qquad (10)$$</div>
+<p>We can replace <span class="math">\(z_0\)</span> by <span class="math">\(x_0+k\)</span> because that is how we constructed it.</p>
+<div class="math">$$w.(x_0 + k) + b = 1 \qquad \qquad (11)$$</div>
+<p>We can now replace <span class="math">\(k\)</span> using equation <span class="math">\((9)\)</span></p>
+<div class="math">$$w.(x_0 + m\frac{w}{|w|}) + b = 1 \qquad \qquad (12)$$</div>
+<p>We now expand the equation (12)</p>
+<div class="math">$$w.x_0 + m\frac{w.w}{|w|} + b = 1 \qquad \qquad (13)$$</div>
+<p>The dot product of a vector with itself is the square of its norm so:</p>
+<div class="math">$$w.x_0 + m\frac{{|w|}^2}{|w|} + b = 1 \qquad \qquad (14)$$</div>
+<div class="math">$$w.x_0 + m|w| + b = 1 \qquad \qquad (14)$$</div>
+<div class="math">$$w.x_0 + b = 1 - m|w| \qquad \qquad (14)$$</div>
+<p>As <span class="math">\(x_0\)</span> is in <span class="math">\(H_0\)</span> then <span class="math">\(w.x_0 + b = -1\)</span></p>
+<div class="math">$$-1 = 1 - m|w| \qquad \qquad (17)$$</div>
+<div class="math">$$m|w|=2$$</div>
+<div class="math">$$m=\frac{2}{|w|}$$</div>
+<p>This is it! We found a way to compute <span class="math">\(m\)</span>.</p>
+<h5 id="b-how-to-maximize-the-distance-between-our-2-hyperplanes">(b) How to maximize the distance between our 2 hyperplanes.</h5>
+<p>We now have the formula to compute the margin:</p>
+<div class="math">$$m=\frac{2}{|w|}$$</div>
+<p>The only variable we can change in this formula is the norm of <span class="math">\(w\)</span>.</p>
+<p>Giving it different values:</p>
+<ul>
+<li>When <span class="math">\(|w| = 1 $ then $m=2\)</span></li>
+<li>When <span class="math">\(|w| = 2 $ then $m=1\)</span></li>
+<li>
+<ul>
+<li>When <span class="math">\(|w| = 4 $ then $m=\frac{1}{2}\)</span></li>
+</ul>
+</li>
+</ul>
+<p>One can easily see that the bigger the norm is, the smaller the margin becomes.</p>
+<blockquote>
+<p>Maximizing the margin is the same thing as minimizing the norm of w</p>
+</blockquote>
+<p>Our goal is to maximize the margin. Among all possible hyperplanes meeting the constraints, we will choose the hyperplane with the smallest <span class="math">\(|w|\)</span> because it is the one which will have the biggest margin.</p>
+<p><strong>This gives us the following <code>optimization problem</code></strong></p>
+<blockquote>
+<blockquote>
+<p>Minimize in <span class="math">\((w,b)\)</span></p>
+</blockquote>
+<p>
+<div class="math">$$|w|$$</div>
+</p>
+<p>subject to <span class="math">\(y_i(w.x_i + b) \ge 1\)</span></p>
+<p>(for any <span class="math">\(i=1,...,n\)</span>)</p>
+</blockquote>
+<p>Solving the problem is like solving an equation. Once we have solved it, we will have found the couple <span class="math">\((w,b)\)</span> for which  <span class="math">\(|w|\)</span> is the smallest possible and the constraints we fixed are met. Which means we will have the equation of the optimal hyperplane !</p>
+<blockquote>
+<p>The optimization will be covered later in another article.
+See also <a href="https://bassdeveloper.github.io/kernel-trick.html#kernel-trick"><code>The kernel trick</code></a></p>
+</blockquote>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
