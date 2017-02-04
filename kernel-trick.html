@@ -87,7 +87,115 @@
 
 
   <div>
-    
+    <h1 id="kernel">KERNEL?</h1>
+<blockquote>
+<p>A Kernel Function <span class="math">\(K(\vec{v},\vec{w})\)</span> is a function <span class="math">\(K:\Re^N \times \Re^N \rightarrow \Re\)</span> that obeys certain mathematical properties.</p>
+</blockquote>
+<p>For an intermediate definition, think of the kernel function as one that computes a <strong>dot product</strong> between <span class="math">\(\vec{v}, \vec{w}\)</span>.</p>
+<h2 id="linear-svm-binary-classification">Linear SVM, Binary Classification</h2>
+<p>Suppose that we have a 2-class dataset <span class="math">\(D\)</span>, and wewish to train a classifier <span class="math">\(C\)</span> to predict the class labels of future data points. This is known as <code>binary classification</code> problem, and can be cast as <code>Yes/No</code> questions such as :</p>
+<ul>
+<li>
+<p>Medicine :</p>
+<blockquote>
+<p>Given a patient's vital data, does the patient have a cold?</p>
+</blockquote>
+</li>
+<li>
+<p>Computer Vision :</p>
+<blockquote>
+<p>Does the image contain a person?</p>
+</blockquote>
+</li>
+</ul>
+<p>A popular off-the-shelf classifier is the <strong>Support Vector Machine (SVM)</strong>, so we will use this as our classification algorithm.</p>
+<h3 id="binary-vs-multiclass-classification"><em>Binary vs. Multiclass Classification</em></h3>
+<p>Binary classifiers are often the focus due to their simpler presentation.</p>
+<p>However, many problems inherently have more than 2 possible outcomes.</p>
+<p>For instance,</p>
+<blockquote>
+<p>To train a face verification system that can detect the identity of a photograph from a pool of <span class="math">\(N\)</span> people (where $N \gt 2 $).</p>
+</blockquote>
+<p><strong>This sort of problem is known as a <code>Multiclass</code> classification problem.</strong></p>
+<p>Most mathematical definitions are binary classifiers.</p>
+<p>There are 2 main approaches to the <code>Multiclass</code> problem :</p>
+<ol>
+<li>Directly add a multiclass extension to a binary classifier.</li>
+<li><strong>Pros</strong>: Provides a principled way of solving the muticlass problem.</li>
+<li>
+<p><strong>Cons</strong> : Multiclass extensions tend to be much more complicated than the original binary formulation. This may lead to significantly longer training and test procedures. Even worse, experimental results may not be that much better than ad-hoc methods like (2).</p>
+</li>
+<li>
+<p>Combine multiple binary classifiers to create a 'mega' multi-multiclass classifier. 2 popular implementations of this idea are the <code>"One-versus-One" (OVO)</code> and <code>"One-versus-All" (OVA)</code> scheme.</p>
+</li>
+<li>
+<p><strong>Pros</strong> : Simple idea, easy to implement, can be much faster than multiclass extensions. Some people suggest that empirical results tend to be on par with (1).</p>
+</li>
+<li><strong>Cons</strong> : Ultimately, it is an ad-hoc method for solving the multiclass problem - there may exist datasets for which OVO?OVA will perform poorly on, but general multiclass classifiers (1) perform well on.</li>
+</ol>
+<p>Recall that a Linear SVM finds a hyperplane <span class="math">\(\vec{w}\)</span> that best separates the data points in the training set by class label.</p>
+<blockquote>
+<p><span class="math">\(\vec{w}\)</span> is called the <strong>decision boundary</strong>, and cuts the space into 2 halves : one half for class '0', and the other half for class '1'.</p>
+</blockquote>
+<p>To classify a point <span class="math">\(x_i \epsilon X\)</span> (where <span class="math">\(X\)</span> is the dataset), we simply see which 'side' of <span class="math">\(\vec{w}\)</span> that <span class="math">\(x_i\)</span> lies.</p>
+<p><strong>Note</strong>: This description only applies to binary classification problems -</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   <div class="tag-cloud">
     <p>

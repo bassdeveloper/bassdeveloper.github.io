@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="An insight into Retrieve and Rank service of Watson Developer Cloud ( a.k.a. Bluemix)." />
+<meta name="keywords" content="RnR, Bluemix, IBM, Rank, Retrieve">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Rank and Retrieve"/>
+<meta property="og:description" content="An insight into Retrieve and Rank service of Watson Developer Cloud ( a.k.a. Bluemix)."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./bluemix-rnr.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-02-03 12:15:00+01:00"/>
+<meta property="article:modified_time" content="2017-02-03 12:30:00+01:00"/>
+<meta property="article:author" content="./author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="RnR"/>
+<meta property="article:tag" content="Bluemix"/>
+<meta property="article:tag" content="IBM"/>
+<meta property="article:tag" content="Rank"/>
+<meta property="article:tag" content="Retrieve"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Rank and Retrieve</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href=".">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="bluemix-rnr">Rank and Retrieve</h1>
+    <p>
+          Posted on Fri 03 February 2017 in <a href="./category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1 id="whats-in-the-service">What's in the service?</h1>
+<p>The IBM Watson Retrieve and Rank service combines two information retrieval components in a single service:
+<a href="http://www.mathjax.org">
+<img alt="Powered by MathJax" border="0" src="//cdn.mathjax.org/mathjax/badge/badge-square-3.png" title="Powered by MathJax"/>
+</a>
+1. The power of <strong>Apache Solr</strong> and
+2. A sophisticated <strong>machine learning</strong> capability.</p>
+<p>This combination provides users with more relevant results by automatically reranking them by using these machine learning algorithms.</p>
+<p><img alt="RnR_1" src="./assets/2017-02-03-RanknRetrieve-29811.png"/></p>
+<h2 id="whats-apache-solr">What's Apache Solr?</h2>
+<blockquote>
+<p><strong>Solr</strong> is a <strong>standalone enterprise search server</strong> with a <em>REST-like API</em>. You put documents in it (called "indexing") via JSON, XML, CSV or binary over HTTP. You query it via HTTP GET and receive JSON, XML, CSV or binary results.</p>
+</blockquote>
+<h2 id="stages">Stages</h2>
+<h3 id="1-service-creation-on-bluemix-using-cloudfoundry-cli">1. Service Creation on Bluemix using CloudFoundry - CLI</h3>
+<div class="highlight"><pre><span></span><span class="c1"># 1. Cloudfoundry Set the API :</span>
+$ cf api https://api.ng.bluemix.net
+<span class="c1">#Setting api endpoint to https://api.ng.bluemix.net...</span>
+<span class="c1">#OK</span>
+
+<span class="c1">#API endpoint:   https://api.ng.bluemix.net</span>
+<span class="c1">#API version:    2.54.0</span>
+<span class="c1"># 2. Login using your Bluemix Account Credentials</span>
+$ cf login
+<span class="c1"># &gt; Email : {Enter email here}</span>
+<span class="c1"># &gt; Password : {Password}</span>
+
+<span class="c1"># 3. Create a service in Bluemix</span>
+$ cf create_service retrieve_and_rank &lt;service-type&gt; &lt;service-name&gt; &lt;service-key-name&gt;
+
+<span class="c1"># 4. Create a service key</span>
+$ cf create-service-key &lt;service-name&gt; &lt;service-key&gt;
+
+<span class="c1"># 5. Retrieve Service Key details</span>
+$ cf service-key &lt;service-name&gt; &lt;service-key&gt;
+<span class="c1"># {</span>
+<span class="c1">#  "password": "YIGlzDMD2T02",</span>
+<span class="c1">#  "url": "https://gateway.watsonplatform.net/retrieve-and-rank/api",</span>
+<span class="c1">#  "username": "b0be6eb1-09f5-46a4-9321-2bb5bc0eb758"</span>
+<span class="c1"># }</span>
+
+<span class="c1"># Save these credentials.</span>
+</pre></div>
+<h3 id="2-create-a-solr-cluster">2. Create a Solr CLUSTER</h3>
+<p>Here, we will use <code>curl</code> extensively. It's a good idea to get some more information about curl.</p>
+<h4 id="curl-from-man-pages">Curl (from <code>man-pages</code>)</h4>
+<p><code>curl</code> is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction.</p>
+<p>curl offers a busload of useful tricks like <em>proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more</em>. As you will see below, the number of features will make your head spin!</p>
+<p><code>curl</code> is powered by <code>libcurl</code> for all transfer-related features.</p>
+<h5 id="options"><code>OPTIONS</code></h5>
+<p>`-X, --request <command>``</command></p>
+<p>(HTTP) Specifies a custom request method to use when communicating with the HTTP server. The specified request method will be used instead of the method otherwise used (which defaults to GET). Read the HTTP 1.1 specification for details and explanations. Common additional HTTP requests include PUT and DELETE, but related technologies like WebDAV offers PROPFIND, COPY, MOVE and more.</p>
+<p>Normally you don't need this option. All sorts of GET, HEAD, POST and PUT requests are rather invoked by using dedicated command line options.</p>
+<p><code>-u, --user &lt;user:password&gt;</code></p>
+<p>Specify the user name and password to use for server authentication. Overrides -n, --netrc and --netrc-optional.</p>
+<p>If you simply specify the user name, curl will prompt for a password.</p>
+<p>The user name and passwords are split up on the first colon, which makes it impossible to use a colon in the user name with this option. The password can, still.</p>
+<p><code>-d, --data &lt;data&gt;</code></p>
+<p>(HTTP) Sends the specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type application/x-www-form-urlencoded.</p>
+<h4 id="2-setting-up-the-cluster_1">2. Setting up the Cluster</h4>
+<div class="highlight"><pre><span></span><span class="c1"># 1.  Send the `username` and `password` to the Solr cluster using HTTP POST request.</span>
+curl -X POST -u <span class="s2">"{username}"</span>:<span class="s2">"{password}"</span> <span class="s2">"https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters"</span> -d <span class="s2">""</span>
+
+<span class="c1"># 2. Save the solr_cluster_id {"solr_cluster_id":"sc2dbe6354_ddf3_46bb_b085_294a2d02cbbd","cluster_name":"","cluster_size":"","solr_cluster_status":"NOT_AVAILABLE"}</span>
+</pre></div>
+<ol>
+<li>Copy the <code>solr_cluster_id</code>. You'll need it later.</li>
+</ol>
+<h4 id="3-create-a-collection">3. Create a collection</h4>
+<blockquote>
+<p>A Solr collection is a logical index of the data in your documents.</p>
+<p>A collection is a way to keep data separate in the cloud.</p>
+</blockquote>
+<p>In this stage, you create a collection, associate it with a configuration, and upload and index your documents.</p>
+<div class="highlight"><pre><span></span>$ curl -u <span class="s2">"{username}"</span>:<span class="s2">"{password}"</span> <span class="s2">"https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters/{solr_cluster_id}"</span>
+</pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/rnr.html">RnR</a>
+      <a href="./tag/bluemix.html">Bluemix</a>
+      <a href="./tag/ibm.html">IBM</a>
+      <a href="./tag/rank.html">Rank</a>
+      <a href="./tag/retrieve.html">Retrieve</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : ".",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>
