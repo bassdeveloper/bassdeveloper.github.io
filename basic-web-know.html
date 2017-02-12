@@ -53,7 +53,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -89,24 +89,24 @@
 
 
   <div>
-    <h2 id="basic-web-knowledge">Basic Web Knowledge</h2>
-<h1 id="what-is-the-document-object-model_1">What is the Document Object Model?</h1>
+    <h2>Basic Web Knowledge</h2>
+<h1>What is the Document Object Model?</h1>
 <p>The Document Object Model is a platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content,
 structure and style of documents. The document can be further processed and the results of that processing can be incorporated back into the presented page.</p>
 <p>It provides a structured representation of the <a href="https://www.w3.org/TR/DOM-Level-1/introduction.html">document as a tree</a>.
 The DOM defines methods that allow access to the tree, so that they can change the document structure, style and content. The DOM provides a representation of the document as a structured group of nodes and objects, possessing various properties and methods.
 Nodes can also have event handlers attached to them, and once an event is triggered, the event handlers get executed. Essentially, it connects web pages to scripts or programming languages.</p>
-<h1 id="why-the-document-object-model">Why the Document Object Model?</h1>
+<h1>Why the Document Object Model?</h1>
 <p>"Dynamic HTML" is a term used by some vendors to describe the combination of HTML, style sheets and scripts that allows documents to be animated.
 The W3C has received several submissions from members companies on the way in which the object model of HTML documents should be exposed to scripts.
 These submissions do not propose any new HTML tags or style sheet technology</p>
-<h1 id="hadow-dom-101">$hadow DOM 101</h1>
+<h1>$hadow DOM 101</h1>
 <p>When making widgets out of HTML5 and Javascript, the DOM tree inside a widget isn't encapsulated.<br>
 The lack of encapsulation means your document stylesheet might accidentally apply to parts inside the widget.<br>
 <em> Your JS might accidentally modify parts inside the widget.
 </em> IDs may overlap with IDs inside the widget.
-* Upgrading might break the widget's internal details</br></br></p>
-<h1 id="webcomponents">WebComponents</h1>
+* Upgrading might break the widget's internal details</p>
+<h1>WebComponents</h1>
 <ol>
 <li>Templates</li>
 <li>Shadow DOM</li>
@@ -114,19 +114,21 @@ The lack of encapsulation means your document stylesheet might accidentally appl
 <li>Packaging</li>
 </ol>
 <p>Shadow DOM addresses the DOM encapsulation problem.  </p>
-<h2 id="shadow-world">Shadow World</h2>
+<h2>Shadow World</h2>
 <p>With Shadow DOM, elements can get a new kind of node associated with them.<br>
-This new kind of node is called <strong>shadow root</strong>. The element that has a shadow root associated with it is called a <strong>shadow host</strong>.  </br></p>
+This new kind of node is called <strong>shadow root</strong>. The element that has a shadow root associated with it is called a <strong>shadow host</strong>.  </p>
 <p>We need to create a Shadow Root for the element -&gt; #nameTag.</p>
 <div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-<span class="kd">var</span> <span class="nx">shadow</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#nameTag'</span><span class="p">).</span><span class="nx">createShadowRoot</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#nameTagTemplate'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">shadow</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#nameTag&#39;</span><span class="p">).</span><span class="nx">createShadowRoot</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#nameTagTemplate&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">importNode</span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 <span class="nx">shadow</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">clone</span><span class="p">);</span>
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </pre></div>
+
+
 <p>Using the Shadow DOM, we have hidden the presentation details from the actual DOM.</p>
-<h2 id="rest">REST :</h2>
+<h2>REST :</h2>
   </div>
   <div class="tag-cloud">
     <p>

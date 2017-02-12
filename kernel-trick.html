@@ -23,11 +23,11 @@
 
 
 <meta name="author" content="Rishabh Chakrabarti" />
-<meta name="description" content="An insight into the Kernel-trick which allow higher dimension access/operability." />
+<meta name="description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html" />
 <meta name="keywords" content="Kernel-Trick, Kernel">
 <meta property="og:site_name" content="Bassdeveloper's Blog"/>
 <meta property="og:title" content="Kernel Based Methods"/>
-<meta property="og:description" content="An insight into the Kernel-trick which allow higher dimension access/operability."/>
+<meta property="og:description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./kernel-trick.html"/>
 <meta property="og:type" content="article"/>
@@ -51,7 +51,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -87,12 +87,13 @@
 
 
   <div>
-    <h1 id="kernel">KERNEL?</h1>
+    <h1>KERNEL?</h1>
 <blockquote>
+<p>Do Read : http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html</p>
 <p>A Kernel Function <span class="math">\(K(\vec{v},\vec{w})\)</span> is a function <span class="math">\(K:\Re^N \times \Re^N \rightarrow \Re\)</span> that obeys certain mathematical properties.</p>
 </blockquote>
 <p>For an intermediate definition, think of the kernel function as one that computes a <strong>dot product</strong> between <span class="math">\(\vec{v}, \vec{w}\)</span>.</p>
-<h2 id="linear-svm-binary-classification">Linear SVM, Binary Classification</h2>
+<h2>Linear SVM, Binary Classification</h2>
 <p>Suppose that we have a 2-class dataset <span class="math">\(D\)</span>, and wewish to train a classifier <span class="math">\(C\)</span> to predict the class labels of future data points. This is known as <code>binary classification</code> problem, and can be cast as <code>Yes/No</code> questions such as :</p>
 <ul>
 <li>
@@ -109,7 +110,7 @@
 </li>
 </ul>
 <p>A popular off-the-shelf classifier is the <strong>Support Vector Machine (SVM)</strong>, so we will use this as our classification algorithm.</p>
-<h3 id="binary-vs-multiclass-classification"><em>Binary vs. Multiclass Classification</em></h3>
+<h3><em>Binary vs. Multiclass Classification</em></h3>
 <p>Binary classifiers are often the focus due to their simpler presentation.</p>
 <p>However, many problems inherently have more than 2 possible outcomes.</p>
 <p>For instance,</p>
@@ -138,7 +139,70 @@
 <p><span class="math">\(\vec{w}\)</span> is called the <strong>decision boundary</strong>, and cuts the space into 2 halves : one half for class '0', and the other half for class '1'.</p>
 </blockquote>
 <p>To classify a point <span class="math">\(x_i \epsilon X\)</span> (where <span class="math">\(X\)</span> is the dataset), we simply see which 'side' of <span class="math">\(\vec{w}\)</span> that <span class="math">\(x_i\)</span> lies.</p>
-<p><strong>Note</strong>: This description only applies to binary classification problems -</p>
+<p><strong>Note</strong>: This description only applies to binary classification problems.</p>
+<p>A sample dataset :</p>
+<p><img alt="Linear_sample" src="./assets/2017-01-22-Kernel-trick-5e30e.png"></p>
+<p>Training and evaluating a linear SVM on this dataset yields the following decision boundary.
+<img alt="SVM_linear" src="./assets/2017-01-22-Kernel-trick-ca976.png"></p>
+<p>Because the data is easily linearly separable, the SVM is able to find a margin that perfectly separates the training data, which also generalizes very well to the test set. The hyperplane (a line in ) separates the space into two halves: points that live in the brownish region are classified as class '1', whereas points that live in the blueish region are classified as class '0'.</p>
+<p><strong>Unfortunately, in practice we will not always encounter such well-behaved datasets.</strong></p>
+<p>Let's take a look at a dataset that is not linearly separable.</p>
+<h2>A Linearly Nonseparable Dataset</h2>
+<p><img alt="Non_linear_dataset" src="./assets/Non_linear_dataset.png"></p>
+<p>The above dataset is a synthetically generated dataset.</p>
+<div class="highlight"><pre><span></span>==== Evaluating Random Classifier
+== Accuracy: 0.45
+             precision    recall  f1-score   support
+
+          0       0.74      0.42      0.53       151
+          1       0.23      0.55      0.33        49
+
+avg / total       0.62      0.45      0.48       200
+
+==== Finished Random Classifier (0.000 s)
+
+==== Evaluating SVM (kernel=&#39;linear&#39;), 2-fold cross validation
+    Parameters to be chosen through cross validation:
+        C: [1.0, 10.0, 100.0, 1000.0, 10000.0]
+== Best Params: {&#39;kernel&#39;: &#39;linear&#39;, &#39;C&#39;: 1.0}
+== Best Score: 0.476666666667
+== Accuracy: 0.445
+             precision    recall  f1-score   support
+
+          0       0.78      0.37      0.50       151
+          1       0.26      0.67      0.37        49
+
+avg / total       0.65      0.45      0.47       200
+
+==== Finished Linear SVM (1.290 s)
+</pre></div>
+
+
+<p><img alt="Linear_Kernel" src="./assets/Linear_Kernel.png"></p>
+<p>As we can see, the <em>RandomClassifier</em> and <em>Linear SVM</em> both perform poorly. It's always a bummer when our classifier is as bad as random guessing!</p>
+<p>To get a geometric sense of the SVM's failure to cope with this dataset, see the above figure for the decision boundary.</p>
+<h2>Dealing with Nonseparable Data</h2>
+<p>Obviously, we would like to handle linearly nonseparable data - otherwise, SVMs wouldn't be very useful.</p>
+<blockquote>
+<p>In the SVM example, the primary obstacle is the constraint that the decision boundary be linear in the original feature space (here,<span class="math">\(\Re^2\)</span> ).</p>
+</blockquote>
+<p><em>However, this is not always the correct decision boundary to find. For instance, in Figure 4, a better decision boundary would be a circular decision boundary that separates the outer cyan ring from the inner red ring.</em></p>
+<blockquote>
+<p>Could we generalize the SVM formulation to explicitly discover decision boundaries with arbitrary shape?</p>
+</blockquote>
+<p>As it turns out, if you get into the nitty-gritty mathematical details of the SVM, the derivations assume that the decision boundary is a separating hyperplane <span class="math">\(\vec{w}\)</span>.</p>
+<ul>
+<li>
+<p>I imagine there is a way to recast the SVM <em>optimization problem</em> such that a <em>more-general decision surface</em> can be found, but I'd bet that the resulting optimization would carry a significant computational burden when compared to the linear SVM formulation.</p>
+</li>
+<li>
+<p>So, it appears that we are stuck with an SVM that, for an N-dimensional dataset, finds an (N-1)-dimensional separating hyperplane.</p>
+</li>
+</ul>
+<p><strong>What if we could play with N...?</strong></p>
+<h2>IDEA !</h2>
+<p>Separable in a higher dimension</p>
+<p><img alt="Higher_Dimension" src="./assets/Higher_Dimension.png"></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

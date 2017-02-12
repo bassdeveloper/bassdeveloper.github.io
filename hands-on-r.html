@@ -51,7 +51,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -87,7 +87,7 @@
 
 
   <div>
-    <h3 id="basic-points">Basic Points</h3>
+    <h3>Basic Points</h3>
 <ul>
 <li>Vector recycling !</li>
 <li>Function  returns the last line</li>
@@ -101,8 +101,8 @@ doubles, integers, characters, logicals, complex, and raw.</li>
 make an empty raw vector of length n with raw(n). See the help page of raw for more
 options when working with this type of data:</li>
 <li>Attributes: An attribute is a piece of information that you can attach to an atomic vector (or any R
-object). The attribute won&rsquo;t affect any of the values in the object, and it will not appear
-when you display your object. You can think of an attribute as &ldquo;metadata&rdquo;; it is just a
+object). The attribute won’t affect any of the values in the object, and it will not appear
+when you display your object. You can think of an attribute as “metadata”; it is just a
 convenient place to put information associated with an object. R will normally ignore
 this metadata, but some R functions will check for specific attributes. These functions
 may use the attributes to do special things with the data.</li>
@@ -125,6 +125,8 @@ roll<span class="o">&lt;-</span><span class="kr">function</span><span class="p">
     <span class="kp">sum</span><span class="p">(</span>x<span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
+
+
 <ul>
 <li>Matrix</li>
 </ul>
@@ -132,6 +134,8 @@ roll<span class="o">&lt;-</span><span class="kr">function</span><span class="p">
 m <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>die<span class="p">,</span> nrow <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 m
 </pre></div>
+
+
 <ul>
 <li>Arrays</li>
 <li>
@@ -139,33 +143,37 @@ m
 A class is a special case of an atomic vector. For example, the die matrix is a special case
 of a double vector. Every element in the matrix is still a double, but the elements have
 been arranged into a new structure. R added a class attribute to die when you changed
-its dimensions. This class describes die&rsquo;s new format. Many R functions will specifically
-look for an object&rsquo;s class attribute, and then handle the object in a predetermined way
+its dimensions. This class describes die’s new format. Many R functions will specifically
+look for an object’s class attribute, and then handle the object in a predetermined way
 based on the attribute.</p>
 </li>
 <li>
 <p>Factors are R's way of storing categorical information.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> gender<span class="o">&lt;-</span><span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">"male"</span><span class="p">,</span><span class="s">"female"</span><span class="p">,</span><span class="s">"trans"</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> gender<span class="o">&lt;-</span><span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span><span class="s">&quot;female&quot;</span><span class="p">,</span><span class="s">&quot;trans&quot;</span><span class="p">))</span>
 <span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gen
 gender            generic.skeleton  
 <span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gender<span class="p">)</span>
 <span class="o">$</span><span class="kp">levels</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">"female"</span> <span class="s">"male"</span>   <span class="s">"trans"</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;female&quot;</span> <span class="s">&quot;male&quot;</span>   <span class="s">&quot;trans&quot;</span>
 
 <span class="o">$</span><span class="kp">class</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">"factor"</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;factor&quot;</span>
 </pre></div>
+
+
 <ul>
 <li>R coercion?
 You may have guessed that this exercise would not go well. Each atomic vector can only
 store one type of data. As a result, R coerces all of your values to character strings:</li>
 </ul>
-<div class="highlight"><pre><span></span>card <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"ace"</span><span class="p">,</span> <span class="s">"hearts"</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>card <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">,</span> <span class="s">&quot;hearts&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 card
-<span class="c1">## "ace" "hearts" "1"</span>
+<span class="c1">## &quot;ace&quot; &quot;hearts&quot; &quot;1&quot;</span>
 </pre></div>
+
+
 <p>This will cause trouble if you want to do math with that point value, for example, to see</p>
 <ul>
 <li>In some cases, using only a single type of data is a huge advantage. Vectors, matrices,
@@ -174,12 +182,12 @@ it can manipulate each value the same way. Operations with vectors, matrices, an
 also tend to be fast because the objects are so simple to store in memory.
 In other cases, allowing only a single type of data is not a disadvantage. Vectors are the
 most common data structure in R because they store variables very well. Each value in
-a variable measures the same property, so there&rsquo;s no need to use different types of data.</li>
+a variable measures the same property, so there’s no need to use different types of data.</li>
 <li>Data frame is a special type of list.</li>
 </ul>
 <p>Data frames are the two-dimensional version of a list. They are far and away the most
 useful storage structure for data analysis, and they provide an ideal way to store an entire
-deck of cards. You can think of a data frame as R&rsquo;s equivalent to the Excel spreadsheet
+deck of cards. You can think of a data frame as R’s equivalent to the Excel spreadsheet
 because it stores data in a similar format.
 Data frames group vectors together into a two-dimensional table. Each vector becomes
 a column in the table. As a result, each column of a data frame can contain a different
@@ -188,10 +196,12 @@ Figure 3-2.
 <em> str() function.
 </em> head() v/s tail()
 * Saving Data</p>
-<div class="highlight"><pre><span></span>write.csv<span class="p">(</span>deck<span class="p">,</span> file <span class="o">=</span> <span class="s">"cards.csv"</span><span class="p">,</span> row.names <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>write.csv<span class="p">(</span>deck<span class="p">,</span> file <span class="o">=</span> <span class="s">&quot;cards.csv&quot;</span><span class="p">,</span> row.names <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
-<h6 id="to-sum-it-up">To sum it up</h6>
-<p><img alt="HandsonR_visualization" src="./images/handsonR-cac51.png"/></p>
+
+
+<h6>To sum it up</h6>
+<p><img alt="HandsonR_visualization" src="./images/handsonR-cac51.png"></p>
 <ul>
 <li>
 <p>R Notation</p>
@@ -202,7 +212,7 @@ Figure 3-2.
 <li>$ and [[]] do the same thing.</li>
 </ul>
 <p>Difference :
-<img alt="Train_visualization" src="./images/handsonR-fbb01.png"/></p>
+<img alt="Train_visualization" src="./images/handsonR-fbb01.png"></p>
   </div>
   <div class="tag-cloud">
     <p>

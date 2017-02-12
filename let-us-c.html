@@ -51,7 +51,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -87,7 +87,7 @@
 
 
   <div>
-    <h1 id="let-us-c">LET US C</h1>
+    <h1>LET US C</h1>
 <p>The latest C is C11.</p>
 <blockquote>
 <p>Function called at startup is main(). Can be defined by either no parameters or the following parameters
@@ -95,11 +95,11 @@ int main(int argc, char *argv[])
 Return type for main should be int.
 argc cannot be negative.</p>
 </blockquote>
-<h1 id="terms">Terms</h1>
+<h1>Terms</h1>
 <ol>
 <li>
 <p>access
-&lang;execution-time action&rang; to read or modify the value of an object. Either read OR modify, strictly.</p>
+〈execution-time action〉 to read or modify the value of an object. Either read OR modify, strictly.</p>
 </li>
 <li>
 <p>alignment
@@ -125,8 +125,8 @@ when a signed integer is shifted right.
 1 locale-specific behavior
 behavior that depends on local conventions of nationality, culture, and language that each
 implementation documents
-&sect;3.4.2 General 3
-ISO/IEC 9899:201x Committee Draft &mdash; April 12, 2011 N1570
+§3.4.2 General 3
+ISO/IEC 9899:201x Committee Draft — April 12, 2011 N1570
 2 EXAMPLE An example of locale-specific behavior is whether the islower function returns true for
 characters other than the 26 lowercase Latin letters.
 3.4.3
@@ -160,14 +160,14 @@ The least significant bit is called the low-order bit; the most significant bit 
 bit.
 3.7
 1 character
-&lang;abstract&rang; member of a set of elements used for the organization, control, or
+〈abstract〉 member of a set of elements used for the organization, control, or
 representation of data
 3.7.1
 1 character
 single-byte character
-&lang;C&rang; bit representation that fits in a byte
-4 General &sect;3.7.1
-N1570 Committee Draft &mdash; April 12, 2011 ISO/IEC 9899:201x
+〈C〉 bit representation that fits in a byte
+4 General §3.7.1
+N1570 Committee Draft — April 12, 2011 ISO/IEC 9899:201x
 3.7.2
 1 multibyte character
 sequence of one or more bytes representing a member of the extended character set of
@@ -187,7 +187,7 @@ representation in the result format that is nearest in value, subject to the cur
 mode, to what the result would be given unlimited range and precision
 3.10
 1 diagnostic message
-message belonging to an implementation-defined subset of the implementation&rsquo;s message
+message belonging to an implementation-defined subset of the implementation’s message
 output
 3.11
 1 forward reference
@@ -205,8 +205,8 @@ restriction imposed upon programs by the implementation
 1 memory location
 either an object of scalar type, or a maximal sequence of adjacent bit-fields all having
 nonzero width
-&sect;3.14 General 5
-ISO/IEC 9899:201x Committee Draft &mdash; April 12, 2011 N1570
+§3.14 General 5
+ISO/IEC 9899:201x Committee Draft — April 12, 2011 N1570
 2 NOTE 1 Tw o threads of execution can update and access separate memory locations without interfering
 with each other.
 3 NOTE 2 A bit-field and an adjacent non-bit-field member are in separate memory locations. The same
@@ -248,8 +248,8 @@ requirement on a program when calling a library function
 need not be diagnosed at translation time.
 3 NOTE 2 Implementations that support the extensions in annex K are required to verify that the runtimeconstraints
 for a library function are not violated by the program; see K.3.1.4.
-6 General &sect;3.18
-N1570 Committee Draft &mdash; April 12, 2011 ISO/IEC 9899:201x
+6 General §3.18
+N1570 Committee Draft — April 12, 2011 ISO/IEC 9899:201x
 3.19
 1 value
 precise meaning of the contents of an object when interpreted as having a specific type
@@ -270,29 +270,29 @@ an object representation that need not represent a value of the object type
 3.19.5
 1 perform a trap
 interrupt execution of the program such that no further operations are performed
-2 NOTE In this International Standard, when the word &lsquo;&lsquo;trap&rsquo;&rsquo; is not immediately followed by
-&lsquo;&lsquo;representation&rsquo;&rsquo;, this is the intended usage.2)
+2 NOTE In this International Standard, when the word ‘‘trap’’ is not immediately followed by
+‘‘representation’’, this is the intended usage.2)
 3.20
 1 ⎡x⎤
 ceiling of x: the least integer greater than or equal to x
-2 EXAMPLE ⎡2. 4⎤ is 3, ⎡&minus;2. 4⎤ is &minus;2.
+2 EXAMPLE ⎡2. 4⎤ is 3, ⎡−2. 4⎤ is −2.
 3.21
 1 ⎣x⎦
 floor of x: the greatest integer less than or equal to x
-2 EXAMPLE ⎣2. 4⎦ is 2, ⎣&minus;2. 4⎦ is &minus;3.
-2) For example, &lsquo;&lsquo;Trapping or stopping (if supported) is disabled...&rsquo;&rsquo; (F.8.2). Note that fetching a trap
+2 EXAMPLE ⎣2. 4⎦ is 2, ⎣−2. 4⎦ is −3.
+2) For example, ‘‘Trapping or stopping (if supported) is disabled...’’ (F.8.2). Note that fetching a trap
 representation might perform a trap but is not required to (see 6.2.6.1).
-&sect;3.21 General 7
-ISO/IEC 9899:201x Committee Draft &mdash; April 12, 2011 N1570
+§3.21 General 7
+ISO/IEC 9899:201x Committee Draft — April 12, 2011 N1570
 4. Conformance
-1 In this International Standard, &lsquo;&lsquo;shall&rsquo;&rsquo; is to be interpreted as a requirement on an
-implementation or on a program; conversely, &lsquo;&lsquo;shall not&rsquo;&rsquo; is to be interpreted as a
+1 In this International Standard, ‘‘shall’’ is to be interpreted as a requirement on an
+implementation or on a program; conversely, ‘‘shall not’’ is to be interpreted as a
 prohibition.
-2 If a &lsquo;&lsquo;shall&rsquo;&rsquo; or &lsquo;&lsquo;shall not&rsquo;&rsquo; requirement that appears outside of a constraint or runtimeconstraint
+2 If a ‘‘shall’’ or ‘‘shall not’’ requirement that appears outside of a constraint or runtimeconstraint
 is violated, the behavior is undefined. Undefined behavior is otherwise
-indicated in this International Standard by the words &lsquo;&lsquo;undefined behavior&rsquo;&rsquo; or by the
+indicated in this International Standard by the words ‘‘undefined behavior’’ or by the
 omission of any explicit definition of behavior. There is no difference in emphasis among
-these three; they all describe &lsquo;&lsquo;behavior that is undefined&rsquo;&rsquo;.
+these three; they all describe ‘‘behavior that is undefined’’.
 3 A program that is correct in all other aspects, operating on correct data, containing
 unspecified behavior shall be a correct program and act in accordance with 5.1.2.3.
 4 The implementation shall not successfully translate a preprocessing translation unit
@@ -304,7 +304,7 @@ unspecified, undefined, or implementation-defined behavior, and shall not exceed
 minimum implementation limit.
 6 The two forms of conforming implementation are hosted and freestanding. A conforming
 hosted implementation shall accept any strictly conforming program. A conforming
-freestanding implementation shall accept any strictly conforming program in which the &lowast;
+freestanding implementation shall accept any strictly conforming program in which the ∗
 use of the features specified in the library clause (clause 7) is confined to the contents of
 the standard headers <float.h>, <iso646.h>, <limits.h>, <stdalign.h>,
 <stdarg.h>, <stdbool.h>, <stddef.h>, <stdint.h>, and
@@ -312,16 +312,16 @@ the standard headers <float.h>, <iso646.h>, <limits.h>, <stdalign.h>,
 additional library functions), provided they do not alter the behavior of any strictly
 conforming program.4)
 3) A strictly conforming program can use conditional features (see 6.10.8.3) provided the use is guarded
-by an appropriate conditional inclusion preprocessing directive using the related macro. For example:</stdnoreturn.h></stdint.h></stddef.h></stdbool.h></stdarg.h></stdalign.h></limits.h></iso646.h></float.h></p>
-<h1 id="ifdef-_-stdc_iec_559-_-fe_upward-defined">ifdef _ <em>STDC_IEC_559</em> _ /<em> FE_UPWARD defined </em>/</h1>
+by an appropriate conditional inclusion preprocessing directive using the related macro. For example:</p>
+<h1>ifdef _ <em>STDC_IEC_559</em> _ /<em> FE_UPWARD defined </em>/</h1>
 <p>/<em> ... </em>/
 fesetround(FE_UPWARD);
 /<em> ... </em>/</p>
-<h1 id="endif">endif</h1>
+<h1>endif</h1>
 <p>4) This implies that a conforming implementation reserves no identifiers other than those explicitly
 reserved in this International Standard.
-8 General &sect;4
-N1570 Committee Draft &mdash; April 12, 2011 ISO/IEC 9899:201x
+8 General §4
+N1570 Committee Draft — April 12, 2011 ISO/IEC 9899:201x
 7 A conforming program is one that is acceptable to a conforming implementation.5)
 8 An implementation shall be accompanied by a document that defines all implementationdefined
 and locale-specific characteristics and all extensions.
@@ -334,8 +334,8 @@ variable arguments <stdarg.h> (7.16), boolean type and values <stdbool.h>
 5) Strictly conforming programs are intended to be maximally portable among conforming
 implementations. Conforming programs may depend upon nonportable features of a conforming
 implementation.
-&sect;4 General 9
-ISO/IEC 9899:201x Committee Draft &mdash; April 12, 2011 N1570
+§4 General 9
+ISO/IEC 9899:201x Committee Draft — April 12, 2011 N1570
 5. Environment
 1 An implementation translates C source files and executes C programs in two dataprocessing-system
 environments, which will be called the translation environment and
@@ -371,8 +371,8 @@ together in practice. Source files, translation units, and translated translatio
 necessarily be stored as files, nor need there be any one-to-one correspondence between these entities
 and any external representation. The description is conceptual only, and does not specify any
 particular implementation.
-10 Environment &sect;5.1.1.2
-N1570 Committee Draft &mdash; April 12, 2011 ISO/IEC 9899:201x
+10 Environment §5.1.1.2
+N1570 Committee Draft — April 12, 2011 ISO/IEC 9899:201x
 2. Each instance of a backslash character () immediately followed by a new-line
 character is deleted, splicing physical source lines to form logical source lines.
 Only the last backslash on any physical source line shall be eligible for being part
@@ -405,10 +405,10 @@ current translation. All such translator output is collected into a program imag
 which contains information needed for execution in its execution environment.
 Forward references: universal character names (6.4.3), lexical elements (6.4),
 preprocessing directives (6.10), trigraph sequences (5.2.1.1), external definitions (6.9).
-7) As described in 6.4, the process of dividing a source file&rsquo;s characters into preprocessing tokens is
+7) As described in 6.4, the process of dividing a source file’s characters into preprocessing tokens is
 context-dependent. For example, see the handling of &lt; within a #include preprocessing directive.
 8) An implementation need not convert all non-corresponding source characters to the same execution
-character.</stdnoreturn.h></stdint.h></stddef.h></stdbool.h></stdarg.h></stdalign.h></limits.h></iso646.h></float.h></p>
+character.</p>
   </div>
   <div class="tag-cloud">
     <p>

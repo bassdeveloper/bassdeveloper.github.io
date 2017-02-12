@@ -51,7 +51,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -87,7 +87,7 @@
 
 
   <div>
-    <h1 id="svm">SVM</h1>
+    <h1>SVM</h1>
 <blockquote>
 <p>Do visit <a href="http://www.svm-tutorial.com/">SVM Tutorial website</a>.</p>
 <p>The main goal in SVM is to design a hyperplane that classifies all training vectors in 2 classes.</p>
@@ -96,8 +96,8 @@
 <li><strong>SVM needs training data thus comes under supervised learning</strong>.</li>
 <li><strong>SVM is a classification algorithm</strong></li>
 </ul>
-<h3 id="example">Example :</h3>
-<p><img alt="SVM_Training" src="./assets/2017-01-17-SVM-e7301.png"/></p>
+<h3>Example :</h3>
+<p><img alt="SVM_Training" src="./assets/2017-01-17-SVM-e7301.png"></p>
 <ul>
 <li>We have plotted the size and weight of several people, and there is also a way to distinguish between men and women.</li>
 </ul>
@@ -108,7 +108,7 @@
 <ul>
 <li>For instance:  if someone measures 175 cm and weights 80 kg, is it a man of a woman?</li>
 </ul>
-<h2 id="hyperplane_1">Hyperplane</h2>
+<h2>Hyperplane</h2>
 <p>In geometry, a hyperplane is a <strong>subspace of one dimension less than its ambient space</strong>.</p>
 <p>Example :</p>
 <ul>
@@ -120,14 +120,14 @@
 </li>
 </ul>
 <p>This notion can be used in any general space in which the concept of the dimension of a subspace is defined.</p>
-<h2 id="maximum-margin">Maximum margin?</h2>
+<h2>Maximum margin?</h2>
 <p>Now the following problem exists :</p>
 <blockquote>
 <p>There can be 'n' number of hyperplanes that can be drawn that separate both our classes.</p>
 </blockquote>
 <p><strong>But SVM's goal is to get the hyperplane that leaves the maximum margin from both classes ( i.e. the best choice )</strong></p>
 <p>Thus, we arrive at the term : <code>Maximum Margin Hyperplane</code>.</p>
-<p><img alt="MarginA" src="./assets/2017-01-17-SVM-c2025.png"/></p>
+<p><img alt="MarginA" src="./assets/2017-01-17-SVM-c2025.png"></p>
 <p><strong>The Optimal HyperPlane is a no man's land.</strong></p>
 <ul>
 <li><strong>This means that the optimal hyperplane will be the one with the biggest margin.</strong></li>
@@ -136,14 +136,14 @@
 <p>Equation for the hyperplane :
 </p>
 <div class="math">$$g(\vec{x}) = w^T\vec{x}+w_0$$</div>
-<h2 id="how-to-calculate-this-margin">How to Calculate this margin?</h2>
+<h2>How to Calculate this margin?</h2>
 <p>To do so, we need certain pre-requisites:</p>
 <blockquote>
 <p>SVM = Support VECTOR Machine</p>
 </blockquote>
-<h3 id="what-is-a-vector">What is a vector ?</h3>
+<h3>What is a vector ?</h3>
 <p>If we define a point <span class="math">\(A(3,4)\)</span> in <span class="math">\(\Re^2\)</span>, we can plot it like this :</p>
-<p><img alt="2D_point" src="./assets/2017-01-17-SVM-6c98b.png"/></p>
+<p><img alt="2D_point" src="./assets/2017-01-17-SVM-6c98b.png"></p>
 <blockquote>
 <p>Definition: Any point <span class="math">\(x=(x1,x2),x\ne0\)</span>, in <span class="math">\(\Re^2\)</span>,<span class="math">\(\Re^2\)</span> specifies a vector in the plane, namely the vector starting at the origin and ending at <span class="math">\(x\)</span>.</p>
 </blockquote>
@@ -152,8 +152,8 @@
 <blockquote>
 <p>Definition: A vector is an object that has both a magnitude and a direction.</p>
 </blockquote>
-<h3 id="svm-hyperplane">SVM HyperPlane :</h3>
-<h4 id="understanding-the-equation-of-the-hyperplane">Understanding the equation of the hyperplane :</h4>
+<h3>SVM HyperPlane :</h3>
+<h4>Understanding the equation of the hyperplane :</h4>
 <ul>
 <li>Equation of a line is <span class="math">\( y= mx +c\)</span></li>
 <li>For Hyperplane, it is defined as :</li>
@@ -185,8 +185,8 @@ is the same thing as
 <p>The vector <strong><span class="math">\(w\)</span></strong> will always be normal to the hyperplane.</p>
 </blockquote>
 <p>This property will come in handy to compute the distance from a point to the hyperplane.</p>
-<h3 id="computing-the-distance_1">Computing the distance :</h3>
-<p><img alt="Distance_g1" src="./assets/2017-01-17-SVM-3f1de.png"/></p>
+<h3>Computing the distance :</h3>
+<p><img alt="Distance_g1" src="./assets/2017-01-17-SVM-3f1de.png"></p>
 <p>To simplify this example, we have set <span class="math">\(w_0=0\)</span>.</p>
 <p>In the above figure, the equation of the hyperplane is :
 </p>
@@ -199,18 +199,18 @@ is the same thing as
 and </p>
 <div class="math">$$x\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}$$</div>
 <p><strong><span class="math">\(w\)</span> is a vector</strong>.</p>
-<h4 id="aim-to-calculate-the-distance-between-a34-and-its-projection-onto-the-hyperplane">AIM : To calculate the distance between <span class="math">\(A(3,4)\)</span> and its projection onto the hyperplane.</h4>
-<p><img alt="Distance_g2" src="./assets/2017-01-17-SVM-1ef46.png"/></p>
+<h4>AIM : To calculate the distance between <span class="math">\(A(3,4)\)</span> and its projection onto the hyperplane.</h4>
+<p><img alt="Distance_g2" src="./assets/2017-01-17-SVM-1ef46.png"></p>
 <p>We can view the point <span class="math">\(A\)</span> as a vector from the origin to <span class="math">\(A\)</span>.
 If we project it onto the normal vector <span class="math">\(w\)</span>.
-<img alt="Distance_g3" src="./assets/2017-01-17-SVM-8168b.png"/></p>
+<img alt="Distance_g3" src="./assets/2017-01-17-SVM-8168b.png"></p>
 <p>We get the vector <span class="math">\(p\)</span> after projection.
-<img alt="Distance_g3" src="./assets/2017-01-17-SVM-00f62.png"/></p>
+<img alt="Distance_g3" src="./assets/2017-01-17-SVM-00f62.png"></p>
 <p>Our goal is to find the distance between the point <span class="math">\(A(3,4)\)</span> and the hyperplane.</p>
 <p>We can see in the figure that this distance is the same thing as <span class="math">\(|p|\)</span>
 Let's compute this value.</p>
 <p>To compute, we need the pre-requisite of Vector Projections :</p>
-<h3 id="vector-projections_1">Vector Projections</h3>
+<h3>Vector Projections</h3>
 <p>The <strong>vector projection</strong> of a vector <span class="math">\(\vec{a}\)</span> on (or onto) a non-zero vector <span class="math">\(
 \vec{b}\)</span> (a.k.a. the <strong>vector component</strong> or <strong>vector resolution</strong> of <span class="math">\(\vec{a}\)</span> in the direction of <span class="math">\(\vec{b}\)</span>) is the <em>orthogonal projection</em> (shadow) of <span class="math">\(\vec{a}\)</span> onto a straight line parallel to <span class="math">\(\vec{b}\)</span>. It is a vector parallel to <span class="math">\(\vec{b}\)</span>, defined as :</p>
 <div class="math">$$\vec{a_1} = a_1\hat{b}$$</div>
@@ -222,7 +222,7 @@ Let's compute this value.</p>
 <p>
 where the operator <span class="math">\(\dot\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
 <p>The scalar projection is equal to the length of the vector projection, with a minus sign if the direction of the projection is opposite to the direction of b.</p>
-<h2 id="math-for-orthogonal-projection_1">Math for Orthogonal Projection</h2>
+<h2>Math for Orthogonal Projection</h2>
 <p>We start with two vectors, <span class="math">\(\vec{w}=(2,1)\)</span> which is normal to the hyperplane, and <span class="math">\(\vec{a}=(3,4)\)</span> which is the vector between the origin and <span class="math">\(A\)</span>.</p>
 <p>By Pythagoras theorem, the magnitude of <span class="math">\(w\)</span> is :
 </p>
@@ -243,16 +243,16 @@ where the operator <span class="math">\(\dot\)</span> denotes a dot product, <sp
 <div class="math">$$p=(4,2)$$</div>
 <p>Now, we need the value/magnitude of this projection :</p>
 <div class="math">$$|p|=\sqrt{4^2+2^2}=2\sqrt{5}$$</div>
-<h5 id="compute-the-margin-of-the-hyperplane">Compute the margin of the hyperplane:</h5>
+<h5>Compute the margin of the hyperplane:</h5>
 <p>Now that we have the distance <span class="math">\(|p|\)</span>  between <span class="math">\(A\)</span> and the hyperplane, the margin is defined by:</p>
 <div class="math">$$ margin = 2|p|=4\sqrt{5}$$</div>
-<h2 id="optimal-margin-hyperplane_1">Optimal Margin Hyperplane :</h2>
-<p><img alt="OMH_1" src="./assets/2017-01-17-SVM-e3d86.png"/></p>
+<h2>Optimal Margin Hyperplane :</h2>
+<p><img alt="OMH_1" src="./assets/2017-01-17-SVM-e3d86.png"></p>
 <p>The above margin is not the biggest/optimal margin. What we need is the optimal margin.</p>
-<p><img alt="OMH_2" src="./assets/2017-01-17-SVM-28cd5.png">.</img></p>
+<p><img alt="OMH_2" src="./assets/2017-01-17-SVM-28cd5.png">.</p>
 <p>From the above figure, it's evident that the biggest margin is <span class="math">\(M_2\)</span> and not <span class="math">\(M_1\)</span>.
 Thus, the optimal hyperplane is slightly left from our initial hyperplane:</p>
-<h2 id="how-to-find-the-biggest-margin">How to find the biggest margin ?</h2>
+<h2>How to find the biggest margin ?</h2>
 <p><strong>Method</strong>:</p>
 <ol>
 <li>Take a dataset</li>
@@ -262,8 +262,8 @@ Thus, the optimal hyperplane is slightly left from our initial hyperplane:</p>
 <blockquote>
 <p>The region bounded by the 2 hyperplanes will be the biggest possible margin.</p>
 </blockquote>
-<h3 id="step-by-step-breakdown">Step by Step breakdown :</h3>
-<h4 id="step-1-you-have-a-dataset-d-and-you-want-to-classify-it">Step 1 : You have a dataset <span class="math">\(D\)</span> and you want to classify it :</h4>
+<h3>Step by Step breakdown :</h3>
+<h4>Step 1 : You have a dataset <span class="math">\(D\)</span> and you want to classify it :</h4>
 <p>Most of the time, the data will be composed of <span class="math">\(n\)</span> vectors <span class="math">\(\vec{x_i}\)</span>.</p>
 <p>Each <span class="math">\(\vec{x_i}\)</span> will also be associated with a value <span class="math">\(y_i\)</span> indicating if the element belongs to the class (+1) or not (i.e. -1).</p>
 <ul>
@@ -276,13 +276,13 @@ Thus, the optimal hyperplane is slightly left from our initial hyperplane:</p>
 <p>The more formal definition of an initial dataset in set theory is:
 </p>
 <div class="math">$$D=\{(\vec{x_i},y_i)\space | \space \vec{x_i} \space \epsilon \space  R^p, \space y_i \space \epsilon \space  \{-1,1\}\}_{i=1}^n$$</div>
-<h4 id="step-2-select-2-hyperplanes-separating-the-data-with-no-points-between-them">Step 2  : Select 2 hyperplanes separating the data with no points between them.</h4>
+<h4>Step 2  : Select 2 hyperplanes separating the data with no points between them.</h4>
 <p>Finding 2 hyperplanes separating some data is easy  when you have a pencil and a paper. But with some <span class="math">\(p\)</span>-dimensional data it becomes more difficult because you can't draw it.</p>
 <p>Moreover, even if your data is only 2-dimensional it might not be possible to find a separating hyperplane!</p>
 <blockquote>
 <p>The classification is only possible when the data is linearly separable.</p>
 </blockquote>
-<p><img alt="OHP_3" src="./assets/2017-01-17-SVM-17f74.png"/></p>
+<p><img alt="OHP_3" src="./assets/2017-01-17-SVM-17f74.png"></p>
 <p><em>Assuming that our dataset <span class="math">\(D\)</span> is linearly separable. We now want to find two hyperplanes with no points between them, but we don't have a way to visualize them</em>.</p>
 <p><strong>Take another look at the hyperplane equation.</strong></p>
 <div class="math">$$w^Tx=0$$</div>
@@ -322,21 +322,21 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <p>For each vector <span class="math">\(x_i\)</span> either :</p>
 <div class="math">$$w.x_i + b \ge 1 \space \text{ for } \space x_i \space \text{ having the class 1} \space \qquad \qquad (4)$$</div>
 <div class="math">$$w.x_i + b \le -1 \space \text{ for } \space x_i \space \text{ having the class -1} \space \qquad \qquad (5)$$</div>
-<h5 id="understanding-the-constraints">Understanding the constraints:</h5>
+<h5>Understanding the constraints:</h5>
 <p>On the following figures, all redpoints have the class <span class="math">\(1\)</span> and all blue points have the class <span class="math">\(-1\)</span>.</p>
 <p>Let's consider point <span class="math">\(A\)</span>. It is red so it has the class <span class="math">\(1\)</span> and we need to verify it does <span class="math">\(w \dot x_i + b \ge 1\)</span></p>
 <p>When <span class="math">\(x_i = A\)</span> we see that the point is on the hyperplane so <span class="math">\(w \dot x_i + b = 1\)</span> and the constraint is respected. The same applies for <span class="math">\(B\)</span>.</p>
 <p>When <span class="math">\(x_i=C\)</span>, we see that the point is above the hyperplane so <span class="math">\(w.x_i +b \gt 1\)</span> and the constraint is respected. The same applies for <span class="math">\(D,E,F\)</span> and <span class="math">\(G\)</span>.</p>
 <p>With an analogous reasoning, you should find that the second constraint is respected for the class <span class="math">\(-1\)</span>.</p>
-<p><img alt="OMH_4" src="./assets/2017-01-17-SVM-5ce2d.png"/></p>
+<p><img alt="OMH_4" src="./assets/2017-01-17-SVM-5ce2d.png"></p>
 <p>The following hyperplane also satisfies the constraints :</p>
-<p><img alt="OMH_5" src="./assets/2017-01-17-SVM-d024f.png"/></p>
-<h5 id="what-does-it-mean-when-a-constraint-is-not-respected">What does it mean when a constraint is not respected?</h5>
+<p><img alt="OMH_5" src="./assets/2017-01-17-SVM-d024f.png"></p>
+<h5>What does it mean when a constraint is not respected?</h5>
 <p>It means that we cannot select these two hyperplanes. You can see that every time the constraints are not satisfied, there are points between 2 hyperplanes.</p>
 <blockquote>
 <p>By defining the constraints, we found a way to reach our initial goal of selecting two hyperplanes <strong>without points between them</strong>. And it works not only in our examples but also in <span class="math">\(p\)</span>-dimensions.</p>
 </blockquote>
-<h5 id="combining-both-constraints">Combining both constraints:</h5>
+<h5>Combining both constraints:</h5>
 <p>In mathematics, people like things to be expressed concisely.</p>
 <p>Equations <strong>(4)</strong> and <strong>(5)</strong> can be combined into a single constraint:</p>
 <p>We start with equation <strong>(5)</strong>:</p>
@@ -351,7 +351,7 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <p>We combine equations <span class="math">\((6)\)</span> and <span class="math">\((7)\)</span>:</p>
 <div class="math">$$y_i(w.x_i + b) \ge 1 \space \text{ for all } 1 \le i \le n$$</div>
 <p>We now have a unique constraint ( equation 8) instead of two (equations 4 and 5), but they are mathematically equivalent. So their effect is the same (there will be no points between the 2 hyperplanes).</p>
-<h4 id="step-3-maximize-the-distance-betweeen-the-2-hyperplanes_1">Step 3  : Maximize the distance betweeen the 2 hyperplanes.</h4>
+<h4>Step 3  : Maximize the distance betweeen the 2 hyperplanes.</h4>
 <p><strong>The hardest part!</strong></p>
 <p>a) What is the distance between our two hyperplanes ?</p>
 <p>Before trying maximize the distance between the two hyperplane, we will first ask ourselves: <em>How do we compute it?</em></p>
@@ -364,12 +364,12 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <p>We will call <span class="math">\(m\)</span> the perpendicular distance from <span class="math">\(x_0\)</span> to the hyperplane <span class="math">\(H_1\)</span>. By definition, <span class="math">\(m\)</span> is what was defined as <em>margin</em>.</p>
 <p>As <span class="math">\(x_0\)</span> is in <span class="math">\(H_0\)</span>, <span class="math">\(m\)</span> is the distance betweeen hyperplanes <span class="math">\(H_0\)</span> and <span class="math">\(H_1\)</span>.</p>
 <p><strong>We will now try to find the value of <span class="math">\(m\)</span></strong></p>
-<p><img alt="OMH_6" src="assets/2017-01-17-SVM-aba3c.png"/></p>
+<p><img alt="OMH_6" src="assets/2017-01-17-SVM-aba3c.png"></p>
 <p>You might be tempted to think that if we add <span class="math">\(m\)</span> to <span class="math">\(\vec{x_0}\)</span></p>
 <p>We will get another point, and this point will be on the other hyperplane !</p>
 <p>But it does not work, because <span class="math">\(m\)</span> is a <em>scalar</em>, and <span class="math">\(\vec{x_0}\)</span> is a <em>vector</em> and adding a scalar with a vector is not possible.</p>
 <p>However, we know that adding two vectors is possible, so if we transform <span class="math">\(m\)</span> into a vector we will be able to do an addition.</p>
-<p><img alt="OMH_7" src="assets/2017-01-17-SVM-4821d.png"/></p>
+<p><img alt="OMH_7" src="assets/2017-01-17-SVM-4821d.png"></p>
 <p>Looking at the pitcure, the necessity of a vector becomes clear. With just the length <span class="math">\(m\)</span>, we don't have one crucial information: <strong>the direction</strong>.</p>
 <p>We can't add a scalar to a vector, but we know if we multiply a scalar with a vector, we will get another vector.</p>
 <p>From our initial statement, we want this vector:</p>
@@ -378,20 +378,20 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <li>To be perpendicular to the hyperplane <span class="math">\(H_1\)</span>.</li>
 </ol>
 <p>Fortunately, we already know a vector perpendicular to <span class="math">\(H_1\)</span>, that is <span class="math">\(\vec{w}\)</span> (because <span class="math">\(H_1=w.x+b = 1\)</span>)</p>
-<p><img alt="OMH_8" src="assets/2017-01-17-SVM-32d1e.png"/></p>
+<p><img alt="OMH_8" src="assets/2017-01-17-SVM-32d1e.png"></p>
 <p>Let's define <span class="math">\(\hat{u}=\frac{w}{|w|}\)</span> the unit vector of <span class="math">\(\vec{w}\)</span>. As it is a unit vector <span class="math">\(|\hat{u}|=1\)</span> and it has the same direction as <span class="math">\(\vec{w}\)</span> so it is also perpendicular to the hyperplane.</p>
-<p><img alt="OMH_9" src="assets/2017-01-17-SVM-94192.png"/></p>
+<p><img alt="OMH_9" src="assets/2017-01-17-SVM-94192.png"></p>
 <p>If we multiply <span class="math">\(\hat{u}\)</span> by <span class="math">\(m\)</span>, we get the vector <span class="math">\(\vec{k}=m\hat{u}\)</span> and :</p>
 <ol>
 <li><span class="math">\(|\vec{k}| = m\)</span></li>
 <li><span class="math">\(\vec{k}\)</span> is perpendicular to <span class="math">\(H_1\)</span> (because it has the same direction as <span class="math">\(u\)</span>).</li>
 </ol>
 <p>From these properties, we can see that <span class="math">\(k\)</span> is the vector we were looking for:</p>
-<p><img alt="OMH_10" src="assets/2017-01-17-SVM-6cca1.png"/></p>
+<p><img alt="OMH_10" src="assets/2017-01-17-SVM-6cca1.png"></p>
 <div class="math">$$\vec{k}=m\hat{u}=m\frac{w}{|w|}$$</div>
 <p><strong>Thus, we have successfully transformed our scalar <span class="math">\(m\)</span> into a vector <span class="math">\(\vec{k}\)</span> which we can use to perform an addition with the vector <span class="math">\(\vec{x_0}\)</span>.</strong></p>
 <p>If we start from the point <span class="math">\(x_0\)</span> and add <span class="math">\(k\)</span>, we find that the point <span class="math">\(z_0=x_0 + k\)</span> is in the hyperplane <span class="math">\(H_1\)</span> as shown in the following figure:</p>
-<p><img alt="OMH_11" src="assets/2017-01-17-SVM-018d0.png"/></p>
+<p><img alt="OMH_11" src="assets/2017-01-17-SVM-018d0.png"></p>
 <p>The fact that <span class="math">\(z_0\)</span> is in <span class="math">\(H_1\)</span> means that</p>
 <div class="math">$$ w.z_0 + b = 1 \qquad \qquad (10)$$</div>
 <p>We can replace <span class="math">\(z_0\)</span> by <span class="math">\(x_0+k\)</span> because that is how we constructed it.</p>
@@ -409,7 +409,7 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <div class="math">$$m|w|=2$$</div>
 <div class="math">$$m=\frac{2}{|w|}$$</div>
 <p>This is it! We found a way to compute <span class="math">\(m\)</span>.</p>
-<h5 id="b-how-to-maximize-the-distance-between-our-2-hyperplanes">(b) How to maximize the distance between our 2 hyperplanes.</h5>
+<h5>(b) How to maximize the distance between our 2 hyperplanes.</h5>
 <p>We now have the formula to compute the margin:</p>
 <div class="math">$$m=\frac{2}{|w|}$$</div>
 <p>The only variable we can change in this formula is the norm of <span class="math">\(w\)</span>.</p>

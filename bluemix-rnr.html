@@ -54,7 +54,7 @@
       <h1><a href=".">Rishabh Chakrabarti</a></h1>
 
 <p>Learning bout Data</p>
-      <nav>
+      <nav style="margin-top: 150px;">
         <ul class="list">
 
           <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
@@ -90,21 +90,23 @@
 
 
   <div>
-    <h1 id="whats-in-the-service">What's in the service?</h1>
+    <h1>What's in the service?</h1>
 <p>The IBM Watson Retrieve and Rank service combines two information retrieval components in a single service:
 <a href="http://www.mathjax.org">
-<img alt="Powered by MathJax" border="0" src="//cdn.mathjax.org/mathjax/badge/badge-square-3.png" title="Powered by MathJax"/>
+    <img title="Powered by MathJax"
+    src="//cdn.mathjax.org/mathjax/badge/badge-square-3.png"
+    border="0" alt="Powered by MathJax" />
 </a>
 1. The power of <strong>Apache Solr</strong> and
 2. A sophisticated <strong>machine learning</strong> capability.</p>
 <p>This combination provides users with more relevant results by automatically reranking them by using these machine learning algorithms.</p>
-<p><img alt="RnR_1" src="./assets/2017-02-03-RanknRetrieve-29811.png"/></p>
-<h2 id="whats-apache-solr">What's Apache Solr?</h2>
+<p><img alt="RnR_1" src="./assets/2017-02-03-RanknRetrieve-29811.png"></p>
+<h2>What's Apache Solr?</h2>
 <blockquote>
 <p><strong>Solr</strong> is a <strong>standalone enterprise search server</strong> with a <em>REST-like API</em>. You put documents in it (called "indexing") via JSON, XML, CSV or binary over HTTP. You query it via HTTP GET and receive JSON, XML, CSV or binary results.</p>
 </blockquote>
-<h2 id="stages">Stages</h2>
-<h3 id="1-service-creation-on-bluemix-using-cloudfoundry-cli">1. Service Creation on Bluemix using CloudFoundry - CLI</h3>
+<h2>Stages</h2>
+<h3>1. Service Creation on Bluemix using CloudFoundry - CLI</h3>
 <div class="highlight"><pre><span></span><span class="c1"># 1. Cloudfoundry Set the API :</span>
 $ cf api https://api.ng.bluemix.net
 <span class="c1">#Setting api endpoint to https://api.ng.bluemix.net...</span>
@@ -126,21 +128,23 @@ $ cf create-service-key &lt;service-name&gt; &lt;service-key&gt;
 <span class="c1"># 5. Retrieve Service Key details</span>
 $ cf service-key &lt;service-name&gt; &lt;service-key&gt;
 <span class="c1"># {</span>
-<span class="c1">#  "password": "YIGlzDMD2T02",</span>
-<span class="c1">#  "url": "https://gateway.watsonplatform.net/retrieve-and-rank/api",</span>
-<span class="c1">#  "username": "b0be6eb1-09f5-46a4-9321-2bb5bc0eb758"</span>
+<span class="c1">#  &quot;password&quot;: &quot;YIGlzDMD2T02&quot;,</span>
+<span class="c1">#  &quot;url&quot;: &quot;https://gateway.watsonplatform.net/retrieve-and-rank/api&quot;,</span>
+<span class="c1">#  &quot;username&quot;: &quot;b0be6eb1-09f5-46a4-9321-2bb5bc0eb758&quot;</span>
 <span class="c1"># }</span>
 
 <span class="c1"># Save these credentials.</span>
 </pre></div>
-<h3 id="2-create-a-solr-cluster">2. Create a Solr CLUSTER</h3>
+
+
+<h3>2. Create a Solr CLUSTER</h3>
 <p>Here, we will use <code>curl</code> extensively. It's a good idea to get some more information about curl.</p>
-<h4 id="curl-from-man-pages">Curl (from <code>man-pages</code>)</h4>
+<h4>Curl (from <code>man-pages</code>)</h4>
 <p><code>curl</code> is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction.</p>
 <p>curl offers a busload of useful tricks like <em>proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more</em>. As you will see below, the number of features will make your head spin!</p>
 <p><code>curl</code> is powered by <code>libcurl</code> for all transfer-related features.</p>
-<h5 id="options"><code>OPTIONS</code></h5>
-<p>`-X, --request <command>``</command></p>
+<h5><code>OPTIONS</code></h5>
+<p>`-X, --request <command>``</p>
 <p>(HTTP) Specifies a custom request method to use when communicating with the HTTP server. The specified request method will be used instead of the method otherwise used (which defaults to GET). Read the HTTP 1.1 specification for details and explanations. Common additional HTTP requests include PUT and DELETE, but related technologies like WebDAV offers PROPFIND, COPY, MOVE and more.</p>
 <p>Normally you don't need this option. All sorts of GET, HEAD, POST and PUT requests are rather invoked by using dedicated command line options.</p>
 <p><code>-u, --user &lt;user:password&gt;</code></p>
@@ -149,22 +153,24 @@ $ cf service-key &lt;service-name&gt; &lt;service-key&gt;
 <p>The user name and passwords are split up on the first colon, which makes it impossible to use a colon in the user name with this option. The password can, still.</p>
 <p><code>-d, --data &lt;data&gt;</code></p>
 <p>(HTTP) Sends the specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type application/x-www-form-urlencoded.</p>
-<h4 id="2-setting-up-the-cluster_1">2. Setting up the Cluster</h4>
+<h4>2. Setting up the Cluster</h4>
 <div class="highlight"><pre><span></span><span class="c1"># 1.  Send the `username` and `password` to the Solr cluster using HTTP POST request.</span>
-curl -X POST -u <span class="s2">"{username}"</span>:<span class="s2">"{password}"</span> <span class="s2">"https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters"</span> -d <span class="s2">""</span>
+curl -X POST -u <span class="s2">&quot;{username}&quot;</span>:<span class="s2">&quot;{password}&quot;</span> <span class="s2">&quot;https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters&quot;</span> -d <span class="s2">&quot;&quot;</span>
 
-<span class="c1"># 2. Save the solr_cluster_id {"solr_cluster_id":"sc2dbe6354_ddf3_46bb_b085_294a2d02cbbd","cluster_name":"","cluster_size":"","solr_cluster_status":"NOT_AVAILABLE"}</span>
+<span class="c1"># 2. Save the solr_cluster_id {&quot;solr_cluster_id&quot;:&quot;sc2dbe6354_ddf3_46bb_b085_294a2d02cbbd&quot;,&quot;cluster_name&quot;:&quot;&quot;,&quot;cluster_size&quot;:&quot;&quot;,&quot;solr_cluster_status&quot;:&quot;NOT_AVAILABLE&quot;}</span>
 </pre></div>
+
+
 <ol>
 <li>Copy the <code>solr_cluster_id</code>. You'll need it later.</li>
 </ol>
-<h4 id="3-create-a-collection">3. Create a collection</h4>
+<h4>3. Create a collection</h4>
 <blockquote>
 <p>A Solr collection is a logical index of the data in your documents.</p>
 <p>A collection is a way to keep data separate in the cloud.</p>
 </blockquote>
 <p>In this stage, you create a collection, associate it with a configuration, and upload and index your documents.</p>
-<div class="highlight"><pre><span></span>$ curl -u <span class="s2">"{username}"</span>:<span class="s2">"{password}"</span> <span class="s2">"https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters/{solr_cluster_id}"</span>
+<div class="highlight"><pre><span></span>$ curl -u <span class="s2">&quot;{username}&quot;</span>:<span class="s2">&quot;{password}&quot;</span> <span class="s2">&quot;https://gateway.watsonplatform.net/retrieve-and-rank/api/v1/solr_clusters/{solr_cluster_id}&quot;</span>
 </pre></div>
   </div>
   <div class="tag-cloud">
