@@ -23,11 +23,11 @@
 
 
 <meta name="author" content="Rishabh Chakrabarti" />
-<meta name="description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html" />
+<meta name="description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: eric-kim.net" />
 <meta name="keywords" content="Kernel-Trick, Kernel">
 <meta property="og:site_name" content="Bassdeveloper's Blog"/>
 <meta property="og:title" content="Kernel Based Methods"/>
-<meta property="og:description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html"/>
+<meta property="og:description" content="An insight into the Kernel-trick which allow higher dimension access/operability. Source: eric-kim.net"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./kernel-trick.html"/>
 <meta property="og:type" content="article"/>
@@ -203,6 +203,38 @@ avg / total       0.65      0.45      0.47       200
 <h2>IDEA !</h2>
 <p>Separable in a higher dimension</p>
 <p><img alt="Higher_Dimension" src="./assets/Higher_Dimension.png"></p>
+<p>Let's think outside the box for a moment.</p>
+<p>Consider the linearly nonseparable dataset in the above figure (left), with its two concentric rings.</p>
+<p>Imagine that this dataset is merely a 2-D version of the <em>'true'</em> dataset that lives in <span class="math">\(\Re^3\)</span>, the above figure (right).</p>
+<p>The <span class="math">\(\Re^3\)</span> dataset is easily linearly separable by a hyperplane. Thus, provided that we work in this <span class="math">\(\Re^3\)</span> space, we can train a linear SVM classifier that <strong>successfully finds a good decision boundary</strong>.</p>
+<p>However, we are given the dataset in <span class="math">\(\Re^2\)</span>.</p>
+<blockquote>
+<p>The challenge is to find a transformation <span class="math">\(T:\Re^2\)</span> -&gt; <span class="math">\(\Re^3\)</span>, such that the transformed dataset is linearly separable in <span class="math">\(\Re^3\)</span>.</p>
+</blockquote>
+<p>In the above figure, the <span class="math">\(T\)</span> used is :</p>
+<div class="math">$$T([x_1,x_2])=[x_1,x_2,x_1^2+x_2^2]$$</div>
+<p>which after applied to every point on the left, yields the linearly separable dateset on the right.</p>
+<blockquote>
+<p>Note : It is  a convention to use the Greek letter 'phi' <span class="math">\(\phi\)</span> for this transformation, so <span class="math">\(\phi\)</span> will be used from hereon.</p>
+</blockquote>
+<p>Assuming we have such a transformation <span class="math">\(\phi\)</span>, the new classification pipeline is as follows.</p>
+<p>First transform the training set <span class="math">\(X\)</span> to <span class="math">\(X'\)</span> with <span class="math">\(\phi\)</span>. Train a linear SVM on <span class="math">\(X'\)</span> to get classifier <span class="math">\(f_{svm}\)</span>. At test time, a new example <span class="math">\(\vec{x}\)</span> will first be transformed to <span class="math">\(\vec{x'}=\phi(\vec{x})\)</span>. The output class label is then determined by :<span class="math">\(f_{svm}(\vec{x'})\)</span></p>
+<blockquote>
+<p>Observation : This is exactly the same as the train/test procedure for regular linear SVMs, but with an added data transformation via <span class="math">\(\phi\)</span>.</p>
+</blockquote>
+<p>In the next figure, note that the hyperplane learned in <span class="math">\(\Re^3\)</span> is non-linear when projected back to <span class="math">\(\Re^2\)</span>. Thus, we have improved the <strong>expressiveness</strong> of the Linear SVM classifier by working in a higher-dimnensional space.</p>
+<p><img alt="Decision Boundary" src="./assets/2017-01-22-Kernel-trick-ecb81.png"></p>
+<h4>Recap :</h4>
+<p>A dataset <span class="math">\(D\)</span> that is not linearly separable in <span class="math">\(\Re^N\)</span> may be linearly separable in a higher-dimensional space <span class="math">\(\Re^M\)</span> (where <span class="math">\(M \gt N\)</span>). Thus, if we have a transformation <span class="math">\(\phi\)</span> that lifts the dataset <span class="math">\(D\)</span> to a higher-dimensional <span class="math">\(D'\)</span> <u>such that</u> <span class="math">\(D'\)</span>  is linearly separable, then we can train a linear SVM on <span class="math">\(D'\)</span> to find a decision boundary <span class="math">\(\vec{w}\)</span> that separates the classes in <span class="math">\(D'\)</span>. Projecting the decision boundary <span class="math">\(\vec{w}\)</span> found in <span class="math">\(\Re^M\)</span> back to the original space <span class="math">\(R^N\)</span> will yield a nonlinear decision boundary.</p>
+<p>This means that we can learn nonlinear SVMs <strong>while still using the original Linear SVM formulation!</strong></p>
+<h4>Caveat : Impractical for large dimensions</h4>
+<p>The scheme described so far is attractive due to its simplicity : we only modify the inputs to a 'vanilla' linear SVM. However, consider the computational consequences of increasing the dimensionality from <span class="math">\(R^N\)</span> to <span class="math">\(R^M\)</span> (with <span class="math">\(M \gt N\)</span>). If <span class="math">\(M\)</span> grows very quickly with respect to <span class="math">\(N\)</span> (e.g. <span class="math">\(M\)</span> <span class="math">\(\epsilon\)</span> <span class="math">\(O (2^N)\)</span>), then learning SVMs via dataset transformations will incur serious computational and memory problems!</p>
+<p>Here is a concrete example : the Polynomial Kernel is a kernel often used with SVMs. For a dataset in <span class="math">\(\Re^2\)</span> a two-degree polynomial kernel (implicitly) performs the transfromation <span class="math">\([x_1,x_2]=[x_1^2,x_2^2,\sqrt{2}\cdot x_1 \cdot x_2, \sqrt{2 \cdot c}\cdot x_2, c]\)</span><span class="math">\(. This transformation adds three additional dimensions $\Re^2\)</span> -&gt; <span class="math">\(\Re^5\)</span>.</p>
+<p>In general, a d-dimensional polynomial kernel maps from <span class="math">\(R^N\)</span> to an <span class="math">\(\binom{N+d}{d}\)</span>- dimensional space. Thus, for datasets with large dimensionality, naively performing such a transformation will quickly become intractable.</p>
+<h3>We only need the dot products!</h3>
+<p>It turns out that the SVM has no need to explicitly work in the higher-dimensional space at training or testing time.</p>
+<p>One can show that during training, the optimization problem only uses the training examples to compute <strong>pair-wise</strong> <em>dot products</em> <span class="math">\(&lt;\vec{x_i},\vec{x_j}&gt;\)</span>, where <span class="math">\(\vec{x_i},\vec{x_j}\)</span>  <span class="math">\(\epsilon\)</span> <span class="math">\(\Re^N\)</span>.</p>
+<p>Why is this significant? It turns out that there exist functions that, given 2 vectors <span class="math">\(v\)</span> and <span class="math">\(w\)</span> in <span class="math">\(\Re^N\)</span>, implicitly computes the dot product</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
