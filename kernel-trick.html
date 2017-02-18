@@ -229,12 +229,36 @@ avg / total       0.65      0.45      0.47       200
 <p>This means that we can learn nonlinear SVMs <strong>while still using the original Linear SVM formulation!</strong></p>
 <h4>Caveat : Impractical for large dimensions</h4>
 <p>The scheme described so far is attractive due to its simplicity : we only modify the inputs to a 'vanilla' linear SVM. However, consider the computational consequences of increasing the dimensionality from <span class="math">\(R^N\)</span> to <span class="math">\(R^M\)</span> (with <span class="math">\(M \gt N\)</span>). If <span class="math">\(M\)</span> grows very quickly with respect to <span class="math">\(N\)</span> (e.g. <span class="math">\(M\)</span> <span class="math">\(\epsilon\)</span> <span class="math">\(O (2^N)\)</span>), then learning SVMs via dataset transformations will incur serious computational and memory problems!</p>
-<p>Here is a concrete example : the Polynomial Kernel is a kernel often used with SVMs. For a dataset in <span class="math">\(\Re^2\)</span> a two-degree polynomial kernel (implicitly) performs the transfromation <span class="math">\([x_1,x_2]=[x_1^2,x_2^2,\sqrt{2}\cdot x_1 \cdot x_2, \sqrt{2 \cdot c}\cdot x_2, c]\)</span><span class="math">\(. This transformation adds three additional dimensions $\Re^2\)</span> -&gt; <span class="math">\(\Re^5\)</span>.</p>
+<p>Here is a concrete example : the Polynomial Kernel is a kernel often used with SVMs. For a dataset in <span class="math">\(\Re^2\)</span> a two-degree polynomial kernel (implicitly) performs the transfromation <span class="math">\([x_1,x_2]=[x_1^2,x_2^2,\sqrt{2}\cdot x_1 \cdot x_2, \sqrt{2 \cdot c}\cdot x_2, c]\)</span>.</p>
+<p>This transformation adds three additional dimensions <span class="math">\(\Re^2\)</span> -&gt; <span class="math">\(\Re^5\)</span>.</p>
 <p>In general, a d-dimensional polynomial kernel maps from <span class="math">\(R^N\)</span> to an <span class="math">\(\binom{N+d}{d}\)</span>- dimensional space. Thus, for datasets with large dimensionality, naively performing such a transformation will quickly become intractable.</p>
 <h3>We only need the dot products!</h3>
 <p>It turns out that the SVM has no need to explicitly work in the higher-dimensional space at training or testing time.</p>
 <p>One can show that during training, the optimization problem only uses the training examples to compute <strong>pair-wise</strong> <em>dot products</em> <span class="math">\(&lt;\vec{x_i},\vec{x_j}&gt;\)</span>, where <span class="math">\(\vec{x_i},\vec{x_j}\)</span>  <span class="math">\(\epsilon\)</span> <span class="math">\(\Re^N\)</span>.</p>
-<p>Why is this significant? It turns out that there exist functions that, given 2 vectors <span class="math">\(v\)</span> and <span class="math">\(w\)</span> in <span class="math">\(\Re^N\)</span>, implicitly computes the dot product</p>
+<h4>Why is this significant?</h4>
+<blockquote>
+<p>It turns out that there exist functions that, given 2 vectors <span class="math">\(\vec{v}\)</span> and <span class="math">\(\vec{w}\)</span> in <span class="math">\(\Re^N\)</span>, implicitly computes the dot product between <span class="math">\(\vec{v}\)</span> and <span class="math">\(\vec{w}\)</span> in <span class="math">\(\Re^M\)</span> **without explicitly transforming <span class="math">\(\vec{v}\)</span> and <span class="math">\(\vec{w}\)</span> to <span class="math">\(\Re^M\)</span>.</p>
+</blockquote>
+<h5>Such functions are called <strong>kernel</strong> functions <span class="math">\(K(\vec{v},\vec{w})\)</span>.</h5>
+<p>The implications are:</p>
+<ol>
+<li>
+<p>By using a kernel <span class="math">\(K(\vec{x_i},\vec{x_j})\)</span>, we can implicitly transform datasets to a higher-dimensional <span class="math">\(\Re^M\)</span> using no extra memory, and with a minimal effect on computation time.</p>
+</li>
+<li>
+<p>The only effect on computation is the extra time required to compute <span class="math">\(K(\vec{x_i},\vec{x_j})\)</span>. Depending on <span class="math">\(K\)</span>, this can be minimal.</p>
+</li>
+<li>
+<p>By virtue of (1), we can efficiently learn non-linear decision boundaries for SVMs simply by **replacing al dot products in the SVM computation with <span class="math">\(K(\vec{x_i},\vec{x_j})\)</span>.</p>
+</li>
+</ol>
+<p><strong>The usage of kernel functions to achieve benefits (1) and (2) is the "Trick" in the "Kernel Trick"</strong></p>
+<h3>Kernel functions,</h3>
+<p>In this context, a Kernel function is a function $ K : \Re^N \times \Re^N \rightarrow \Re $. There are some important mathematical properties that must be obeyed in order to be considered a proper kernel function.</p>
+<h4>Intuition</h4>
+<p>A kernel <span class="math">\(K\)</span> effetively computes dot products in a higher-dimensional space <span class="math">\(R^M\)</span> while remaining in <span class="math">\(R^N\)</span>.</p>
+<p>In symbols :</p>
+<p>For <span class="math">\(\vec{x_i},\vec{x_j}\)</span>  <span class="math">\(\epsilon\)</span> <span class="math">\(\Re^N\)</span>, <span class="math">\(K(\vec{x_i},\vec{x_j})={&lt;\Phi(\vec{x_i}),\Phi(\vec{x_j})&gt;}_M\)</span>, where <span class="math">\({&lt;\cdot,\cdot&gt;}_M\)</span> is an inner product of <span class="math">\(\Re^M\)</span>, <span class="math">\(M \gt N\)</span>, and <span class="math">\(\Phi(\vec{x})\)</span> transforms <span class="math">\(\vec{x}\)</span></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
