@@ -88,7 +88,87 @@
 
   <div>
     <h1>What are the 12 Commandments?</h1>
-<p>In the modern era, software is commonly delivered as a service: called <strong>Web Apps</strong>, or <em>Software-as-a-Service</em>.</p>
+<p>In the modern era, software is  commonly delivered as a service: called <strong>Web Apps</strong>, or <em>Software-as-a-Service</em>.</p>
+<p>The 12 factor app  is a methodology for building software-as-a-service apps that:</p>
+<ul>
+<li>Use <strong>declarative</strong> formats for setup automation, to minimize time and cost for new developers joining the project</li>
+</ul>
+<blockquote>
+<p>Declarative programming is when you write your code in such a way that it describes what you want to do, and not how you want to do it. It is left up to the compiler to  figure out how.</p>
+<p>Example: SQL, Prolog.</p>
+</blockquote>
+<ul>
+<li>
+<p>Have a <strong>clean contract</strong> with the underlying operating system, offering maximum portability between execution environments</p>
+</li>
+<li>
+<p>Are suitable for <strong>deployment</strong> on modern cloud platforms, obviating the need for servers and systems administration;</p>
+</li>
+<li>
+<p>Minimize divergence between development and production, enabling continuous deployment for maximum agility;</p>
+</li>
+<li>
+<p>And can <strong>scale up</strong> without significant changes to tooling, architecture, or development practices.</p>
+</li>
+</ul>
+<h2>Codebase</h2>
+<blockquote>
+<p>One codebase tracked in revision control, many deploys</p>
+</blockquote>
+<p>A 12FA is always tracked in a version control system, such as <em>Git, Mercurial, or Subversion</em>.</p>
+<p>A copy of the revision tracking database is known as a <strong>code repository</strong>, often shortened to <em>code repo</em> or just <em>repo</em>.</p>
+<p>A <em>codebase</em> is any single repo (in a centralized revision control system like Subversion), or any set of repos who share a root commit (in a decentralized revision control system like Git).</p>
+<p><img alt="codebase" src="./assets/2012-01-25-12FactorApp-4ddaf.png"></p>
+<p>There is always a one-to-one correlation between the codebase and the app:</p>
+<blockquote>
+<p>If there are multiple codebase, it's not an app - it's a distributed system.</p>
+</blockquote>
+<ul>
+<li>Each component in a distributed system is an app, and each can individually comply with twelve-factor.</li>
+</ul>
+<blockquote>
+<p>Multiple apps sharing the same code is a violation of twelve-factor.</p>
+</blockquote>
+<ul>
+<li>The solution here is to factor shared code into libraries which can be included through the dependency manager.</li>
+</ul>
+<p>There is only one <em>code base</em> per app, but there will be many deploys of the app.</p>
+<p>A <em>deploy</em> is a running instance of the app.</p>
+<p><strong>This is typically a production site, and one or more staging sites.</strong></p>
+<ul>
+<li>Additionally, every developer has a copy of the app running in their local development environment, each of which also qualifies as a deploy.</li>
+</ul>
+<p>The <em>code base</em> is the same across all deploys, although different versions may be active in each deploy.</p>
+<p>For example, a developer has some commits not yet deployed to staging; staging has some commits not yet deployed to production. But they all share the same <em>code base</em>, thus making them identifiable as different deploys of the same app.</p>
+<h2>Dependencies</h2>
+<blockquote>
+<p>Explicitly declare and isolate dependencies</p>
+</blockquote>
+<p>Most programming languages offer a packaging system for distributing support libraries, such as <strong>CPAN for Perl</strong> or <strong>Rubygems for Ruby</strong>. Libraries installed through a packaging system can be installed system-wide (known as "site packages") or scoped into the directory containing the app ( known as <em>"vendoring"</em> or <em>"bundling"</em> ).</p>
+<p><strong>A 12FA never relies on implicit existence of system-wide packages</strong>.</p>
+<p>It declares all dependencies, completely and exactly, via a <em>dependency declaration</em>* manifest.</p>
+<p>Furthermore, it uses a <strong>dependency isolation</strong> tool during execution to ensure that no implicit dependencies "leak in" from the surrounding system.</p>
+<p>The full and explicit dependency specification is applied uniformly to both production and development.</p>
+<p>For example,
+* <strong>Bundler for Ruby</strong> offers the <code>Gemfile</code> manifest format for dependency declaration and <code>bundle exec</code> for dependency isolation.</p>
+<ul>
+<li>
+<p>In Python, there are 2 separate tools for these steps - <code>pip</code> is used for declaration and <code>virtualenv</code> for isolation.</p>
+</li>
+<li>
+<p>Even C has <code>Autoconf</code> for dependency declaration and static linking can provide isolation.</p>
+</li>
+</ul>
+<blockquote>
+<p>No matter what the toolchain, dependency declaration and isolation must always be used together - only one or the other is not sufficient to satisfy 12FA.</p>
+</blockquote>
+<h2>App Testing and Continuous Integration.</h2>
+<h3>TRAVIS-CI</h3>
+<p>Travis CI provides a default build environment and a default set of steps for each programming language. You can customize any step in this process in <code>.travis.yml</code>. Travis CI uses <code>.travis.yml</code> file in the root of your repository to learn about your project and how you want your builds to be executed. .travis.yml can be very minimalistic or have a lot of customization in it. A few examples of what kind of information your .travis.yml file may have:</p>
+<p>What programming language your project uses
+What commands or scripts you want to be executed before each build (for example, to install or clone your project’s dependencies)
+What command is used to run your test suite
+Emails, Campfire and IRC rooms to notify about build failures</p>
   </div>
   <div class="tag-cloud">
     <p>

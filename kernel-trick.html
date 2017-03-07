@@ -258,7 +258,32 @@ avg / total       0.65      0.45      0.47       200
 <h4>Intuition</h4>
 <p>A kernel <span class="math">\(K\)</span> effetively computes dot products in a higher-dimensional space <span class="math">\(R^M\)</span> while remaining in <span class="math">\(R^N\)</span>.</p>
 <p>In symbols :</p>
-<p>For <span class="math">\(\vec{x_i},\vec{x_j}\)</span>  <span class="math">\(\epsilon\)</span> <span class="math">\(\Re^N\)</span>, <span class="math">\(K(\vec{x_i},\vec{x_j})={&lt;\Phi(\vec{x_i}),\Phi(\vec{x_j})&gt;}_M\)</span>, where <span class="math">\({&lt;\cdot,\cdot&gt;}_M\)</span> is an inner product of <span class="math">\(\Re^M\)</span>, <span class="math">\(M \gt N\)</span>, and <span class="math">\(\Phi(\vec{x})\)</span> transforms <span class="math">\(\vec{x}\)</span></p>
+<p>For <span class="math">\(\vec{x_i},\vec{x_j}\)</span>  <span class="math">\(\epsilon\)</span> <span class="math">\(\Re^N\)</span>, <span class="math">\(K(\vec{x_i},\vec{x_j})={&lt;\Phi(\vec{x_i}),\Phi(\vec{x_j})&gt;}_M\)</span>, where <span class="math">\({&lt;\cdot,\cdot&gt;}_M\)</span> is an inner product of <span class="math">\(\Re^M\)</span>, <span class="math">\(M \gt N\)</span>, and <span class="math">\(\Phi(\vec{x})\)</span> transforms <span class="math">\(\vec{x}\)</span> to <span class="math">\(\Re^M(\Phi : \Re^N \rightarrow \Re^M)\)</span></p>
+<blockquote>
+<p>The surprise here being the fact that the Kernel Function can compute dot products between <span class="math">\(\vec{v},\vec{w} \in \Re^N\)</span> in <span class="math">\(\Re^M\)</span> with a function <span class="math">\(K\)</span> that works exclusively in <span class="math">\(R^N\)</span>.</p>
+</blockquote>
+<h3>Popular Kernels</h3>
+<p>Most off-the-shelf classifiers allow the user to specify one of three popular kernels: the <strong>polynomial,radial basis function</strong>, and <strong>sigmoid</strong> kernel.</p>
+<p>For instance, sklearn's SVM implementation <code>svm</code>. SVC has a kernel parameter which can take on <code>linear</code>,<code>poly</code>,<code>rbf</code> or <code>sigmoid</code>.</p>
+<p>You can even pass a custom kernel.</p>
+<p>For the following, let <span class="math">\(\vec{x_i},\vec{x_j} \in \Re^N\)</span> be rows from the dataset <span class="math">\(X\)</span>.</p>
+<ol>
+<li>
+<p><strong>Polynomial Kernel</strong> : <div class="math">$${(\gamma \cdot &lt;\vec{x_i},\vec{x_j}&gt; + r)}^d$$</div>
+</p>
+</li>
+<li>
+<p><strong>Radial Basis Function (RBF) Kernel</strong>: <div class="math">$$exp(- \gamma \cdot {|\vec{x_i} - \vec{x_j}|}^2 )$$</div>, where <span class="math">\(\gamma \gt 0\)</span>.</p>
+</li>
+<li>
+<p><strong>Sigmoid Kernel</strong> :</p>
+</li>
+</ol>
+<div class="math">$$tanh{(&lt;\vec{x_i},\vec{x_j}&gt; + r)}^d$$</div>
+<blockquote>
+<p>Note : For some reason, sklearn's <code>svm.SVC</code> appears to use both the <code>gamma</code> and <code>coef0</code> parameters for the <code>kernel = sigmoid</code>, despite the above definition only having one parameter <code>r</code>. Not cross-validating across both <code>gamma</code> and <code>coef0</code> resulted in degenerate decision boundaries.</p>
+</blockquote>
+<p><strong>Choosing the <code>correct kernel</code> is a <code>non-trivial</code> task.</strong></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
