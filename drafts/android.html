@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Notes on building an Android App." />
+<meta name="keywords" content="Android, android, Android SDK">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Android"/>
+<meta property="og:description" content="Notes on building an Android App."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/android.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-03-18 13:01:00+01:00"/>
+<meta property="article:modified_time" content="2017-03-18 13:45:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="learning"/>
+<meta property="article:tag" content="Android"/>
+<meta property="article:tag" content="android"/>
+<meta property="article:tag" content="Android SDK"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Android</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="android">Android</h1>
+    <p>
+          Posted on Sat 18 March 2017 in <a href="../category/learning.html">learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Building an Android App</h1>
+<h2>Activity</h2>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Activity</span>
+<span class="kd">extends</span> <span class="n">ContextThemeWrapper</span> <span class="kd">implements</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">Factory2</span><span class="o">,</span> <span class="n">Window</span><span class="o">.</span><span class="na">Callback</span><span class="o">,</span> <span class="n">KeyEvent</span><span class="o">.</span><span class="na">Callback</span><span class="o">,</span> <span class="n">View</span><span class="o">.</span><span class="na">OnCreateContextMenuListener</span><span class="o">,</span> <span class="n">ComponentCallbacks2</span>
+</pre></div>
+
+
+<p>An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with <code>setContentView(View)</code>. While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows (via a theme with <code>windowIsFloating</code> set) or embedded inside of another activity (using <code>ActivityGroup</code>).</p>
+<p>There are 2 methods almost all subclasses of Activity will implement :</p>
+<ul>
+<li><code>onCreate(Bundle)</code> is where you initialize your activity. Most importantly, here you will usually call <code>setContentView(int)</code> with a layout resource defining your UI, and using <code>findViewById(int)</code> to retrieve the widgets in that UI that</li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/android.html">Android</a>
+      <a href="../tag/android.html">android</a>
+      <a href="../tag/android-sdk.html">Android SDK</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

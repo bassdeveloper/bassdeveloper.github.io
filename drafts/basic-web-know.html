@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Basic Web Knowledge and points about DOM, Web Components, Shadow DOM etc." />
+<meta name="keywords" content="DOM, Web-Dev, browsers, WebComponents">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Basic Web Knowledge"/>
+<meta property="og:description" content="Basic Web Knowledge and points about DOM, Web Components, Shadow DOM etc."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/basic-web-know.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-04-04 23:28:00+02:00"/>
+<meta property="article:modified_time" content="2017-01-16 13:45:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Web-Dev"/>
+<meta property="article:tag" content="DOM"/>
+<meta property="article:tag" content="Web-Dev"/>
+<meta property="article:tag" content="browsers"/>
+<meta property="article:tag" content="WebComponents"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Basic Web Knowledge</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="basic-web-know">Basic Web Knowledge</h1>
+    <p>
+          Posted on Mon 04 April 2016 in <a href="../category/web-dev.html">Web-Dev</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h2>Basic Web Knowledge</h2>
+<h1>What is the Document Object Model?</h1>
+<p>The Document Object Model is a platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content,
+structure and style of documents. The document can be further processed and the results of that processing can be incorporated back into the presented page.</p>
+<p>It provides a structured representation of the <a href="https://www.w3.org/TR/DOM-Level-1/introduction.html">document as a tree</a>.
+The DOM defines methods that allow access to the tree, so that they can change the document structure, style and content. The DOM provides a representation of the document as a structured group of nodes and objects, possessing various properties and methods.
+Nodes can also have event handlers attached to them, and once an event is triggered, the event handlers get executed. Essentially, it connects web pages to scripts or programming languages.</p>
+<h1>Why the Document Object Model?</h1>
+<p>"Dynamic HTML" is a term used by some vendors to describe the combination of HTML, style sheets and scripts that allows documents to be animated.
+The W3C has received several submissions from members companies on the way in which the object model of HTML documents should be exposed to scripts.
+These submissions do not propose any new HTML tags or style sheet technology</p>
+<h1>$hadow DOM 101</h1>
+<p>When making widgets out of HTML5 and Javascript, the DOM tree inside a widget isn't encapsulated.<br>
+The lack of encapsulation means your document stylesheet might accidentally apply to parts inside the widget.<br>
+<em> Your JS might accidentally modify parts inside the widget.
+</em> IDs may overlap with IDs inside the widget.
+* Upgrading might break the widget's internal details</p>
+<h1>WebComponents</h1>
+<ol>
+<li>Templates</li>
+<li>Shadow DOM</li>
+<li>Custom Elements</li>
+<li>Packaging</li>
+</ol>
+<p>Shadow DOM addresses the DOM encapsulation problem.  </p>
+<h2>Shadow World</h2>
+<p>With Shadow DOM, elements can get a new kind of node associated with them.<br>
+This new kind of node is called <strong>shadow root</strong>. The element that has a shadow root associated with it is called a <strong>shadow host</strong>.  </p>
+<p>We need to create a Shadow Root for the element -&gt; #nameTag.</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kd">var</span> <span class="nx">shadow</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#nameTag&#39;</span><span class="p">).</span><span class="nx">createShadowRoot</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#nameTagTemplate&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">importNode</span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">clone</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+
+
+<p>Using the Shadow DOM, we have hidden the presentation details from the actual DOM.</p>
+<h2>REST :</h2>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/dom.html">DOM</a>
+      <a href="../tag/web-dev.html">Web-Dev</a>
+      <a href="../tag/browsers.html">browsers</a>
+      <a href="../tag/webcomponents.html">WebComponents</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

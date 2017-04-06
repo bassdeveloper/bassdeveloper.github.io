@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Conversations summary from the documentation." />
+<meta name="keywords" content="Node, JS, Express">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Onboard the Node Express"/>
+<meta property="og:description" content="Conversations summary from the documentation."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/node-xpress.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-23 16:00:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-23 16:00:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="Node"/>
+<meta property="article:tag" content="JS"/>
+<meta property="article:tag" content="Express"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Onboard the Node Express</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="node-xpress">Onboard the Node Express</h1>
+    <p>
+          Posted on Mon 23 January 2017 in <a href="../category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>All aboard!</h1>
+<p>Express is a minimal and flexible Node.js web application framework that providesa robust set of features to develop web and mobile applications. It facilitates the rapid development.</p>
+<p><strong>Server.js file</strong>
+This file is used to run the whole application. It hosts a server and listens to it on a particular port.</p>
+<h2>Request &amp; Response</h2>
+<p>Express application uses a callback function whose parameters are <strong>request</strong> and <strong>response</strong> objects:</p>
+<div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// --</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<ul>
+<li><strong>Request Object</strong> : The request object represents HTTP request and has properties for the <em>request query string, parameters, body, HTTP headers</em> and so on..</li>
+<li><strong>Response Object</strong> : The response object represents the HTTP response that an Express app sends when it gets an HTTP request.</li>
+</ul>
+<p>You can print <strong>req</strong> and <strong>res</strong> objects which provide a lot of information related to HTTP request and response including cookies, sessions, URl, etc.</p>
+<h2>Basic Routing:</h2>
+<p>Routing refers to determining how an applicatoin responds to a client request to a particular endpoint, which is a URI ( or path) and a specific HTTP request method (GET, POST, and so on)</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="c1">// This responds with &quot;Hello World&quot; on the homepage</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got a GET request for the homepage&quot;</span><span class="p">);</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Hello GET&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// This responds a POST request for the homepage</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got a POST request for the homepage&quot;</span><span class="p">);</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Hello POST&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// This responds a DELETE request for the /del_user page.</span>
+<span class="nx">app</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/del_user&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got a DELETE request for /del_user&quot;</span><span class="p">);</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Hello DELETE&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// This responds a GET request for the /list_user page.</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/list_user&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got a GET request for /list_user&quot;</span><span class="p">);</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Page Listing&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// This responds a GET request for abcd, abxcd, ab123cd, and so on</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/ab*cd&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>   
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got a GET request for /ab*cd&quot;</span><span class="p">);</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Page Pattern Match&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8081</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+   <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">address</span>
+   <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span>
+
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Example app listening at http://%s:%s&quot;</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2>Body Parser</h2>
+<p>Before we understand what the Body Parser does, we need to understand what is middleware:</p>
+<h3>Middleware:</h3>
+<ul>
+<li>
+<p><strong>Any software that provides services to software applications beyond those available from the operating system</strong>.</p>
+</li>
+<li>
+<p>It can be described as <em>"software glue"</em></p>
+</li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/node.html">Node</a>
+      <a href="../tag/js.html">JS</a>
+      <a href="../tag/express.html">Express</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

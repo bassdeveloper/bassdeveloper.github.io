@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Dive into Neural Networks to build End-to-End Systems" />
+<meta name="keywords" content="Neural Networks, Speech recognition">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="NLP using Neural Networks"/>
+<meta property="og:description" content="Dive into Neural Networks to build End-to-End Systems"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/neural.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-24 12:50:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-24 12:50:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="Neural Networks"/>
+<meta property="article:tag" content="Speech recognition"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; NLP using Neural Networks</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="neural">NLP using Neural Networks</h1>
+    <p>
+          Posted on Tue 24 January 2017 in <a href="../category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Wanna Chat Honey?</h1>
+<blockquote>
+<p>Sources :
+1. How to make an amazing TensorFlow Chatbot: https://www.youtube.com/watch?v=SJDEOWLHYVo</p>
+</blockquote>
+<p>Chatbots are becoming increasingly popular since a chat platform is the next most used screen after your homescreen.</p>
+<p>Statistics show that most apps only used once.</p>
+<p>Now applications don't need to fight for space on one end. They can simply utilize the space on the second space, i.e. Chat App.</p>
+<p>Most simple type of neural networks are : <strong>Feed Forward</strong>.</p>
+<h1>TensorFlow</h1>
+<h2>Tensors</h2>
+<p>The central unit of data in TensorFlow is the <strong>tensor</strong>.</p>
+<blockquote>
+<p>A tensor consists of a set of primitive values shaped into an array of any number of dimensions.</p>
+</blockquote>
+<p>A tensor's rank is its number of dimensions.</p>
+<div class="highlight"><pre><span></span><span class="mi">3</span> <span class="c1"># a rank 0 tensor; this is a scalar with shape []</span>
+<span class="p">[</span><span class="mf">1.</span> <span class="p">,</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span> <span class="c1"># a rank 1 tensor; this is a vector with shape [3]</span>
+<span class="p">[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]]</span> <span class="c1"># a rank 2 tensor; a matrix with shape [2, 3]</span>
+<span class="p">[[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]]]</span> <span class="c1"># a rank 3 tensor with shape [2, 1, 3]</span>
+</pre></div>
+
+
+<h3>TensorFlow Core:</h3>
+<h4>Importing TensorFlow</h4>
+<p>The canonical import statement for TensorFlow programs is as follows:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+</pre></div>
+
+
+<h4>The Computational Graph</h4>
+<p>TensorFlow Core programs as consisiting of 2 discrete sections:</p>
+<ol>
+<li>Building the computational graph.</li>
+<li>Running the computational graph.</li>
+</ol>
+<blockquote>
+<p>A <strong>computational graph</strong> is a series of TensorFlow operations arranged into a graph of nodes.</p>
+</blockquote>
+<p>Each node takes zero or more tensors as inputs and produces a tensor as an output. One type of node is a <strong>constant</strong>.</p>
+<p>Like all TensorFlow constants, it takes no inputs, and it outputs a value it stores internally. We can create two floating point Tensors <code>node1</code> and <code>node2</code> as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">node1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">node2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="c1"># also tf.float32 implicitly</span>
+<span class="k">print</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;&gt;&gt; Output : Tensor(&quot;Const:0&quot;, shape=(), dtype=float32) Tensor(&quot;Const_1:0&quot;, shape=(), dtype=float32)&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>Notice that printing the nodes does not output the values <code>3.0</code> and <code>4.0</code>. Instead, they are nodes that, when evaluated, would produce 3.0 and 4.0 respectively.</p>
+<p><strong>To evaluate the nodes, we must run the computational graph within a <code>session</code>.</strong></p>
+<blockquote>
+<p>A session encapsulates the control and state of the TensorFlow</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">]))</span>
+
+<span class="sd">&#39;&#39;&#39;&gt;&gt; Output:  [3.0, 4.0]&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>We can build more complicated computations by combining <code>Tensor</code> nodes with operations (Operations are also nodes).</p>
+<div class="highlight"><pre><span></span><span class="n">node3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;node3: &quot;</span><span class="p">,</span> <span class="n">node3</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;&gt;&gt; Output: node3:  Tensor(&quot;Add_2:0&quot;, shape=(), dtype=float32)&#39;&#39;&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sess.run(node3): &quot;</span><span class="p">,</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">node3</span><span class="p">))</span>
+
+<span class="sd">&#39;&#39;&#39;sess.run(node3):  7.0&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>TensorFlow provides a utility called <code>TensorBoard</code> that can display a picture of the computational graph.</p>
+<p>As it stands, this graph is not especially interesting because it always produces a constant result. A graph can be parametrized to accept external inputs, known as <strong>placeholders</strong>.</p>
+<blockquote>
+<p>A <strong>placeholder</strong> is a promise to provide a value later.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">adder_node</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># + provides a shortcut for tf.add(a, b)</span>
+</pre></div>
+
+
+<p>The preceding three lines are a bit like a function or a lambda in which we define two input parameters (a and b) and then an operation on them.</p>
+<p>We can evaluate this graph with multiple inputs by using the <code>feed_dict</code> parameter to specify Tensors that provide concrete values to these placeholders:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">adder_node</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="mf">4.5</span><span class="p">}))</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">&gt;&gt; Output: 7.5</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">adder_node</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}))</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">&gt;&gt; Output: [ 3.  7.]</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>Make it more complex:</p>
+<div class="highlight"><pre><span></span><span class="n">add_and_triple</span> <span class="o">=</span> <span class="n">adder_node</span> <span class="o">*</span> <span class="mf">3.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">add_and_triple</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="mf">4.5</span><span class="p">}))</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Output : 22.5</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>Now,in machine learning, we  would typically want a model that can take arbitrary inputs.</p>
+<p>To make the model trainable, we need to be able to modify the graph to get new outputs with the same input.</p>
+<blockquote>
+<p><code>Variables</code> allow us to add trainable parameters to a graph.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">-.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+
+
+<p>Constants are initialized when you call <code>tf.constant</code>, and their value can never change. By contrast, variables are not initialized when you call <code>tf.Variable</code>. To initialize all the variables in a TensorFlow program, you must explicitly call a special operation as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+</pre></div>
+
+
+<p>It is important to realize <code>init</code> is a handle to the TensorFlow sub-graph that intializes all the global variables. Until we call <code>sess.run</code>, the variables are uninitialized.</p>
+<p>Since <code>x</code> is a placeholder, we can evaluate <code>linear_model</code>
+for several values of <code>x</code> simultaneously as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,{</span><span class="n">x</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}))</span>
+<span class="sd">&#39;&#39;&#39;Output: [ 0.          0.30000001  0.60000002  0.90000004]&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>So We've created a model, but we don't know how good it is yet. To evaluate the model on training data, we need a <code>y</code> placeholder to provide the desired values, and we need to write a loss function.</p>
+<blockquote>
+<p>A loss function measures how far apart the current model is from the provided data.</p>
+</blockquote>
+<p>We'll use a standard loss model for linear regression, which sums the squares of the deltas between the current model and the provided data.</p>
+<p><code>linear_model - y</code> creates a vector where each element is the corresponding example's error delta.</p>
+<p>We call tf.square to square that error. Then, we sum all the squared errors to create a single scalar that abstracts the error of all examples using <code>tf.reduce_sum</code> :</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">squared_deltas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">linear_model</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">squared_deltas</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]}))</span>
+<span class="sd">&#39;&#39;&#39;Output : 23.66&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>We could improve this manually by reassigning the values of W and b to the perfect values of -1 and 1.</p>
+<p>A variable is initialized to the value provided to <code>tf.Variable</code> but can be changed using operations like <code>tf.assign</code>. For example, W=-1 and b=1 are the optimal parameters for our model. We can change W and b accordingly:</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/neural-networks.html">Neural Networks</a>
+      <a href="../tag/speech-recognition.html">Speech recognition</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

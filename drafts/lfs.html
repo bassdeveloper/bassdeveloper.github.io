@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="An insight into LFS." />
+<meta name="keywords" content="LFS, Linux From Scratch">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Linux from Scratch"/>
+<meta property="og:description" content="An insight into LFS."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/lfs.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-03-25 13:28:00+01:00"/>
+<meta property="article:modified_time" content="2017-03-25 13:28:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="LFS"/>
+<meta property="article:tag" content="Linux From Scratch"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Linux from Scratch</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="lfs">Linux from Scratch</h1>
+    <p>
+          Posted on Sat 25 March 2017 in <a href="../category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Let's Scratch the surface</h1>
+<p>LFS follows Linux Standards :
+<em> <a href="http://pubs.opengroup.org/onlinepubs/9699919799/">POSIX.1-2008</a>
+</em> <a href="http://refspecs.linuxfoundation.org/fhs.shtml">Filesystem Hierarchy Standard (FHS) Version 3.0</a>
+* <a href="http://refspecs.linuxfoundation.org/lsb.shtml">Linux Standard Base (LSB) Version 5.0</a></p>
+<h2>Pre-Requisites</h2>
+<h3>Software Building</h3>
+<h4>Overview</h4>
+<p>Many software packages for the various flavors of UNIX and Linux come as compressed archives of source files. The same package may be "built" to run on different target machines, and this saves the author of a software from having to produce multiple versions.</p>
+<p>A single distribution of a software package may thus end up running, in various incarnations, on a Intel box, a DEC Alpha, a RISC workstation, or even a mainframe.</p>
+<p>Thus, this puts the responsibility of actually "building" and installing the software on the end user, the de facto "system administrator", the fellow sitting at the keyboard -- you.</p>
+<h4>Unpacking the Files</h4>
+<p>Once you have downloaded or otherwise acquired a software package. Most likely, it is archived (tarred) and compressed (gzipped),</p>
+<blockquote>
+<p>On it's own, a TAR file is not a compressed file, it is simply a format used for archiving files (merging several files into one). TAR stands for tape archive.
+The TAR format was originally designed for backup purposes using tapes, however it is quite often used for downloads and application packages.
+TAR files are not able to run a single file in the archive without first extracting the contents of the whole archive.</p>
+</blockquote>
+<p>in <code>.tar.gz</code> or <code>.tgz</code> form (familiarly known as a <em>tarball</em>).</p>
+<p>First copy it to a working directory. Then <code>untar</code> and <code>gunzip</code> it. The appropriate command for this is</p>
+<div class="highlight"><pre><span></span>$ tar -xvzf &lt;filename&gt;
+</pre></div>
+
+
+<p>where <em>filename</em> is the name of the software file, of course. The de-archiving process will usually install the appropriate files in subdirectories it will create.</p>
+<blockquote>
+<p>If the package name has a <code>.Z</code> suffix, then the above procedure will serve just as well</p>
+</blockquote>
+<p>The above method of unpacking "tarballs" is equivalent to either of the following :</p>
+<div class="highlight"><pre><span></span>$ gzip -cd &lt;filename&gt; <span class="p">|</span> tar xvf -
+
+$ gunzip -c &lt;filename&gt; <span class="p">|</span> tar xvf -
+</pre></div>
+
+
+<blockquote>
+<p>The '-' causes the <code>tar</code> comand to take it's input from <code>stdin</code></p>
+</blockquote>
+<p>Source files in the new <em>bzip2</em> (<code>.bz2</code>) format can be unarchived by</p>
+<div class="highlight"><pre><span></span>$ bzip2 -cd &lt;filename&gt; <span class="p">|</span> tar xvf -
+
+$ tar xyvf &lt;filename&gt;
+</pre></div>
+
+
+<p>Sometimes, the archived file must be untarred and installed from the user's home directory, or perhaps in a certain other directory, such as <code>/</code>,<code>/usr/src</code>, or <code>/opt</code>, as specified in the package's config info.</p>
+<p>Should you get an error message attempting to untar it, this may be the reason. Read the package docs, especially the <code>README</code> and/or <code>Install</code> files, if present, and edit the config files and/or <code>Makefiles</code> as necessary, consistent with the installation instructions.</p>
+<p>Note that you would not ordinarily alter the <code>Imake</code> file, since this could have unforeseen consequences.</p>
+<p>Most software packages permit automating this process by running <code>make install</code> to emplace the binaries in the appropriate system areas.</p>
+<ul>
+<li>
+<p>You might encounter <code>shar</code> files or <em>shell archives</em>, especially in the source code newsgroups on the Internet. These remain in use because they are readable to humans, and this permits newsgroup moderators to sort through them and reject unsuitable ones. They may be unpacked by the <code>unshar filename.shar</code> command. Otherwise the procedure for dealing with them is the same as for "tarballs".</p>
+</li>
+<li>
+<p>Patching can be done to incorporate bug fixes into the unarchived source files using a <code>patch</code> or <code>diff</code> file that lists the changes. The doc files and/or <code>README</code> file will inform you should this be the case. Normal syntax for invoking Larry Wall's powerful <em>patch</em> utility is <code>patch &lt; patchfile</code>.</p>
+</li>
+</ul>
+<h4>Build Stage i.e. Using Make</h4>
+<p>The <code>Makefile</code> is the key to the build process.</p>
+<p>In its simplest form, a <code>Makefile</code> is a script for compiling or building the "binaries", the executable portions of a package.</p>
+<p>The <code>Makefile</code> can provide a means of updating a software package without having to recompile every single source file in it.</p>
+<p>At some point, the Makefile launches <code>cc</code> or <code>gcc</code>. This is actually a preprocessor, a C (or C++) compiler and linker, invoked in that order. This process converts source in to binaries, the actual executables.</p>
+<p>Invoking <code>make</code> usually involves just typing <code>make</code>. This generally builds all the necessary executable files for the package in question. However, make can also do other tasks, such as installing the files in proper directories (<code>make install</code>) and removing stale object files (<code>make clean</code>).</p>
+<p>Running <code>make -n</code> permits previewing the build process, as it prints out all the commands that would be triggered by a make, without actually executing them.</p>
+<p>Only the simplest software uses a generic Makefile.</p>
+<p>More complex installations require tailoring the Makefile according to the location of libraries, include files, and resources on your particular machine. This is especially the case when the build needs <code>X11</code> libraries to install. <code>lmake</code> and <code>xmkmf</code> accomplish the task.</p>
+<ul>
+<li>An <code>Imakefile</code> is, to quote the man page, a "template" Makefile. The imake utility constructs a Makefile appropriate for your system from the Imakefile. In almost all cases, however, you would run <code>xmkmf</code>, a shell script that invokes imake, a front end for it.</li>
+</ul>
+<p>Check the <code>README</code> or <code>INSTALL</code> file included in the software archive for specific instructions.</p>
+<p><code>xmkmf</code> and <code>make</code> may need to be invoked as root, especially when doing a <code>make install</code> to move the binaries over to the <code>/usr/bin</code> or <code>/usr/local/bin</code> directories.</p>
+<p>Using <code>make</code> as an ordinary user without root priveleges will likely result in <em>write access denied</em> error messages because you lack write permission to system directories. Check also that the binaries created have the proper execute permissions for you and any other appropriate users.</p>
+<ul>
+<li>Sometimes, there will be no <code>Imake</code> file, instead there will be an <code>INSTALL</code> or <code>configure</code> script that will accomplish this purpose.</li>
+</ul>
+<p>Note that if you run <code>configure</code>, it should be invoked as <code>./configure</code> to ensure that the correct <code>configure</code> script in the current directory is called. In most cases, the <code>README</code> file included with the distribution will explain the install procedure.</p>
+<p>It is usually a good idea to visually inspect the <code>Makefile</code> that <code>xmkmf</code> or one of the install script builds. The Makefile will normally be correct for your system, but you may occasionally be required to "tweak" it or correct errors manually.</p>
+<p>Installing the freshly built binaries into the appropriate system directories is usually a matter of running <code>make install</code> as root. The usual directories for system-wide binaries on modern Linux distributions are <code>/usr/bin, /usr/X11R6/bin,/usr/local/bin</code>. The preferred directory for new packages is <code>/usr/local/bin</code> as this will keep separate binaries not part of the original Linux installation.</p>
+<p>Packages originally targeted for commercial versions of UNIX may attempt to install in the <code>/opt</code> or other unfamiliar directory. This will, of course, result in an installation error if the intended installation directory doesn't exist.</p>
+<p>The simplest way to deal with this is to create, as root, an <code>/opt</code> directory, let the package install there, then add the directory to the <code>PATH</code> environmental variable. Alternatively, you may create symbolic links to the <code>/usr/local/bin</code> directory.</p>
+<p>Your general installation procedure will therefore be :</p>
+<ul>
+<li>Read the <code>README</code> file and other applicable docs.</li>
+<li>Run <code>xmkmf -a</code> or the <code>INSTALL</code> or <code>configure</code> script.</li>
+<li>Check the <code>Makefile</code></li>
+<li>If necessary, run <code>make clean</code>, <code>make Makefiles</code>, <code>make includes</code>, and <code>make depend</code>.</li>
+<li>Run <code>make</code></li>
+<li>Check the file permissions</li>
+<li>If necessary, run <code>make install</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>You would not normally build a package as root. Doing an <code>su</code> to root is only necessary for installing the compiled binaries into system directories.</li>
+<li>After becoming familiar with <code>make</code> and its uses, you may wish to add additional optimization options passed to <code>gcc</code> in the standard <code>Makefile</code> included or created in the package you are installing.</li>
+</ul>
+</blockquote>
+<h3>General Concepts</h3>
+<ol>
+<li><strong>Concurrent Execution</strong> : Functions that suspend the execution of the calling thread shall not cause the execution of other threads to be independently suspended.</li>
+<li><strong>Default Initialization</strong>: Default Initialization causes an object to be initialized according to these rules :</li>
+<li>If it has <em>pointer type</em>, it is initialized to a null pointer.</li>
+<li>If it has <em>arithmetic type</em>, it is initialized to (positive or unsigned) zero.</li>
+<li>If it is an <em>aggregate type</em>, every member is initialized (recursively) according to these rules</li>
+<li>If it is a <em>union</em>, the first named member is initialized (recursively) according to these rules.</li>
+</ol>
+<p>For an object of <em>aggregate type</em>, with an <em>explicit initializer</em>, the initialization shall occur in initializer list order, each initializer provided for a particular sub-object overriding any previously listed initializer for the same sub-object; all sub-objects that are not initialized explicitly shall by initialized implicitly according to the rules for default initialization.
+3.  </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/lfs.html">LFS</a>
+      <a href="../tag/linux-from-scratch.html">Linux From Scratch</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

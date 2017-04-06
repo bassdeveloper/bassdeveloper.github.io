@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Conversations summary from the documentation." />
+<meta name="keywords" content="Conversations, Bluemix, IBM">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Conversations"/>
+<meta property="og:description" content="Conversations summary from the documentation."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/blumix-converse.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-20 17:00:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-17 11:40:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="Conversations"/>
+<meta property="article:tag" content="Bluemix"/>
+<meta property="article:tag" content="IBM"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Conversations</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="blumix-converse">Conversations</h1>
+    <p>
+          Posted on Fri 20 January 2017 in <a href="../category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Let's talk about Chatbots</h1>
+<p><img alt="Conversation_api" src="../assets/2017-01-17-IBM-Bluemix-d27a0.png"></p>
+<ul>
+<li>
+<p>Users interact with the application built (by the client) that you implement.</p>
+</li>
+<li>
+<p>The application can be a simple chat window or a mobile app, or even a robot with a voice interface.</p>
+</li>
+</ul>
+<blockquote>
+<p>The <strong>application</strong> sends the user input to the <em>Conversation service</em>.</p>
+</blockquote>
+<ul>
+<li>
+<p>The application connects to a <em>workspace</em>, which is a container for your dialog flow and training data.</p>
+</li>
+<li>
+<p>The service interprets the user input, directs the flow of the conversation and gathers information that it needs.</p>
+</li>
+<li>
+<p>You can connect additional Watson services to analyze user input, such as <em>Tone Analyzer</em> or <em>Speech to Text</em>.</p>
+</li>
+</ul>
+<p>The application can interact with your <strong>back-end systems</strong> based on the user's intent and additional information.</p>
+<h2>Implementation</h2>
+<p>The following steps need to be completed for an application:</p>
+<ul>
+<li><strong>Configure a workspace</strong>: With the easy-to-use graphical environment, you set up the dialog flow and training data for your application.</li>
+<li><strong>Develop your application</strong> :</li>
+<li>You code your application to <strong>connect to the Conversation workspace through API calls</strong>.</li>
+<li>You then integrate your app with other systems that you need, including back-end systems and third-party services such as chat services or social media.</li>
+</ul>
+<h2>Starting an application:</h2>
+<ol>
+<li>
+<p><strong>Log-in to Bluemix, Navigate to Conversation service, Create a Service and launch the tool</strong>.</p>
+</li>
+<li>
+<p><strong>Create Workspace</strong> :</p>
+</li>
+</ol>
+<h3>3. Create Intents:</h3>
+<blockquote>
+<p>An intent represents the purpose of a user's input.</p>
+</blockquote>
+<p>You can thinkg of intents as actions your users might want to perform with your application.</p>
+<p>For example:</p>
+<p><code>#hello</code> or <code>`#goodbye</code>.</p>
+<h3>4. Building a Dialog:</h3>
+<blockquote>
+<p>A dialog defines the flow of your conversation in the form of a logic tree. Each node of the tree has a condition that triggers it, based on user input.</p>
+</blockquote>
+<p><img alt="Dialogs" src="../assets/2.png"></p>
+<p>The whole conversation flow is directed using Dialogs.</p>
+<h3>5. Let's refine it!:</h3>
+<blockquote>
+<p>An entity definition includes a set of entity values that can be used to trigger different responses.</p>
+</blockquote>
+<p><strong><code>@entity</code></strong></p>
+<blockquote>
+<p>Each entity value can have multiple synonyms, which define different ways that the same value might be specified in user input.</p>
+</blockquote>
+<h3>Intents</h3>
+<h4>Planning your intents:</h4>
+<p>Consider what your customers might want to do, and what the application is able to handle.</p>
+<p>Choosing the correct intent for a user's input is the first step in providing a useful response.</p>
+<h2>API :</h2>
+<h3>Authentication:</h3>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/conversations.html">Conversations</a>
+      <a href="../tag/bluemix.html">Bluemix</a>
+      <a href="../tag/ibm.html">IBM</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

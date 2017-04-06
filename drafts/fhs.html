@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="An insight into FHS" />
+<meta name="keywords" content="FHS, File Hierarchy">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="File Hierarchy Systems"/>
+<meta property="og:description" content="An insight into FHS"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/fhs.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-03-25 13:28:00+01:00"/>
+<meta property="article:modified_time" content="2017-03-25 13:28:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="FHS"/>
+<meta property="article:tag" content="File Hierarchy"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; File Hierarchy Systems</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="fhs">File Hierarchy Systems</h1>
+    <p>
+          Posted on Sat 25 March 2017 in <a href="../category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Filesystem</h1>
+<p>It is possible to define two independent distinctions among files :</p>
+<ol>
+<li>Shareable v/s</li>
+<li>Unshareable</li>
+</ol>
+<p>and</p>
+<ol>
+<li>Variable v/s</li>
+<li>Static</li>
+</ol>
+<p><strong>In general, files that differ in either of these respects should be located in different directories.</strong></p>
+<p>This makes it easy to store files with different usage characteristics on different filesystems.</p>
+<ul>
+<li>
+<p>"Shareable" files are those that can be stored on one host and used on others.</p>
+</li>
+<li>
+<p>"Unshareable" files are those that are not shareable.</p>
+</li>
+</ul>
+<p>For example, the files in user home directories are shareable whereas device lock files are not.</p>
+<ul>
+<li>
+<p>"Static" files include binaries, libraries, documentation files and other files that do not change without system administrator intervention.</p>
+</li>
+<li>
+<p>"Variable" files are files that are not static.</p>
+</li>
+</ul>
+<p><strong>Rationale</strong></p>
+<p>Shareable files can be stored on one host and used on several others.</p>
+<p>Typically , however, not all files in the filesystem hierarchy are shareable and so each system has local storage containing at least its unshareable files.
+ It is convenient if all the files a system requires that are stored on a foreign host can be made available by <em>mounting one or a few directories from the foreign host</em>.</p>
+<p>Static and variables should be segregated because static files, unlike variable files, can be stored on read-only media and do not to be backed up the same schedule as variable files.</p>
+<p>Historical UNIX-like filesystem hierarchies contained both static and variable files under both <code>/usr</code> and <code>/etc</code>. In order to realize the advantages mentioned above, the <code>/var</code> hierarchy was created and all variable files were transferred from /usr to /var. Consequently <code>/usr</code> can now be mounted read-only (if it is a separate filesystem).  </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/fhs.html">FHS</a>
+      <a href="../tag/file-hierarchy.html">File Hierarchy</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>

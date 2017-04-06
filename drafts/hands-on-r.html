@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="../theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Summary and points about Hand on R book by R-Garrett-Grolemund." />
+<meta name="keywords" content="R, programming">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Hands on R"/>
+<meta property="og:description" content="Summary and points about Hand on R book by R-Garrett-Grolemund."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="../drafts/hands-on-r.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-11 23:28:00+01:00"/>
+<meta property="article:modified_time" content="2017-01-05 19:30:00+01:00"/>
+<meta property="article:author" content="../author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Data-Science"/>
+<meta property="article:tag" content="R"/>
+<meta property="article:tag" content="programming"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Hands on R</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="..">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href="..">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="hands-on-r">Hands on R</h1>
+    <p>
+          Posted on Wed 11 January 2017 in <a href="../category/data-science.html">Data-Science</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h3>Basic Points</h3>
+<ul>
+<li>Vector recycling !</li>
+<li>Function  returns the last line</li>
+<li>Atomic vector is a simple vector of data.</li>
+<li>Each atomic vector stores its values as a one-dimensional vector, and each atomic vector
+can only store one type of data. You can save different types of data in R by using different
+types of atomic vectors. Altogether, R recognizes six basic types of atomic vectors:
+doubles, integers, characters, logicals, complex, and raw.</li>
+<li>floating-point errors?</li>
+<li>Raw vectors store raw bytes of data. Making raw vectors gets complicated, but you can
+make an empty raw vector of length n with raw(n). See the help page of raw for more
+options when working with this type of data:</li>
+<li>Attributes: An attribute is a piece of information that you can attach to an atomic vector (or any R
+object). The attribute won’t affect any of the values in the object, and it will not appear
+when you display your object. You can think of an attribute as “metadata”; it is just a
+convenient place to put information associated with an object. R will normally ignore
+this metadata, but some R functions will check for specific attributes. These functions
+may use the attributes to do special things with the data.</li>
+<li>NULL :NULL
+R uses NULL to represent the null set, an empty object. NULL is often
+returned by functions whose values are undefined. You can create a
+NULL object by typing NULL in capital letters.</li>
+<li>Names
+The most common attributes to give an atomic vector are names, dimensions (dim),
+and classes. Each of these attributes has its own helper function that you can use to give
+attributes to an object. You can also use the helper functions to look up the value of
+these attributes for objects that already have them. For example, you can look up the
+value of the names attribute of die with names:</li>
+<li>Dimensions</li>
+</ul>
+<div class="highlight"><pre><span></span>x <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span>
+<span class="kp">dim</span><span class="p">(</span>x<span class="p">)</span> <span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+roll<span class="o">&lt;-</span><span class="kr">function</span><span class="p">(){</span>
+    x<span class="o">&lt;-</span><span class="m">1</span><span class="o">:</span><span class="m">6</span>
+    <span class="kp">sum</span><span class="p">(</span>x<span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Matrix</li>
+</ul>
+<div class="highlight"><pre><span></span>die <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span>
+m <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>die<span class="p">,</span> nrow <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+m
+</pre></div>
+
+
+<ul>
+<li>Arrays</li>
+<li>
+<p>Class
+A class is a special case of an atomic vector. For example, the die matrix is a special case
+of a double vector. Every element in the matrix is still a double, but the elements have
+been arranged into a new structure. R added a class attribute to die when you changed
+its dimensions. This class describes die’s new format. Many R functions will specifically
+look for an object’s class attribute, and then handle the object in a predetermined way
+based on the attribute.</p>
+</li>
+<li>
+<p>Factors are R's way of storing categorical information.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> gender<span class="o">&lt;-</span><span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span><span class="s">&quot;female&quot;</span><span class="p">,</span><span class="s">&quot;trans&quot;</span><span class="p">))</span>
+<span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gen
+gender            generic.skeleton  
+<span class="o">&gt;</span> <span class="kp">attributes</span><span class="p">(</span>gender<span class="p">)</span>
+<span class="o">$</span><span class="kp">levels</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;female&quot;</span> <span class="s">&quot;male&quot;</span>   <span class="s">&quot;trans&quot;</span>
+
+<span class="o">$</span><span class="kp">class</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;factor&quot;</span>
+</pre></div>
+
+
+<ul>
+<li>R coercion?
+You may have guessed that this exercise would not go well. Each atomic vector can only
+store one type of data. As a result, R coerces all of your values to character strings:</li>
+</ul>
+<div class="highlight"><pre><span></span>card <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">,</span> <span class="s">&quot;hearts&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+card
+<span class="c1">## &quot;ace&quot; &quot;hearts&quot; &quot;1&quot;</span>
+</pre></div>
+
+
+<p>This will cause trouble if you want to do math with that point value, for example, to see</p>
+<ul>
+<li>In some cases, using only a single type of data is a huge advantage. Vectors, matrices,
+and arrays make it very easy to do math on large sets of numbers because R knows that
+it can manipulate each value the same way. Operations with vectors, matrices, and arrays
+also tend to be fast because the objects are so simple to store in memory.
+In other cases, allowing only a single type of data is not a disadvantage. Vectors are the
+most common data structure in R because they store variables very well. Each value in
+a variable measures the same property, so there’s no need to use different types of data.</li>
+<li>Data frame is a special type of list.</li>
+</ul>
+<p>Data frames are the two-dimensional version of a list. They are far and away the most
+useful storage structure for data analysis, and they provide an ideal way to store an entire
+deck of cards. You can think of a data frame as R’s equivalent to the Excel spreadsheet
+because it stores data in a similar format.
+Data frames group vectors together into a two-dimensional table. Each vector becomes
+a column in the table. As a result, each column of a data frame can contain a different
+type of data; but within a column, every cell must be the same type of data, as in
+Figure 3-2.
+<em> str() function.
+</em> head() v/s tail()
+* Saving Data</p>
+<div class="highlight"><pre><span></span>write.csv<span class="p">(</span>deck<span class="p">,</span> file <span class="o">=</span> <span class="s">&quot;cards.csv&quot;</span><span class="p">,</span> row.names <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+
+
+<h6>To sum it up</h6>
+<p><img alt="HandsonR_visualization" src="../images/handsonR-cac51.png"></p>
+<ul>
+<li>
+<p>R Notation</p>
+</li>
+<li>
+<p>Value selection in R. dataframe[i,j]. Negative values means exclusion. Blank space means all dimensions. Indexing with 0 returns an empty object.</p>
+</li>
+<li>$ and [[]] do the same thing.</li>
+</ul>
+<p>Difference :
+<img alt="Train_visualization" src="../images/handsonR-fbb01.png"></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="../tag/r.html">R</a>
+      <a href="../tag/programming.html">programming</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : "..",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>
