@@ -148,9 +148,9 @@
 <p>Definition: Any point <span class="math">\(x=(x1,x2),x\ne0\)</span>, in <span class="math">\(\Re^2\)</span>,<span class="math">\(\Re^2\)</span> specifies a vector in the plane, namely the vector starting at the origin and ending at <span class="math">\(x\)</span>.</p>
 </blockquote>
 <p>i.e. there is a vector between origin and A.</p>
-<p>If we say that the point at the origin is the point <span class="math">\(O(0,0)O(0,0)\)</span> then the vector above is the vector <span class="math">\(\vec{OA}\)</span>. We could also give it an arbitrary name such as <strong><span class="math">\(u\)</span></strong>.</p>
+<p>If we say that the point at the origin is the point <span class="math">\(O(0,0)\)</span> then the vector above is the vector <span class="math">\(\vec{OA}\)</span>. We could also give it an arbitrary name such as <strong><span class="math">\(u\)</span></strong>.</p>
 <blockquote>
-<p>Definition: A vector is an object that has both a magnitude and a direction.</p>
+<p><strong>Definition</strong>: A vector is an object that has both a magnitude and a direction.</p>
 </blockquote>
 <h3>SVM HyperPlane :</h3>
 <h4>Understanding the equation of the hyperplane :</h4>
@@ -202,10 +202,10 @@ and </p>
 <h4>AIM : To calculate the distance between <span class="math">\(A(3,4)\)</span> and its projection onto the hyperplane.</h4>
 <p><img alt="Distance_g2" src="./assets/2017-01-17-SVM-1ef46.png"></p>
 <p>We can view the point <span class="math">\(A\)</span> as a vector from the origin to <span class="math">\(A\)</span>.
-If we project it onto the normal vector <span class="math">\(w\)</span>.
-<img alt="Distance_g3" src="./assets/2017-01-17-SVM-8168b.png"></p>
-<p>We get the vector <span class="math">\(p\)</span> after projection.
-<img alt="Distance_g3" src="./assets/2017-01-17-SVM-00f62.png"></p>
+If we project it onto the normal vector <span class="math">\(w\)</span>.</p>
+<p><img alt="Distance_g3" src="./assets/2017-01-17-SVM-8168b.png"></p>
+<p>We get the vector <span class="math">\(p\)</span> after projection.</p>
+<p><img alt="Distance_g3" src="./assets/2017-01-17-SVM-00f62.png"></p>
 <p>Our goal is to find the distance between the point <span class="math">\(A(3,4)\)</span> and the hyperplane.</p>
 <p>We can see in the figure that this distance is the same thing as <span class="math">\(|p|\)</span>
 Let's compute this value.</p>
@@ -220,7 +220,7 @@ Let's compute this value.</p>
 </ul>
 <div class="math">$$a_1 = |a|cos\theta =\vec{a}.\hat{b}=a.\frac{b}{|b|}$$</div>
 <p>
-where the operator <span class="math">\(\dot\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
+where the operator <span class="math">\(\cdot\)</span> denotes a dot product, <span class="math">\(|a|\)</span> is the length of a, and <span class="math">\(\theta\)</span> is the angle between <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>.</p>
 <p>The scalar projection is equal to the length of the vector projection, with a minus sign if the direction of the projection is opposite to the direction of b.</p>
 <h2>Math for Orthogonal Projection</h2>
 <p>We start with two vectors, <span class="math">\(\vec{w}=(2,1)\)</span> which is normal to the hyperplane, and <span class="math">\(\vec{a}=(3,4)\)</span> which is the vector between the origin and <span class="math">\(A\)</span>.</p>
@@ -415,13 +415,9 @@ so that <span class="math">\(H_0\)</span> is equidistant from <span class="math"
 <p>The only variable we can change in this formula is the norm of <span class="math">\(w\)</span>.</p>
 <p>Giving it different values:</p>
 <ul>
-<li>When <span class="math">\(|w| = 1 $ then $m=2\)</span></li>
-<li>When <span class="math">\(|w| = 2 $ then $m=1\)</span></li>
-<li>
-<ul>
-<li>When <span class="math">\(|w| = 4 $ then $m=\frac{1}{2}\)</span></li>
-</ul>
-</li>
+<li>When <span class="math">\(|w| = 1\)</span> then <span class="math">\(m=2\)</span></li>
+<li>When <span class="math">\(|w| = 2\)</span> then <span class="math">\(m=1\)</span></li>
+<li>When <span class="math">\(|w| = 4\)</span> then <span class="math">\(m=\frac{1}{2}\)</span></li>
 </ul>
 <p>One can easily see that the bigger the norm is, the smaller the margin becomes.</p>
 <blockquote>

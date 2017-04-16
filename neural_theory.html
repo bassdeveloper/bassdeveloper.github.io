@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Rishabh Chakrabarti" />
+<meta name="description" content="Basics of Neural Networks and theory." />
+<meta name="keywords" content="Neural Networks, Neurons, Perceptrons">
+<meta property="og:site_name" content="Bassdeveloper's Blog"/>
+<meta property="og:title" content="Neural Network"/>
+<meta property="og:description" content="Basics of Neural Networks and theory."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./neural_theory.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-04-15 19:46:00+02:00"/>
+<meta property="article:modified_time" content="2017-04-15 19:46:00+02:00"/>
+<meta property="article:author" content="./author/rishabh-chakrabarti.html">
+<meta property="article:section" content="Learning"/>
+<meta property="article:tag" content="Neural Networks"/>
+<meta property="article:tag" content="Neurons"/>
+<meta property="article:tag" content="Perceptrons"/>
+<meta property="og:image" content="/images/RC.jpg">
+
+  <title>Bassdeveloper's Blog &ndash; Neural Network</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/images/RC.jpg" alt="Rishabh Chakrabarti" title="Rishabh Chakrabarti">
+      </a>
+      <h1><a href=".">Rishabh Chakrabarti</a></h1>
+
+<p>Learning bout Data</p>
+      <nav style="margin-top: 150px;">
+        <ul class="list">
+
+          <li><a href="https://bassdeveloper.github.io/category/learning.html" target="_blank">Learning</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/data-science.html" target="_blank">Data-Science</a></li>
+          <li><a href="https://bassdeveloper.github.io/category/business.html" target="_blank">Business</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+
+
+    <footer>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://www.facebook.com/Rishabh.Chakrabarti" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/bassdeveloper/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google-plus" href="https://plus.google.com/100116978271306424838" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </footer>
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="neural_theory">Neural Network</h1>
+    <p>
+          Posted on Sat 15 April 2017 in <a href="./category/learning.html">Learning</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Status : draft</p>
+<h1>Biology !</h1>
+<p>The theory Artificial of Neural networks (ANN) is based on the human neural network. Closely modelled after the biological system of neurons. Let's dive into the fundamental theory behind why nature chose this path and what's in it for us w.r.t. construction of a general purpose computer and creation of a sophisticated system using the current digital computer model, i.e. Turing machine.</p>
+<h2>Let's dive into the biology</h2>
+<p>The elementary unit is a <a href="https://en.wikipedia.org/wiki/Neuron"><strong>NEURON</strong></a>.</p>
+<p><img alt="Neuron" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Complete_neuron_cell_diagram_en.svg/819px-Complete_neuron_cell_diagram_en.svg.png"></p>
+<p>The main funda is that neurons make connections and they make a lot of them. Going into numbers and stats,</p>
+<ul>
+<li>The <em>average human brain</em> contains : <span class="math">\(10^{10}\)</span> to <span class="math">\(10^{11}\)</span> neurons.</li>
+<li>Each neuron making <span class="math">\(100\)</span> to <span class="math">\(1000\)</span> connections</li>
+<li>i.e. Total number of connections are : <span class="math">\(10^{14}\)</span> to <span class="math">\(10^{15}\)</span> !!</li>
+</ul>
+<p>If every neuron connected to every neuron, this number would explode!</p>
+<h3>Neurotic facts :</h3>
+<ol>
+<li>
+<p>The neurons are <strong>mechanically highly sensitive</strong> (as observed in a <em>funny bone</em> or <em>knee-jerk</em> reflex ) and hence the brain is protected and enclosed in a hard skull and suspended in a fluid (<strong>hydraulic suspension system</strong>).</p>
+</li>
+<li>
+<p>Neurons are <strong>metabolically very active</strong> and the nervous system consumes 25% of the energy produced. This is due to the electrochemistry of neurons. This high metabolism provides two facts :</p>
+<ul>
+<li>This metabolically active tissue is <em>most sensitive to poisons</em> and <em>temporary lack of fuel</em>. Thus, there is a <strong>blood-brain barrier</strong> in place. This is an elaborate metabolic mechanism to regulate brain chemistry and insulate it from the less-poison-sensitive rest of the body.</li>
+<li>This high metabolic rate also forces nature to make the whole network the most optimized as possible.</li>
+</ul>
+</li>
+<li>
+<p>The <strong>most peculiar</strong> fact is : Neurons don't divide after a time roughly coinciding with birth. When a neuron dies, it is not replaced. From the viewpoint of ANN, it is cheating to invent new neurons if the system needs to be biologically plausible. The neurons present in the beginning are all you can use. It is all right to reuse old ones but not to generate new ones.</p>
+</li>
+</ol>
+<p>Thus, we have established the fact that neurons are biologically expensive and have a huge overhead.</p>
+<blockquote>
+<p><em>Neurons must earn their keep</em></p>
+</blockquote>
+<p>There is a <strong>strong biological</strong> pressure to keep minimum number of neurons.</p>
+<blockquote>
+<p><strong>CONJECTURE</strong>: <em>It might be necessary to have 10 billion or more neurons to attain the level of intelligence we currently have.</em></p>
+</blockquote>
+<p>For those interested in building i.e. practically constructing the whole neural network, fewer artificial neurons than the above conjecture are adequate to simulate higher mental function.</p>
+<p>But here, something important needs to be looked at. The <strong>sheer size!</strong> and comparison parameter between the real and artificial network.</p>
+<h3>Synapses and Activation</h3>
+<p>The most common synapses in the structure that we are trying to model are <strong>chemical synapses</strong>. Chemical synapses use <em>chemical transmitters</em> called <strong>neurotransmitters</strong>. It is important to realize the great variety of neurotransmitters and synaptic specializations in the real nervous system.</p>
+<p>Synapses are likely to be specialized in ways that directly affect their computational function.</p>
+<p>Therefore, the esoteric details of synaptic function may be directly relevant to the neural network modeler in a way that many of the other details of neurophysiology are not.</p>
+<p>The vast majority of models assume that a synapse has strength, like a resistor, that remains stable until it is changed by a well-defined learning rule.</p>
+<blockquote>
+<p>In real, the synapses are way too complex.</p>
+</blockquote>
+<h3>Membrane Potential</h3>
+<p>The Membrane Potential is between 50 to 90 mV and depends on the cell type.</p>
+<p>If a cell has a 70 Angstrom thickness and a -70 mV membrane potential, it would result in an electrical field across the membrane of the order of 100,000 V per cm. Such a high electrical field corresponds to extreme electrical stress on the membrane and the structures in it.</p>
+<p>Neuron's have a <strong>Na-K pump</strong> operating constantly to maintain the membrane potential. This causes a huge metabolic overhead.</p>
+<p>When the membrane potential becomes more negative, the cell is referred to as <em>hyperpolarized</em> and when the membrane potential becomes less negative, it is referred to as <em>depolarized</em>.</p>
+<h3>Action Potential</h3>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/neural-networks.html">Neural Networks</a>
+      <a href="./tag/neurons.html">Neurons</a>
+      <a href="./tag/perceptrons.html">Perceptrons</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Rishabh Chakrabarti </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Bassdeveloper's Blog ",
+  "url" : ".",
+  "image": "/images/RC.jpg",
+  "description": "Rishabh Chakrabarti's Notes and Highlights"
+}
+</script>
+</body>
+</html>
