@@ -92,7 +92,7 @@
 <p>Express is a minimal and flexible Node.js web application framework that providesa robust set of features to develop web and mobile applications. It facilitates the rapid development.</p>
 <p><strong>Server.js file</strong>
 This file is used to run the whole application. It hosts a server and listens to it on a particular port.</p>
-<h2>Request &amp; Response</h2>
+<h3>Request &amp; Response</h3>
 <p>Express application uses a callback function whose parameters are <strong>request</strong> and <strong>response</strong> objects:</p>
 <div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// --</span>
@@ -105,7 +105,7 @@ This file is used to run the whole application. It hosts a server and listens to
 <li><strong>Response Object</strong> : The response object represents the HTTP response that an Express app sends when it gets an HTTP request.</li>
 </ul>
 <p>You can print <strong>req</strong> and <strong>res</strong> objects which provide a lot of information related to HTTP request and response including cookies, sessions, URl, etc.</p>
-<h2>Basic Routing:</h2>
+<h3>Basic Routing:</h3>
 <p>Routing refers to determining how an applicatoin responds to a client request to a particular endpoint, which is a URI ( or path) and a specific HTTP request method (GET, POST, and so on)</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
@@ -150,9 +150,9 @@ This file is used to run the whole application. It hosts a server and listens to
 </pre></div>
 
 
-<h2>Body Parser</h2>
+<h3>Body Parser</h3>
 <p>Before we understand what the Body Parser does, we need to understand what is middleware:</p>
-<h3>Middleware:</h3>
+<h4>Middleware:</h4>
 <ul>
 <li>
 <p><strong>Any software that provides services to software applications beyond those available from the operating system</strong>.</p>
